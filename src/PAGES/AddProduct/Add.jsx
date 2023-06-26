@@ -7,6 +7,18 @@ const Add = () => {
 
     const handleAddProduct = (data) => {
         console.log(data);
+        const formData = new FormData();
+        const image = data.image[0];
+        formData.append('image', image);
+        const url = `https://api.imgbb.com/1/upload?expiration=600&key=2a3fc4f6e67cf2e4035b828c8ded79ad`;
+        fetch(url, {
+            method: "POST",
+            body: formData
+        }).then(res => res.json()).then(imgData => {
+            if (imgData.success) {
+                console.log(imgData.data.url);
+            }
+        });
     }
     return (
         <div>
@@ -14,7 +26,7 @@ const Add = () => {
             <div className='flex h-screen justify-center items-start'>
                 <div className="card w-96 bg-base-100 shadow-xl">
                     <div className="card-body">
-
+                        <p></p>
 
                         <form onSubmit={handleSubmit(handleAddProduct)}>
                             <div className="form-control w-full max-w-xs">
