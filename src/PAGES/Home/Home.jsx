@@ -5,6 +5,7 @@ import TopBoard from './TopBoard';
 import Navbar from '../Shared/Navbar';
 // import { useLoaderData } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
+import Loading from '../Shared/Loading';
 
 const Home = () => {
     // const data = useLoaderData();
@@ -18,7 +19,7 @@ const Home = () => {
     });
 
     if (isLoading) {
-        return <h2>Loadind....</h2>
+        return <Loading></Loading>
     }
 
 

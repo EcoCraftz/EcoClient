@@ -3,6 +3,9 @@ import React, { useState } from 'react';
 
 const Login = () => {
     const [user, setUser] = useState();
+    const imageHostKey = "1829f7903012c205c1a15531a796e298";
+
+    console.log(imageHostKey);
 
     const handleBlur = (e) => {
         const field = e.target.name;
@@ -12,6 +15,7 @@ const Login = () => {
         console.log(field, ':', value);
         console.log('from blur function', newUser[field]);
         setUser(newUser)
+        return newUser;
 
     }
 
@@ -23,7 +27,12 @@ const Login = () => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(user)
             }
-        ).then(res => res.json()).then(data => console.log(data));
+        ).then(res => res.json()).then(data => {
+            if (data.acknowledged) {
+                alert("Your data is added");
+                e.target.reset();
+            }
+        });
         console.log("from submit function", user);
 
     }
