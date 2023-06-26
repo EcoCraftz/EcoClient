@@ -10,13 +10,26 @@ const Add = () => {
         const formData = new FormData();
         const image = data.image[0];
         formData.append('image', image);
-        const url = `https://api.imgbb.com/1/upload?expiration=600&key=2a3fc4f6e67cf2e4035b828c8ded79ad`;
+        const url = `https://api.imgbb.com/1/upload?key=2a3fc4f6e67cf2e4035b828c8ded79ad`;
         fetch(url, {
             method: "POST",
             body: formData
         }).then(res => res.json()).then(imgData => {
             if (imgData.success) {
                 console.log(imgData.data.url);
+
+                const product = {
+                    name: data.name,
+                    description: data.description,
+                    image: imgData.data.url
+                };
+                fetch('http://localhost:4000/products', {
+                    method: 'POST',
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(product)
+                }).then(res => res.json()).then(data => console.log(data))
             }
         });
     }
@@ -26,7 +39,7 @@ const Add = () => {
             <div className='flex h-screen justify-center items-start'>
                 <div className="card w-96 bg-base-100 shadow-xl">
                     <div className="card-body">
-                        <p></p>
+                        {/* <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto repellat laborum fugit expedita dicta sequi? Consequuntur illum earum dolorum facere amet dignissimos recusandae! Fugiat, veritatis. Rerum quos nostrum dolores quis necessitatibus porro illo inventore officia adipisci! Optio repellat veniam impedit odit voluptate voluptatibus vero, dignissimos expedita, iusto molestias, molestiae facilis.</p> */}
 
                         <form onSubmit={handleSubmit(handleAddProduct)}>
                             <div className="form-control w-full max-w-xs">
