@@ -3,10 +3,25 @@ import React from 'react';
 import bird from "../../assets/bird.png";
 import TopBoard from './TopBoard';
 import Navbar from '../Shared/Navbar';
-import { useLoaderData } from 'react-router-dom';
+// import { useLoaderData } from 'react-router-dom';
+import { useQuery } from '@tanstack/react-query';
 
 const Home = () => {
-    const data = useLoaderData();
+    // const data = useLoaderData();
+    const { data, isLoading } = useQuery({
+        queryKey: ["get"],
+        queryFn: async () => {
+            const res = await fetch('http://localhost:4000/get');
+            const data = await res.json();
+            return data;
+        }
+    });
+
+    if (isLoading) {
+        return <h2>Loadind....</h2>
+    }
+
+
     console.log(data);
     return (
         <div>

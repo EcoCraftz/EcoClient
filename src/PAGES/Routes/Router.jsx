@@ -9,7 +9,7 @@ const router = createBrowserRouter([{
     children: [{
         path: '/',
         element: <Home></Home>,
-        loader: () => fetch('http://localhost:4000/get')
+        // loader: () => fetch('http://localhost:4000/get')
     },
     {
         path: '/login',
