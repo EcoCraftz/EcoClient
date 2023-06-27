@@ -2,9 +2,10 @@
 import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 import Loading from '../Shared/Loading';
-// import ProductCart from './ProductCart';
+import Navbar from '../Shared/Navbar';
 
 const Products = () => {
+
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const { data, isLoading } = useQuery({
         queryKey: ["products"],
@@ -20,18 +21,33 @@ const Products = () => {
     }
     console.log(data);
     return (
-        <div>
-            {
-                data.map(product => <div
-                    key={product._id}
-                >
-                    <p>name:{product.name}</p>
-                    <img src={product.image} alt="" />
-                </div>
-                )
-            }
+        <> <Navbar></Navbar>
+            <div className='bg-green-300 px-16'>
 
-        </div>
+                <p className='text-4xl font-semibold text-center uppercase'>Our Products</p>
+                <div className='grid sm:grid-cols-1 lg:grid-cols-3 gap-2 mt-5'>
+                    {
+                        data.map(product => <div
+                            key={product._id}
+                        >
+                            <div className="card w-96 glass">
+                                <figure><img src={product.image} alt="car!" /></figure>
+                                <div className="card-body">
+                                    <h2 className="card-title">{product.name}</h2>
+                                    <p>{product.description}</p>
+                                    <div className="card-actions justify-end">
+                                        <button className="btn btn-primary">Learn More</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        )
+
+                    }
+                </div>
+            </div>
+        </>
     );
 };
 
