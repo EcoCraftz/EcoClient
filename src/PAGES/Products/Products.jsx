@@ -35,6 +35,7 @@ const Products = () => {
                                     <img src={product.image} alt="car!" className='rounded-xl' /></figure>
                                 <div className="card-body">
                                     <h2 className="card-title">{product.name.toUpperCase()}</h2>
+                                    <p>Catagory:{product.catagory}</p>
                                     <p>{product.description.slice(0, 55)}...</p>
                                     <div className="card-actions justify-end">
                                         <button className="btn btn-sm btn-success">Learn More</button>

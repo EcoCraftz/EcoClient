@@ -73,17 +73,24 @@ const Add = () => {
                                 <label className="label">
                                     <span className="label-text">Catagory</span>
                                 </label>
-                                <input
-                                    type="text"
-                                    placeholder="Catagory here"
+                                <select
+                                    type="select"
+                                    placeholder="Select Catagory"
                                     className="input input-bordered w-full max-w-xs"
                                     {...register("catagory", {
                                         required: {
                                             value: true,
                                             message: "Catagory is required"
                                         }
+                                    })} >
 
-                                    })} />
+                                    <option value=""></option>
+                                    <option value="chandor">Chandor</option>
+                                    <option value="ladies bag">Ladies Bag</option>
+                                    <option value="papose">Papose</option>
+                                    <option value="pot">Pot</option>
+                                    <option value="sataronji">Sataronji</option>
+                                </select>
                                 <label className="label">
                                     {errors.catagory?.type === 'required' && <span
                                         className="label-text-alt text-red-500">{errors.catagory.message}</span>}
