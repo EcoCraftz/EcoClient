@@ -28,6 +28,7 @@ const Navbar = () => {
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
                         <li><NavLink to='/login'>Login</NavLink></li>
+                        <li><NavLink to='/products'>Products</NavLink></li>
                         <li tabIndex={0}>
                             <details>
                                 <summary>Parent</summary>

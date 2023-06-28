@@ -20,6 +20,7 @@ const Add = () => {
 
                 const product = {
                     name: data.name,
+                    catagory: data.catagory,
                     description: data.description,
                     image: imgData.data.url
                 };
@@ -29,7 +30,11 @@ const Add = () => {
                         "Content-Type": "application/json"
                     },
                     body: JSON.stringify(product)
-                }).then(res => res.json()).then(data => console.log(data))
+                }).then(res => res.json()).then(data => {
+                    if (data.acknowledged) {
+                        alert(`${product.name} is inserted under ${product.catagory} catagory successfully`);
+                    }
+                })
             }
         });
     }
@@ -62,6 +67,28 @@ const Add = () => {
                                         className="label-text-alt text-red-500">{errors.name.message}</span>}
                                     {errors.name?.type === 'pattern' && <span
                                         className="label-text-alt text-red-500">{errors.name.message}</span>}
+                                </label>
+                            </div>
+                            <div className="form-control w-full max-w-xs">
+                                <label className="label">
+                                    <span className="label-text">Catagory</span>
+                                </label>
+                                <input
+                                    type="text"
+                                    placeholder="Catagory here"
+                                    className="input input-bordered w-full max-w-xs"
+                                    {...register("catagory", {
+                                        required: {
+                                            value: true,
+                                            message: "Catagory is required"
+                                        }
+
+                                    })} />
+                                <label className="label">
+                                    {errors.catagory?.type === 'required' && <span
+                                        className="label-text-alt text-red-500">{errors.catagory.message}</span>}
+                                    {errors.catagory?.type === 'pattern' && <span
+                                        className="label-text-alt text-red-500">{errors.catagory.message}</span>}
                                 </label>
                             </div>
                             <div className="form-control w-full max-w-xs">
