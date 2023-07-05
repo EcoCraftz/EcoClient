@@ -3,10 +3,12 @@ import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 import Loading from '../Shared/Loading';
 import Navbar from '../Shared/Navbar';
+import { useNavigate } from 'react-router-dom';
 
 const Products = () => {
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
+    const navigate = useNavigate();
     const { data, isLoading } = useQuery({
         queryKey: ["products"],
         queryFn: async () => {
@@ -18,6 +20,12 @@ const Products = () => {
 
     if (isLoading) {
         return <Loading></Loading>
+    }
+
+
+
+    const handleSelected = (id) => {
+        navigate(`/products/${id}`);
     }
     console.log(data);
     return (
@@ -38,7 +46,9 @@ const Products = () => {
                                     <p>Catagory:{product.catagory}</p>
                                     <p>{product.description.slice(0, 55)}...</p>
                                     <div className="card-actions justify-end">
-                                        <button className="btn btn-sm btn-success">Learn More</button>
+                                        <button className="btn btn-sm btn-success"
+                                            onClick={() => handleSelected(product._id)}
+                                        >Learn More</button>
                                     </div>
                                 </div>
                             </div>
