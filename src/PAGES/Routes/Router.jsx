@@ -7,6 +7,7 @@ import Add from "../AddProduct/Add";
 import Products from "../Products/products";
 import ProductCart from "../Products/ProductCart";
 import Selected from "../SelectedProduct/Selected";
+import OtherSelected from "../SelectedProduct/OtherSelected";
 
 const router = createBrowserRouter([{
     path: '/',
@@ -39,6 +40,11 @@ const router = createBrowserRouter([{
     {
         path: '/products/:id',
         element: <Selected></Selected>
+
+    },
+    {
+        path: '/other/:catagory',
+        element: <OtherSelected></OtherSelected>
 
     },
     ]

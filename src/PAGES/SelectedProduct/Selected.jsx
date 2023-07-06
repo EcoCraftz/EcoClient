@@ -1,11 +1,12 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useEffect, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Loading from '../Shared/Loading';
 import Navbar from '../Shared/Navbar';
 
 const Selected = () => {
+    const navigate = useNavigate();
     const [others, setOthers] = useState([]);
     const { id } = useParams();
     const { data, isLoading } = useQuery({
@@ -33,7 +34,9 @@ const Selected = () => {
     }
 
 
-
+    const handleOther = (catagory) => {
+        navigate(`/other/${catagory}`);
+    }
 
 
 
@@ -63,7 +66,7 @@ const Selected = () => {
                             <h2 className="card-title">{other.name}</h2>
                             <p>If a dog chews shoes whose shoes does he choose?</p>
                             <div className="card-actions">
-                                <button className="btn btn-primary">Buy Now</button>
+                                <button className="btn btn-primary" onClick={() => handleOther(other.catagory)}>Buy Now</button>
                             </div>
                         </div>
                     </div>)
