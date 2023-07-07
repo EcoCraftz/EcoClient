@@ -1,0 +1,26 @@
+#submenu {
+    background-color: rgba(12, 13, 14, 0.8);
+    color: antiquewhite;
+    position: absolute;
+    z-index: 1;
+}
+
+#submenu li a:hover {
+    color: teal;
+
+}
+
+#mobilemenu {
+    position: absolute;
+    z-index: 1;
+}
+
+#onhover {
+    display: none;
+}
+
+#parent:hover {
+    #onhover {
+        display: block;
+    }
+}

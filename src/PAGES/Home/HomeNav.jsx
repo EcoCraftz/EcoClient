@@ -1,9 +1,8 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import "./CSS/Navbar.css";
 
-const Navbar = () => {
+const HomeNav = () => {
     const productList = <>
         <li><a>Product 01</a></li>
         <li><a>Product 02</a></li>
@@ -13,7 +12,7 @@ const Navbar = () => {
     </>
     return (
         <div>
-            <div className="navbar bg-base-300 mt-0 fixed w-full z-10 top-0">
+            <div className="navbar bg-base-300 mt-10">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -56,4 +55,4 @@ const Navbar = () => {
     );
 };
 
-export default Navbar;
+export default HomeNav;

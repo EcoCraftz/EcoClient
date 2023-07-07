@@ -2,10 +2,11 @@
 import React from 'react';
 import bird from "../../assets/bird.png";
 import TopBoard from './TopBoard';
-import Navbar from '../Shared/Navbar';
 // import { useLoaderData } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import Loading from '../Shared/Loading';
+import Banner from './Banner';
+import HomeNav from './HomeNav';
 
 const Home = () => {
     // const data = useLoaderData();
@@ -27,7 +28,8 @@ const Home = () => {
     return (
         <div>
             <TopBoard></TopBoard>
-            <Navbar></Navbar>
+            <HomeNav></HomeNav>
+            <Banner></Banner>
 
 
             <p className='my-5 text-center'>ToTal Data:{data.length}</p>
@@ -39,7 +41,7 @@ const Home = () => {
                 </div>)
             }
 
-            <div className="card card-compact w-96 bg-base-100 shadow-xl mx-auto mt-10">
+            <div className="card card-compact lg:w-96 sm:w-full bg-base-100 shadow-xl mx-auto mt-10">
                 <figure><img src={bird} alt="Shoes" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">Shoes!</h2>
