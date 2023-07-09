@@ -32,7 +32,7 @@ const HomeNav = () => {
                         <ul id='mobilemenu' tabIndex={0} className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                             <li><a>Item 1</a></li>
                             <li id='parent'>
-                                <a>Parent</a>
+                                <a>Catagory</a>
                                 <ul id='onhover' className="p-2">
                                     {productList}
                                 </ul>
@@ -49,7 +49,7 @@ const HomeNav = () => {
                         <li><NavLink to='/products'>Products</NavLink></li>
                         <li tabIndex={0}>
                             <details>
-                                <summary>Parent</summary>
+                                <summary>Catagory</summary>
                                 <ul className="p-2" id='submenu'>
                                     {productList}
                                 </ul>

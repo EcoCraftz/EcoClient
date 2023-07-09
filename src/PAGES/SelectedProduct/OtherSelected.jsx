@@ -3,6 +3,7 @@ import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { useNavigate, useParams } from 'react-router-dom';
 import Loading from '../Shared/Loading';
+import { HiOutlineHome } from 'react-icons/hi';
 
 const OtherSelected = () => {
     const { catagory } = useParams();
@@ -19,30 +20,38 @@ const OtherSelected = () => {
     if (isLoading) {
         return <Loading></Loading>
     }
+
     const handleSelected = (id) => {
         navigate(`/products/${id}`);
     }
     return (
-        <div className='grid sm:grid-cols-1 lg:grid-cols-3 gap-2 mt-5'>
+        <>
+            <div className='flex flex-row justify-start p-6'>
+                <button onClick={() => navigate('/')} className='btn btn-sm btn-warning'>
+                    <HiOutlineHome></HiOutlineHome>Home</button>
+            </div>
+            <div className='grid sm:grid-cols-1 lg:grid-cols-3 gap-2 mt-5'>
 
-            {
-                data.map(other => <div key={other._id} className="card lg:w-96 sm:w-full glass shadow-xl">
-                    <figure className='mt-3'>
-                        <img src={other.image} alt="car!" className='rounded-xl' /></figure>
-                    <div className="card-body">
-                        <h2 className="card-title">{other.name.toUpperCase()}</h2>
-                        <p>Catagory:{other.catagory}</p>
-                        <p>{other.description.slice(0, 55)}...</p>
-                        <div className="card-actions justify-end">
-                            <button className="btn btn-sm btn-success"
-                                onClick={() => handleSelected(other._id)}
-                            >Learn More</button>
+                {
+                    data.map(other => <div key={other._id} className="card lg:w-96 sm:w-full glass shadow-xl">
+                        <figure className='mt-3'>
+                            <img src={other.image} alt="car!" className='rounded-xl' /></figure>
+                        <div className="card-body">
+                            <h2 className="card-title">{other.name.toUpperCase()}</h2>
+                            <p>Catagory:{other.catagory}</p>
+                            <p>{other.description.slice(0, 55)}...</p>
+                            <div className="card-actions justify-end">
+                                <button className="btn btn-sm btn-success"
+                                    onClick={() => handleSelected(other._id)}
+                                >Learn More</button>
+                            </div>
                         </div>
-                    </div>
-                </div>)
-            }
+                    </div>)
+                }
 
-        </div>
+            </div>
+
+        </>
     );
 };
 
