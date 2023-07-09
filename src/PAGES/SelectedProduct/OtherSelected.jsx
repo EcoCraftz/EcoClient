@@ -26,11 +26,12 @@ const OtherSelected = () => {
     }
     return (
         <>
-            <div className='flex flex-row justify-start p-6'>
+            <div className='flex lg:flex-row lg:justify-start sm:flex-col sm:justify-center items-center gap-20 p-6'>
                 <button onClick={() => navigate('/')} className='btn btn-sm btn-warning'>
                     <HiOutlineHome></HiOutlineHome>Home</button>
+                <h1 className='uppercase text-2xl font-serif font-bold'>Explore Our {catagory} </h1>
             </div>
-            <div className='grid sm:grid-cols-1 lg:grid-cols-3 gap-2 mt-5'>
+            <div className='grid sm:grid-cols-1 lg:grid-cols-3 gap-2 my-5'>
 
                 {
                     data.map(other => <div key={other._id} className="card lg:w-96 sm:w-full glass shadow-xl">

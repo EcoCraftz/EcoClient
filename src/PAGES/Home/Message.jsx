@@ -9,14 +9,14 @@ const Message = () => {
             <div className="flex flex-col justify-center items-center gap-16 min-h-screen my-8 bg-base-100">
                 <div className="hero-content flex-col lg:flex-row-reverse  border rounded-xl shadow-2xl">
                     <img src={bird} className="max-w-sm rounded-lg shadow-2xl" />
-                    <div>
+                    <div className='px-10'>
                         <h1 className="text-5xl font-bold">Message From Chairman</h1>
                         <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                     </div>
                 </div>
                 <div className="hero-content flex-col lg:flex-row border rounded-xl shadow-2xl" >
                     <img src={bird} className="max-w-sm rounded-lg shadow-2xl" />
-                    <div>
+                    <div className='px-10'>
                         <h1 className="text-5xl font-bold">Message From Manager</h1>
                         <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                     </div>
