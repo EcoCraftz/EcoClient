@@ -8,6 +8,7 @@ import Products from "../Products/products";
 import ProductCart from "../Products/ProductCart";
 import Selected from "../SelectedProduct/Selected";
 import OtherSelected from "../SelectedProduct/OtherSelected";
+import Catagory from "../Catagory/Catagory";
 
 const router = createBrowserRouter([{
     path: '/',
@@ -45,6 +46,11 @@ const router = createBrowserRouter([{
     {
         path: '/other/:catagory',
         element: <OtherSelected></OtherSelected>
+
+    },
+    {
+        path: '/selected/:catagory',
+        element: <Catagory></Catagory>
 
     },
     ]

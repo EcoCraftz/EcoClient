@@ -5,7 +5,7 @@
     z-index: 1;
 }
 
-#submenu li a:hover {
+#submenu li button:hover {
     color: teal;
 
 }

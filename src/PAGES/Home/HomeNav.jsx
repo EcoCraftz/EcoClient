@@ -1,15 +1,26 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 const HomeNav = () => {
+    const navigate = useNavigate();
     const productList = <>
-        <li><a>Product 01</a></li>
-        <li><a>Product 02</a></li>
-        <li><a>Product 03</a></li>
-        <li><a>Product 04</a></li>
-
+        <li><button onClick={(event) => handleClicked(event.target.value)}
+            type='button' value='ladies bag' className='uppercase'>Ladies bag</button></li>
+        <li><button onClick={(event) => handleClicked(event.target.value)}
+            type='button' value='sataronji' className='uppercase'>sataronji</button></li>
+        <li><button onClick={(event) => handleClicked(event.target.value)}
+            type='button' value='chandor' className='uppercase'>chandor</button></li>
+        <li><button onClick={(event) => handleClicked(event.target.value)}
+            type='button' value='papose' className='uppercase'>papose</button></li>
+        <li><button onClick={(event) => handleClicked(event.target.value)}
+            type='button' value='pot' className='uppercase'>pot</button></li>
     </>
+
+    const handleClicked = (catagory) => {
+        navigate(`/other/${catagory}`)
+
+    }
     return (
         <div>
             <div className="navbar bg-base-300 mt-10">
