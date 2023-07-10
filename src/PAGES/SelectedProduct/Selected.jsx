@@ -45,7 +45,6 @@ const Selected = () => {
     return (
         <div>
             <Navbar></Navbar>
-            <h1 className='text-center text-red-500'>This is selected product page</h1>
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <img src={data.image} className="max-w-sm rounded-lg shadow-2xl" />
