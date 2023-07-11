@@ -4,6 +4,8 @@ import { useQuery } from '@tanstack/react-query';
 import { useNavigate, useParams } from 'react-router-dom';
 import Loading from '../Shared/Loading';
 import Navbar from '../Shared/Navbar';
+// import ReactImageMagnify from 'react-image-magnify';
+// import "./CSS/Selected.css";
 
 const Selected = () => {
     const navigate = useNavigate();
@@ -37,29 +39,48 @@ const Selected = () => {
     const handleOther = (catagory) => {
         navigate(`/other/${catagory}`);
     }
-
-
-
-
+    // const imgURL = data.image;
 
     return (
         <div>
             <Navbar></Navbar>
             <div className="hero min-h-screen bg-base-200">
-                <div className="hero-content flex-col lg:flex-row-reverse">
+                <div className="hero-content flex-col lg:flex-row">
                     <img src={data.image} className="max-w-sm rounded-lg shadow-2xl" />
+
+                    {/* <div id='magnifier'>
+                        <ReactImageMagnify {...{
+                            smallImage: {
+                                alt: 'Wristwatch by Ted Baker London',
+                                isFluidWidth: true,
+                                src: `${data.image}`,
+
+                            },
+                            largeImage: {
+                                src: `${data.image}`,
+                                width: 800,
+                                height: 800
+                            }
+                        }} />
+                    </div> */}
+
+
                     <div>
                         <h1 className="text-5xl font-bold">{data.name}</h1>
                         <p className="py-6">{data.description}</p>
                     </div>
                 </div>
             </div>
+
+
+
             <div className='text-4xl font-semibold font-serif text-center text-success mx-auto mt-10 border rounded-xl shadow-lg shadow-yellow-200 lg:w-2/5 sm:w-100'>Our Other Products</div>
             <div className='grid sm:grid-cols-1 lg:grid-cols-3 gap-2 my-5'>
                 {
                     others.map(other => <div key={other._id} className="card w-96 bg-base-100 shadow-xl">
                         <figure className="px-10 pt-10">
                             <img src={other.image} alt={other.name} className="rounded-xl" />
+
                         </figure>
                         <div className="card-body items-center text-center">
                             <h2 className="card-title">{other.name}</h2>
