@@ -23,6 +23,22 @@ const Navbar = () => {
 
     }
 
+    const navItem = <>
+        <li><NavLink to='/'>Home</NavLink></li>
+
+        <li id='parent'>
+            <a>Catagory</a>
+            <ul id='onhover' className="p-2">
+                {productList}
+            </ul>
+
+        </li>
+        <li><NavLink to='/products'>Products</NavLink></li>
+        <li><NavLink to='/dashboard'>Dashboard</NavLink></li>
+        <li> <NavLink to='/login'>Login</NavLink></li>
+        <li> <NavLink to='/register'>Register</NavLink></li>
+    </>
+
     return (
         <div className=''>
             <div className="navbar bg-base-300 mt-0 fixed w-full z-10 top-0">
@@ -32,17 +48,7 @@ const Navbar = () => {
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </label>
                         <ul id='mobilemenu' tabIndex={0} className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                            <li><a>Item 1</a></li>
-                            <li id='parent'>
-                                <a>Catagory</a>
-                                <ul id='onhover' className="p-2">
-                                    {productList}
-                                </ul>
-                            </li>
-                            <li><NavLink to='/dashboard'>Dashboard</NavLink></li>
-                            <li> <NavLink to='/login'>Login</NavLink></li>
-                            <li> <NavLink to='/register'>Register</NavLink></li>
-
+                            {navItem}
                         </ul>
                     </div>
                     {/* <a className="btn btn-ghost normal-case text-xl">daisyUI</a> */}
@@ -50,24 +56,12 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
-                        <li><NavLink to='/products'>Products</NavLink></li>
-                        <li tabIndex={0}>
-                            <details>
-                                <summary>Catagory</summary>
-                                <ul className="p-2" id='submenu'>
-                                    {productList}
-                                </ul>
-                            </details>
-                        </li>
-                        <li><NavLink to='/dashboard'>Dashboard</NavLink></li>
+                        {navItem}
                     </ul>
                 </div>
 
                 <div className="navbar-end">
-                    <div id='auth'>
-                        <NavLink to='/login' className="btn btn-ghost normal-case text-xl">Login</NavLink>
-                        <NavLink to='/register' className="btn btn-ghost normal-case text-xl">Register</NavLink>
-                    </div>
+
                     <label htmlFor="dashBoard-drawer" tabIndex={2} className="btn btn-ghost lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </label>
