@@ -36,7 +36,7 @@ const OtherSelected = () => {
                 {
                     data.map(other => <div key={other._id} className="card lg:w-96 sm:w-full glass shadow-xl">
                         <figure className='mt-3'>
-                            <img src={other.image} alt="car!" className='rounded-xl' /></figure>
+                            <img src={other.image} alt="car!" className='rounded-xl max-w-xs' /></figure>
                         <div className="card-body">
                             <h2 className="card-title">{other.name.toUpperCase()}</h2>
                             <p>Catagory:{other.catagory}</p>

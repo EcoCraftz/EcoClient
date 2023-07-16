@@ -4,8 +4,8 @@ import { useQuery } from '@tanstack/react-query';
 import { useNavigate, useParams } from 'react-router-dom';
 import Loading from '../Shared/Loading';
 import Navbar from '../Shared/Navbar';
-// import ReactImageMagnify from 'react-image-magnify';
-// import "./CSS/Selected.css";
+import ReactImageMagnify from 'react-image-magnify';
+import './CSS/Selected.css';
 
 const Selected = () => {
     const navigate = useNavigate();
@@ -39,59 +39,62 @@ const Selected = () => {
     const handleOther = (catagory) => {
         navigate(`/other/${catagory}`);
     }
-    // const imgURL = data.image;
+    const imgURL = data.image;
 
     return (
         <div>
             <Navbar></Navbar>
-            <div className="hero min-h-screen bg-base-200">
-                <div className="hero-content flex-col lg:flex-row">
-                    <img src={data.image} className="max-w-sm rounded-lg shadow-2xl" />
 
-                    {/* <div id='magnifier'>
-                        <ReactImageMagnify {...{
-                            smallImage: {
-                                alt: 'Wristwatch by Ted Baker London',
-                                isFluidWidth: true,
-                                src: `${data.image}`,
+            <div id='topDiv' className='mx-2 grid lg:grid-cols-2 sm:grid-cols-1 justify-center items-center border shadow-xl'
+                style={{ height: '100vh' }}>
+                <div id='imgHolder' className="mx-auto border-2 rounded-lg shadow-lg shadow-gray-400" style={{ width: '250px', height: '250px' }}>
+                    <ReactImageMagnify className='w-full h-full' {...{
+                        smallImage: {
+                            alt: 'Wristwatch by Ted Baker London',
+                            isFluidWidth: true,
+                            src: imgURL,
+                        },
+                        largeImage: {
+                            src: imgURL,
+                            width: 600,
+                            height: 800
+                        },
 
-                            },
-                            largeImage: {
-                                src: `${data.image}`,
-                                width: 800,
-                                height: 800
-                            }
-                        }} />
-                    </div> */}
+                    }} />
+                </div>
+                <div id='topDivDetails' className='flex flex-wrap justify-start items-center'>
+                    <h1 className='text-5xl font-serif font-bold uppercase'>{data.name}</h1>
+                    <p className='text-xl'>{data.description}</p>
 
+                    <h2></h2>
 
-                    <div>
-                        <h1 className="text-5xl font-bold">{data.name}</h1>
-                        <p className="py-6">{data.description}</p>
-                    </div>
+                </div>
+
+            </div>
+
+            <div id='otherProducts'>
+                <div className='text-4xl font-semibold font-serif text-center text-success mx-auto mt-10 border rounded-xl shadow-lg shadow-yellow-200 lg:w-2/5 sm:w-100'>Our Other Products</div>
+                <div className='grid sm:grid-cols-1 lg:grid-cols-3 gap-2 my-5'>
+                    {
+                        others.map(other => <div key={other._id} className="card w-96 bg-base-100 shadow-xl">
+                            <figure className="px-10 pt-10">
+                                <img src={other.image} alt={other.name} className="rounded-xl max-w-50 " />
+
+                            </figure>
+                            <div className="card-body items-center text-center">
+                                <h2 className="card-title">{other.name}</h2>
+                                <p>If a dog chews shoes whose shoes does he choose?</p>
+                                <div className="card-actions">
+                                    <button className="btn btn-sm btn-primary" onClick={() => handleOther(other.catagory)}>Explore Now</button>
+                                </div>
+                            </div>
+                        </div>)
+                    }
                 </div>
             </div>
 
 
 
-            <div className='text-4xl font-semibold font-serif text-center text-success mx-auto mt-10 border rounded-xl shadow-lg shadow-yellow-200 lg:w-2/5 sm:w-100'>Our Other Products</div>
-            <div className='grid sm:grid-cols-1 lg:grid-cols-3 gap-2 my-5'>
-                {
-                    others.map(other => <div key={other._id} className="card w-96 bg-base-100 shadow-xl">
-                        <figure className="px-10 pt-10">
-                            <img src={other.image} alt={other.name} className="rounded-xl" />
-
-                        </figure>
-                        <div className="card-body items-center text-center">
-                            <h2 className="card-title">{other.name}</h2>
-                            <p>If a dog chews shoes whose shoes does he choose?</p>
-                            <div className="card-actions">
-                                <button className="btn btn-sm btn-primary" onClick={() => handleOther(other.catagory)}>Explore Now</button>
-                            </div>
-                        </div>
-                    </div>)
-                }
-            </div>
 
         </div>
     );

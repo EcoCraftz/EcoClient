@@ -9,6 +9,9 @@ import ProductCart from "../Products/ProductCart";
 import Selected from "../SelectedProduct/Selected";
 import OtherSelected from "../SelectedProduct/OtherSelected";
 import Catagory from "../Catagory/Catagory";
+import DashbordLayout from "../Layout/Dashboard/DashbordLayout";
+import Dashbord from "../Layout/Dashboard/Dashbord";
+import Register from "../LoginPage/Register";
 
 const router = createBrowserRouter([{
     path: '/',
@@ -16,11 +19,14 @@ const router = createBrowserRouter([{
     children: [{
         path: '/',
         element: <Home></Home>,
-        // loader: () => fetch('http://localhost:4000/get')
     },
     {
         path: '/login',
         element: <Login></Login>
+    },
+    {
+        path: '/register',
+        element: <Register></Register>
     },
     {
         path: '/loading',
@@ -53,6 +59,16 @@ const router = createBrowserRouter([{
         element: <Catagory></Catagory>
 
     },
+    {
+        path: '/dashboard',
+        element: <DashbordLayout></DashbordLayout>,
+        children: [
+            {
+                path: '/dashboard',
+                element: <Dashbord></Dashbord>
+            }
+        ]
+    }
     ]
 
 }]);
