@@ -1,11 +1,14 @@
 // eslint-disable-next-line no-unused-vars
-import React from 'react';
+import React, { useContext } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { useNavigate, useParams } from 'react-router-dom';
 import Loading from '../Shared/Loading';
 import { HiOutlineHome } from 'react-icons/hi';
+import { AuthContext } from '../Contexts/UserContext';
 
 const OtherSelected = () => {
+    const { user } = useContext(AuthContext);
+    console.log("Context: ", user);
     const { catagory } = useParams();
     const navigate = useNavigate();
     const { data, isLoading } = useQuery({
@@ -29,6 +32,7 @@ const OtherSelected = () => {
             <div className='flex lg:flex-row lg:justify-start sm:flex-col sm:justify-center items-center gap-20 p-6'>
                 <button onClick={() => navigate('/')} className='btn btn-sm btn-warning'>
                     <HiOutlineHome></HiOutlineHome>Home</button>
+                {user?.displayName && <span>Welcome {user.displayName}</span>}
                 <h1 className='uppercase text-2xl font-serif font-bold'>Explore Our {catagory} </h1>
             </div>
             <div className='grid sm:grid-cols-1 lg:grid-cols-3 gap-2 my-5'>

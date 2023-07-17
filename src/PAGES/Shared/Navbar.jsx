@@ -1,9 +1,12 @@
 // eslint-disable-next-line no-unused-vars
-import React from 'react';
+import React, { useContext } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import "./CSS/Navbar.css";
+import { AuthContext } from '../Contexts/UserContext';
 
 const Navbar = () => {
+    const { user, logOut } = useContext(AuthContext);
+
     const navigate = useNavigate();
     const productList = <>
         <li><button onClick={(event) => handleClicked(event.target.value)}
@@ -23,8 +26,13 @@ const Navbar = () => {
 
     }
 
+    const signOut = () => {
+        logOut().then(() => {
+
+        }).catch(error => { console.error(error) })
+    }
+
     const navItem = <>
-        <li><NavLink to='/'>Home</NavLink></li>
 
         <li id='parent'>
             <a>Catagory</a>
@@ -35,8 +43,11 @@ const Navbar = () => {
         </li>
         <li><NavLink to='/products'>Products</NavLink></li>
         <li><NavLink to='/dashboard'>Dashboard</NavLink></li>
-        <li> <NavLink to='/login'>Login</NavLink></li>
-        <li> <NavLink to='/register'>Register</NavLink></li>
+        <li><NavLink to='/register'>Register</NavLink></li>
+        <li>{user?.email && <span>Welcome {user?.email}</span>}</li>
+        <li>{user?.email ? <button onClick={signOut} className='btn btn-sm'>Sign Out</button> : <NavLink to='/login'>Login</NavLink>}</li>
+
+
     </>
 
     return (
@@ -57,6 +68,7 @@ const Navbar = () => {
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
                         {navItem}
+
                     </ul>
                 </div>
 

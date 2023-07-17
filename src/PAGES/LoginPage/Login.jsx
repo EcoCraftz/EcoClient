@@ -1,16 +1,22 @@
 // eslint-disable-next-line no-unused-vars
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Navbar from '../Shared/Navbar';
+import { AuthContext } from '../Contexts/UserContext';
 
 const Login = () => {
+    const { signIn } = useContext(AuthContext);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const form = {
-            email: e.target.email.value,
-            password: e.target.password.value
-        }
-        console.log(form);
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value
+        console.log(email, password);
+
+        signIn(email, password).then(result => {
+            const user = result.user;
+            console.log(user);
+        }).catch(error => console.error(error));
     }
 
     return (

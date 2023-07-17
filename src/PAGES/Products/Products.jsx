@@ -7,6 +7,8 @@ import { useNavigate } from 'react-router-dom';
 
 const Products = () => {
 
+
+
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const navigate = useNavigate();
     const { data, isLoading } = useQuery({
@@ -28,6 +30,7 @@ const Products = () => {
         navigate(`/products/${id}`);
     }
     console.log(data);
+
     return (
         <>
             <Navbar></Navbar>
