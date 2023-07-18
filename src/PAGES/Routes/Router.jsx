@@ -13,6 +13,7 @@ import DashbordLayout from "../Layout/Dashboard/DashbordLayout";
 import Dashbord from "../Layout/Dashboard/Dashbord";
 import Register from "../LoginPage/Register";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import Booking from "../Bookings/Booking";
 
 const router = createBrowserRouter([{
     path: '/',
@@ -60,6 +61,12 @@ const router = createBrowserRouter([{
         element: <Catagory></Catagory>
 
     },
+    //this is private route area
+    {
+        path: '/booking/:id',
+        element: <Booking></Booking>
+    },
+
     {
         path: '/dashboard',
         element: <PrivateRoute> <DashbordLayout></DashbordLayout></PrivateRoute>,

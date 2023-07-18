@@ -39,6 +39,10 @@ const Selected = () => {
     const handleOther = (catagory) => {
         navigate(`/other/${catagory}`);
     }
+
+    const handleBooking = (id) => {
+        navigate(`/booking/${id}`);
+    }
     const imgURL = data.image;
 
     return (
@@ -62,11 +66,12 @@ const Selected = () => {
 
                     }} />
                 </div>
-                <div id='topDivDetails' className='flex flex-wrap justify-start items-center'>
+                <div id='topDivDetails' className='flex flex-wrap justify-start items-center gap-2'>
                     <h1 className='text-5xl font-serif font-bold uppercase'>{data.name}</h1>
                     <p className='text-xl'>{data.description}</p>
+                    <button onClick={() => handleBooking(data._id)}
+                        className='btn btn-sm bg-purple-600 hover:bg-teal-600 text-white'>Booking Now</button>
 
-                    <h2></h2>
 
                 </div>
 
