@@ -1,10 +1,20 @@
 // eslint-disable-next-line no-unused-vars
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Navbar from '../Shared/Navbar';
 import { AuthContext } from '../Contexts/UserContext';
+import { FcGoogle } from 'react-icons/fc';
 
 const Register = () => {
-    const { createUser } = useContext(AuthContext);
+    const { createUser, signInWithGoogle } = useContext(AuthContext);
+    const [isHovering, setIsHovering] = useState(false);
+
+    const handleMouseEnter = () => {
+        setIsHovering(true);
+    };
+
+    const handleMouseLeave = () => {
+        setIsHovering(false);
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -23,10 +33,17 @@ const Register = () => {
                 console.error(error);
             })
     }
+
+    const handleGoogle = () => {
+        signInWithGoogle().then(result => {
+            const user = result.user;
+            console.log(user);
+        }).catch(error => console.error(error));
+    }
     return (
         <div>
             <Navbar></Navbar>
-            <div className="hero min-h-screen bg-base-200">
+            <div className="hero min-h-screen bg-base-200 mt-16">
                 <div className="hero-content flex-col">
                     <div className="text-center lg:text-left">
                         <h1 className="text-5xl font-bold">Register now!</h1>
@@ -57,6 +74,16 @@ const Register = () => {
                             </div>
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Register</button>
+                                <div className="divider">OR</div>
+                                <button onClick={handleGoogle} className="btn mb-2"
+                                    onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}
+                                    style={{
+                                        backgroundColor: isHovering ? 'gray' : 'black',
+                                        color: isHovering ? 'black' : 'white',
+                                    }}
+                                >
+                                    <span className='text-2xl'><FcGoogle></FcGoogle></span>
+                                    Register With Google</button>
                             </div>
                         </form>
                     </div>

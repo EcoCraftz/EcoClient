@@ -2,9 +2,10 @@
 import React, { useContext, useState } from 'react';
 import Navbar from '../Shared/Navbar';
 import { AuthContext } from '../Contexts/UserContext';
+import { FcGoogle } from 'react-icons/fc';
 
 const Login = () => {
-    const { signIn } = useContext(AuthContext);
+    const { signIn, signInWithGoogle } = useContext(AuthContext);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -14,6 +15,13 @@ const Login = () => {
         console.log(email, password);
 
         signIn(email, password).then(result => {
+            const user = result.user;
+            console.log(user);
+        }).catch(error => console.error(error));
+    }
+
+    const handleGoogle = () => {
+        signInWithGoogle().then(result => {
             const user = result.user;
             console.log(user);
         }).catch(error => console.error(error));
@@ -47,8 +55,13 @@ const Login = () => {
                             </div>
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Login</button>
+                                <div className="divider">OR</div>
+                                <button onClick={handleGoogle} className="btn btn-success mb-2">
+                                    <span className='text-2xl'><FcGoogle></FcGoogle></span>
+                                    Login With Google</button>
                             </div>
                         </form>
+
                     </div>
                 </div>
             </div>

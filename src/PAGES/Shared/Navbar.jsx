@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import "./CSS/Navbar.css";
 import { AuthContext } from '../Contexts/UserContext';
+import { FaRegUserCircle } from 'react-icons/fa';
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -44,8 +45,9 @@ const Navbar = () => {
         <li><NavLink to='/products'>Products</NavLink></li>
         <li><NavLink to='/dashboard'>Dashboard</NavLink></li>
         <li><NavLink to='/register'>Register</NavLink></li>
-        <li>{user?.email && <span>Welcome {user?.email}</span>}</li>
-        <li>{user?.email ? <button onClick={signOut} className='btn btn-sm'>Sign Out</button> : <NavLink to='/login'>Login</NavLink>}</li>
+        <li>{user?.email && <span><FaRegUserCircle></FaRegUserCircle>Welcome {user?.email}</span>}</li>
+        <li>{user?.email ? <button onClick={signOut} className='btn btn-sm'>Sign Out</button>
+            : <NavLink to='/login'>Login</NavLink>}</li>
 
 
     </>

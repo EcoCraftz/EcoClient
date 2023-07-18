@@ -12,6 +12,7 @@ import Catagory from "../Catagory/Catagory";
 import DashbordLayout from "../Layout/Dashboard/DashbordLayout";
 import Dashbord from "../Layout/Dashboard/Dashbord";
 import Register from "../LoginPage/Register";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([{
     path: '/',
@@ -61,7 +62,7 @@ const router = createBrowserRouter([{
     },
     {
         path: '/dashboard',
-        element: <DashbordLayout></DashbordLayout>,
+        element: <PrivateRoute> <DashbordLayout></DashbordLayout></PrivateRoute>,
         children: [
             {
                 path: '/dashboard',
