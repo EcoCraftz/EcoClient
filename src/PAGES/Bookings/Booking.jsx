@@ -20,6 +20,31 @@ const Booking = () => {
     if (isLoading) {
         return <Loading></Loading>
     }
+
+    const handleConfirm = (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const bookingData = {
+            email: form.email.value,
+            product: form.product.value,
+            catagory: form.catagory.value,
+            quantity: form.quantity.value,
+            country: form.country.value.toUpperCase(),
+            contact: form.contact.value
+        };
+        fetch('http://localhost:4000/bookings', {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(bookingData)
+        }).then(res => res.json()).then(data => {
+            if (data.acknowledged) {
+                alert(`${bookingData.product} is inserted to DB successfully`);
+            }
+        })
+        console.log(bookingData);
+    }
     return (
         <div>
             <Navbar></Navbar>
@@ -29,47 +54,47 @@ const Booking = () => {
                         <img src={data.image} alt="" className='' style={{ height: '400px', width: '350px' }} />
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                        <div className="card-body">
+                        <form onSubmit={handleConfirm} className="card-body">
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="email" value={user?.email} className="input input-bordered" required />
+                                <input type="email" name='email' value={user?.email} className="input input-bordered" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Product</span>
                                 </label>
-                                <input type="text" value={data.name} className="input input-bordered" required />
+                                <input type="text" name='product' value={data.name} className="input input-bordered" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Catagory</span>
                                 </label>
-                                <input type="text" value={data.catagory} className="input input-bordered" required />
+                                <input type="text" name='catagory' value={data.catagory} className="input input-bordered" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Quantity</span>
                                 </label>
-                                <input type="number" placeholder='Name Your Need ' className="input input-bordered" />
+                                <input type="number" name='quantity' placeholder='Name Your Need ' className="input input-bordered" />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Country</span>
                                 </label>
-                                <input type="text" placeholder='Your Country Name ' className="input input-bordered" />
+                                <input type="text" name='country' placeholder='Your Country Name ' className="input input-bordered" />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Contact</span>
                                 </label>
-                                <input type="number" placeholder='Give Your Contact Number' className="input input-bordered" required />
+                                <input type="number" name='contact' placeholder='Give Your Contact Number' className="input input-bordered" required />
                             </div>
                             <div className="form-control mt-6">
-                                <button className="btn btn-sm btn-primary">Confirm</button>
+                                <button type='submit' className="btn btn-sm btn-primary">Confirm</button>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>

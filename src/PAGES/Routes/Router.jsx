@@ -64,7 +64,7 @@ const router = createBrowserRouter([{
     //this is private route area
     {
         path: '/booking/:id',
-        element: <Booking></Booking>
+        element: <PrivateRoute><Booking></Booking></PrivateRoute>
     },
 
     {

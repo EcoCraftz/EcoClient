@@ -83,7 +83,9 @@ const Selected = () => {
                     {
                         others.map(other => <div key={other._id} className="card w-96 bg-base-100 shadow-xl">
                             <figure className="px-10 pt-10">
-                                <img src={other.image} alt={other.name} className="rounded-xl max-w-50 " />
+                                <img src={other.image} alt={other.name} className="rounded-xl max-w-50 w-32 h-32"
+
+                                />
 
                             </figure>
                             <div className="card-body items-center text-center">
