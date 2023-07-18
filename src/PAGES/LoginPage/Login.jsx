@@ -3,9 +3,13 @@ import React, { useContext, useState } from 'react';
 import Navbar from '../Shared/Navbar';
 import { AuthContext } from '../Contexts/UserContext';
 import { FcGoogle } from 'react-icons/fc';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const { signIn, signInWithGoogle } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -17,6 +21,8 @@ const Login = () => {
         signIn(email, password).then(result => {
             const user = result.user;
             console.log(user);
+            form.reset();
+            navigate(from, { replace: true });
         }).catch(error => console.error(error));
     }
 
@@ -24,6 +30,7 @@ const Login = () => {
         signInWithGoogle().then(result => {
             const user = result.user;
             console.log(user);
+            navigate(from, { replace: true });
         }).catch(error => console.error(error));
     }
 
