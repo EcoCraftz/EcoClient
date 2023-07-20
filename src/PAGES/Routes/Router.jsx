@@ -1,7 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import LandingPage from "../Layout/LandingPage";
 import Home from "../Home/Home";
-import Login from "../LoginPage/Login";
 import Loading from "../Shared/Loading";
 import Add from "../AddProduct/Add";
 import Products from "../Products/products";
@@ -11,9 +10,10 @@ import OtherSelected from "../SelectedProduct/OtherSelected";
 import Catagory from "../Catagory/Catagory";
 import DashbordLayout from "../Layout/Dashboard/DashbordLayout";
 import Dashbord from "../Layout/Dashboard/Dashbord";
-import Register from "../LoginPage/Register";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import Booking from "../Bookings/Booking";
+import Register from "../NewPages/LogIn/Register";
+import Login from "../NewPages/LogIn/LogIn";
 
 const router = createBrowserRouter([{
     path: '/',
