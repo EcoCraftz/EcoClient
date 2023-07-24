@@ -14,6 +14,8 @@ import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import Booking from "../Bookings/Booking";
 import Register from "../NewPages/LogIn/Register";
 import Login from "../NewPages/LogIn/LogIn";
+import UserProfile from "../Layout/Dashboard/UserProfile";
+import UpdateProfile from "../Layout/Dashboard/UpdateProfile";
 
 const router = createBrowserRouter([{
     path: '/',
@@ -74,7 +76,16 @@ const router = createBrowserRouter([{
             {
                 path: '/dashboard',
                 element: <Dashbord></Dashbord>
-            }
+            },
+            {
+                path: '/dashboard/userProfile',
+                element: <UserProfile></UserProfile>
+            },
+            {
+                path: '/dashboard/updateProfile/:email',
+                element: <UpdateProfile></UpdateProfile>
+            },
+
         ]
     }
     ]

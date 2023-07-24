@@ -30,7 +30,8 @@ const Booking = () => {
             catagory: form.catagory.value,
             quantity: form.quantity.value,
             country: form.country.value.toUpperCase(),
-            contact: form.contact.value
+            contact: form.contact.value,
+            image: data.image
         };
         fetch('http://localhost:4000/bookings', {
             method: 'POST',
@@ -48,10 +49,13 @@ const Booking = () => {
     return (
         <div>
             <Navbar></Navbar>
-            <div className="hero min-h-screen bg-base-200 mt-16">
+            <div className='mt-20 mx-10'>
+                <h1 className='text-2xl font-serif font-bold'>Complete Your Booking Details</h1>
+            </div>
+            <div className="hero min-h-screen bg-base-200 mt-2">
                 <div className="hero-content flex-col lg:flex-row">
                     <div className="text-center lg:text-left">
-                        <img src={data.image} alt="" className='' style={{ height: '400px', width: '350px' }} />
+                        <img src={data.image} alt="" className='rounded-lg shadow-2xl' style={{ height: '400px', width: '450px' }} />
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <form onSubmit={handleConfirm} className="card-body">

@@ -51,10 +51,10 @@ const Selected = () => {
 
             <div id='topDiv' className='mx-2 grid lg:grid-cols-2 sm:grid-cols-1 justify-center items-center border shadow-xl'
                 style={{ height: '100vh' }}>
-                <div id='imgHolder' className="mx-auto border-2 rounded-lg shadow-lg shadow-gray-400" style={{ width: '250px', height: '250px' }}>
+                <div id='imgHolder' className="mx-auto border-2 rounded-2xl shadow-xl shadow-gray-400" style={{ width: '350px', height: '300px' }}>
                     <ReactImageMagnify className='w-full h-full' {...{
                         smallImage: {
-                            alt: 'Wristwatch by Ted Baker London',
+                            alt: `${data.name}`,
                             isFluidWidth: true,
                             src: imgURL,
                         },
