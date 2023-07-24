@@ -13,7 +13,7 @@ const DashbordLayout = () => {
     const [user] = useAuthState(auth);
     const email = user?.email;
     const { data, isLoading } = useQuery({
-        queryKey: ["product"],
+        queryKey: ["User"],
         queryFn: async () => {
             const res = await fetch(`http://localhost:4000/profile/${email}`);
             const data = await res.json();
@@ -40,7 +40,7 @@ const DashbordLayout = () => {
                         {/* Sidebar content here */}
                         {/* eslint-disable-next-line react/prop-types */}
                         <li><NavLink to={data?.link ? `/dashboard/updateProfile/${email}` : `/dashboard/userProfile`}>User Profile</NavLink></li>
-                        <li><a>Sidebar Item 2</a></li>
+                        <li><NavLink to='/dashboard/userBooking'>User Booking</NavLink></li>
                     </ul>
 
                 </div>

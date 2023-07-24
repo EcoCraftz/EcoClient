@@ -9,7 +9,7 @@ const UpdateProfile = () => {
 
     console.log(agree);
     const { data, isLoading } = useQuery({
-        queryKey: ["product"],
+        queryKey: ["profile"],
         queryFn: async () => {
             const res = await fetch(`http://localhost:4000/profile/${email}`);
             const data = await res.json();

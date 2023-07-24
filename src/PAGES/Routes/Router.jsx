@@ -16,6 +16,7 @@ import Register from "../NewPages/LogIn/Register";
 import Login from "../NewPages/LogIn/LogIn";
 import UserProfile from "../Layout/Dashboard/UserProfile";
 import UpdateProfile from "../Layout/Dashboard/UpdateProfile";
+import UserBooking from "../Layout/Dashboard/UserBooking/UserBooking";
 
 const router = createBrowserRouter([{
     path: '/',
@@ -85,6 +86,11 @@ const router = createBrowserRouter([{
                 path: '/dashboard/updateProfile/:email',
                 element: <UpdateProfile></UpdateProfile>
             },
+            {
+                path: '/dashboard/userBooking',
+                element: <UserBooking></UserBooking>
+            },
+
 
         ]
     }
