@@ -1,13 +1,13 @@
-import { useQuery } from "@tanstack/react-query";
-import Loading from "../../../Shared/Loading";
-import { useNavigate } from "react-router-dom";
-
-const UserBooking = () => {
+import { useQuery } from '@tanstack/react-query';
+import { useNavigate, useParams } from 'react-router-dom';
+import Loading from '../../../Shared/Loading';
+const YourBooking = () => {
     const navigate = useNavigate();
+    const { email } = useParams();
     const { data, isLoading } = useQuery({
-        queryKey: ["bookings"],
+        queryKey: ["yourBookingData"],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:4000/bookings`);
+            const res = await fetch(`http://localhost:4000/bookings/${email}`);
             const data = await res.json();
             return data;
         }
@@ -15,9 +15,11 @@ const UserBooking = () => {
     if (isLoading) {
         return <Loading></Loading>
     }
+
     const handleNavigate = (id) => {
         navigate(`/dashboard/bookingDetails/${id}`);
     }
+    console.log("your data", data)
     return (
         <div>
             <div className="overflow-x-auto">
@@ -60,8 +62,9 @@ const UserBooking = () => {
                     </tbody>
                 </table>
             </div>
+
         </div>
     );
 };
 
-export default UserBooking;
+export default YourBooking;

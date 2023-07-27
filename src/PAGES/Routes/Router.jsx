@@ -17,6 +17,8 @@ import Login from "../NewPages/LogIn/LogIn";
 import UserProfile from "../Layout/Dashboard/UserProfile";
 import UpdateProfile from "../Layout/Dashboard/UpdateProfile";
 import UserBooking from "../Layout/Dashboard/UserBooking/UserBooking";
+import YourBooking from "../Layout/Dashboard/YourBooking/YourBooking";
+import BookingDetails from "../Bookings/BookingDetails";
 
 const router = createBrowserRouter([{
     path: '/',
@@ -37,10 +39,7 @@ const router = createBrowserRouter([{
         path: '/loading',
         element: <Loading></Loading>
     },
-    {
-        path: '/add',
-        element: <Add></Add>
-    },
+
     {
         path: '/products',
         element: <Products></Products>
@@ -90,6 +89,19 @@ const router = createBrowserRouter([{
                 path: '/dashboard/userBooking',
                 element: <UserBooking></UserBooking>
             },
+            {
+                path: '/dashboard/yourBooking/:email',
+                element: <YourBooking />
+            },
+            {
+                path: '/dashboard/bookingDetails/:id',
+                element: <BookingDetails />
+            },
+            {
+                path: '/dashboard/add',
+                element: <Add></Add>
+            },
+
 
 
         ]
