@@ -6,6 +6,8 @@ import Loading from '../Shared/Loading';
 import Navbar from '../Shared/Navbar';
 import ReactImageMagnify from 'react-image-magnify';
 import './CSS/Selected.css';
+import { FaRegHandPointer } from 'react-icons/fa';
+import { GoStack } from 'react-icons/go';
 
 const Selected = () => {
     const navigate = useNavigate();
@@ -66,11 +68,21 @@ const Selected = () => {
 
                     }} />
                 </div>
-                <div id='topDivDetails' className='flex flex-wrap justify-start items-center gap-2'>
-                    <h1 className='text-5xl font-serif font-bold uppercase'>{data.name}</h1>
-                    <p className='text-xl'>{data.description}</p>
-                    <button onClick={() => handleBooking(data._id)}
-                        className='btn btn-sm bg-purple-600 hover:bg-teal-600 text-white'>Booking Now</button>
+                <div id='topDivDetails' className='flex flex-wrap justify-end items-center gap-2'>
+                    <h1 className='text-5xl font-serif font-bold uppercase me-10'>{data.name}</h1>
+                    <p className='text-xl me-5'>{data.description}</p>
+                    <div className='flex flex-col gap-2 mt-4 me-10'>
+                        <div>
+                            <button onClick={() => handleBooking(data._id)}
+                                className='btn btn-sm bg-purple-600 hover:bg-teal-600 text-white'>
+                                <span><GoStack></GoStack></span>Booking Now
+                            </button>
+                        </div>
+                        <div className='animate-bounce flex flex-col justify-center items-center'>
+                            <span className='text-2xl text-green-500'> <FaRegHandPointer></FaRegHandPointer></span>
+                        </div>
+
+                    </div>
 
 
                 </div>
@@ -82,7 +94,7 @@ const Selected = () => {
                 <div className='grid sm:grid-cols-1 lg:grid-cols-3 gap-2 my-5'>
                     {
                         others.map(other => <div key={other._id} className="card w-96 bg-base-100 shadow-xl">
-                            <figure className="px-10 pt-10">
+                            <figure className='transition ease-in-out delay-300 hover:translate-x-4 hover:translate-y-4 hover:scale-125 duration-300 overflow-hidden px-10 pt-10'>
                                 <img src={other.image} alt={other.name} className="rounded-xl max-w-50 w-32 h-32"
 
                                 />

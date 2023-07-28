@@ -20,6 +20,8 @@ import UserBooking from "../Layout/Dashboard/UserBooking/UserBooking";
 import YourBooking from "../Layout/Dashboard/YourBooking/YourBooking";
 import BookingDetails from "../Bookings/BookingDetails";
 
+
+
 const router = createBrowserRouter([{
     path: '/',
     element: <LandingPage></LandingPage>,
@@ -74,7 +76,7 @@ const router = createBrowserRouter([{
         element: <PrivateRoute> <DashbordLayout></DashbordLayout></PrivateRoute>,
         children: [
             {
-                path: '/dashboard',
+                path: `/dashboard`,
                 element: <Dashbord></Dashbord>
             },
             {
