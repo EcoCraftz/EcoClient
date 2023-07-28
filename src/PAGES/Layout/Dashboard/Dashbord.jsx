@@ -3,8 +3,6 @@ import { getAuth } from 'firebase/auth';
 import app from '../../../Firebase/firebase.config';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import useAdmin from '../../NewPages/Hooks/UseAdmin';
-// import UserBooking from './UserBooking/UserBooking';
-// import YourBooking from './YourBooking/YourBooking';
 import { Navigate } from 'react-router-dom';
 import Loading from '../../Shared/Loading';
 
@@ -30,5 +28,3 @@ const Dashbord = () => {
 
 export default Dashbord;
 
-
-// <Navigate to={admin ? `/dashboard/userBooking` : `/dashboard/yourBooking/${user?.email}`}></Navigate>
