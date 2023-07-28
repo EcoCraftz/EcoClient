@@ -1,85 +1,113 @@
-import { getAuth } from 'firebase/auth';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import app from '../../../Firebase/firebase.config';
+import { useQuery } from "@tanstack/react-query";
+import Loading from "../../Shared/Loading";
+import { MdDeleteForever } from 'react-icons/md';
+import { getAuth } from "firebase/auth";
+import app from "../../../Firebase/firebase.config";
+import { useAuthState } from "react-firebase-hooks/auth";
+// import app from "../../../Firebase/firebase.config";
+// import { getAuth } from "firebase/auth";
+// import { useAuthState } from "react-firebase-hooks/auth";
+
 const UserProfile = () => {
     const auth = getAuth(app);
     const [user] = useAuthState(auth);
-    const email = user?.email;
-    const name = user?.displayName;
-
-
-
-    const handleSubmit = e => {
-        e.preventDefault();
-        const profile = {
-            address: e.target.address.value,
-            name: name,
-            email: email,
-            company: e.target.company.value,
-            designation: e.target.designation.value,
-            link: e.target.link.value,
-            phone: e.target.phone.value
-
+    const currentUser = user?.email;
+    const { data, isLoading, refetch } = useQuery({
+        queryKey: ["users"],
+        queryFn: async () => {
+            const res = await fetch(`http://localhost:4000/users`);
+            const data = await res.json();
+            return data;
         }
-        console.log(profile);
-        fetch(`http://localhost:4000/profile`, {
-            method: 'POST',
+    });
+
+    if (isLoading) {
+        return <Loading></Loading>
+    }
+    console.log(data);
+
+    const makeAdmin = (email) => {
+        fetch(`http://localhost:4000/user/admin/${email}`, {
+            method: 'PUT',
             headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(profile),
-        }).then(res => res.json()).then(data => console.log(data))
-        alert('Your profile is saved to data base')
+                "authorization": `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        }).then(res => {
+            if (res.status === 403) {
+                return alert('Failed to make Admin');
+            }
+            return res.json();
+        })
+            .then(data => {
+                if (data.modifiedCount > 0) {
+                    refetch();
+                    alert('Successfully maked Admin');
+                }
+            })
+    };
+    const cannotDelete = () => {
+        return alert('You can not Delete your Account. This Inconvenient to the server law')
+    }
+
+    const handleDelete = (email) => {
+        if (email === currentUser) {
+            return cannotDelete();
+        }
+        const procced = confirm(`Are you sure to Delete ${email}!`);
+        if (procced) {
+            fetch(`http://localhost:4000/users/${email}`, {
+                method: 'DELETE',
+                headers: {
+                    "authorization": `Bearer ${localStorage.getItem('accessToken')}`
+                }
+            }).then(res => res.json())
+                .then(data => {
+                    if (data.deletedCount) {
+                        alert(`${email} is deleted`);
+                        refetch();
+                    }
+                })
+        }
 
     }
 
-
-
     return (
+
         <div>
-            <div className="card lg:max-w-lg bg-base-100 shadow-xl mx-auto">
-                <div className="card-body">
-                    <h2 className="card-title">Hi! {user?.displayName}</h2>
-                    <p className='text-lg font-bold'>Email: {user?.email}</p>
-                    <p className='text-lg uppercase'>You can Save Your profile</p>
-                    <form onSubmit={handleSubmit}>
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">Your Company Name</span>
-                            </label>
-                            <input type="text" name='company' placeholder="Type Company name" className="input input-bordered w-full max-w-xs mb-2" />
-                        </div>
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">Your Designation</span>
-                            </label>
-                            <input type="text" name='designation' placeholder="Type your possition to the company" className="input input-bordered w-full max-w-xs mb-2" />
-                        </div>
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">Address</span>
-                            </label>
-                            <textarea type="text" name='address' placeholder="Type your Address" className="input input-bordered w-full max-w-xs mb-2" />
-                        </div>
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">Social Link </span>
-                            </label>
-                            <input type="text" name='link' placeholder="Give Linkedin/fb link" className="input input-bordered w-full max-w-xs mb-2" required />
-                        </div>
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">Contact Number</span>
-                            </label>
-                            <input type="number" name='phone' placeholder="Type Contact number" className="input input-bordered w-full max-w-xs mb-2" />
-                        </div>
-                        <input type="submit" value="Add to Server" className="btn btn-success w-full max-w-xs mb-2" />
-                    </form>
-                    {/* <input type="button"
-                        onClick={() => navigate(`/dashboard/updateProfile/${email}`)}
-                        value="update" className="btn btn-warning w-full max-w-xs mb-2" /> */}
-                </div>
+            <div className="overflow-x-auto">
+                <table className="table">
+                    {/* head */}
+                    <thead>
+                        <tr>
+                            <th>User Email</th>
+                            <th>User Status</th>
+                            <th>Action</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {data.map(user => <tr key={user._id}>
+                            <td>
+                                <span className="badge badge-ghost badge-sm">{user.email}</span>
+                            </td>
+                            <td>
+                                {user?.role === 'Admin' ? <button className="btn btn-success btn-xs">Admin</button> :
+                                    <button className="btn btn-warning btn-xs">General</button>}
+                            </td>
+                            <th className="flex flex-row justify-start items-center gap-2">
+                                <button onClick={() => makeAdmin(user.email)} disabled={user.role}
+                                    className="btn btn-ghost btn-xs">Make Admin</button>
+                                <button
+                                    onClick={() => handleDelete(user.email)}
+                                    className="text-xl text-red-500 btn btn-ghost"><MdDeleteForever></MdDeleteForever></button>
+                            </th>
+                        </tr>)}
+
+
+                    </tbody>
+                </table>
             </div>
+
         </div>
     );
 };

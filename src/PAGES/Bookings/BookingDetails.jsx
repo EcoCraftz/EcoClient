@@ -4,11 +4,15 @@ import { useQuery } from '@tanstack/react-query';
 import { getAuth } from 'firebase/auth';
 import app from '../../Firebase/firebase.config';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import useAdmin from '../NewPages/Hooks/UseAdmin';
+
+
 const BookingDetails = () => {
     const navigate = useNavigate();
     const auth = getAuth(app);
     const [user] = useAuthState(auth);
     const email = user?.email;
+    const [admin] = useAdmin(user);
     const { id } = useParams();
     const { data, isLoading } = useQuery({
         queryKey: ["BookingDetails"],
@@ -18,38 +22,40 @@ const BookingDetails = () => {
             return data;
         }
     });
+
     if (isLoading) {
         return <Loading></Loading>
     }
 
+
+
     const handleDelete = id => {
         const procced = confirm(`Do you want to delete ${data.product} of ${id}`);
         if (procced) {
+            fetch(`http://localhost:4000/deleteBooking/${id}`, {
+                method: 'DELETE',
+                headers: {
+                    "authorization": `Bearer ${localStorage.getItem('accessToken')}`
+                }
+            }).then(res => res.json())
+                .then(deleted => {
+                    if (deleted.deletedCount) {
+                        <div className="toast toast-top toast-start">
+                            <div className="alert alert-success">
+                                <span>{data.product} is successfully Deleted.</span>
+                            </div>
+                        </div>
 
-            navigate(`/dashboard/yourBooking/${email}`)
+                    }
+                    { admin ? navigate(`/dashboard/userBooking`) : navigate(`/dashboard/yourBooking/${email}`) }
+                })
         }
     }
 
 
 
 
-    // fetch(`http://localhost:4000/deleteBooking/${id}`, {
-    //     method: 'DELETE',
-    //     headers: {
-    //         "authorization": `Bearer ${localStorage.getItem('accessToken')}`
-    //     }
-    // }).then(res => res.json())
-    //     .then(deleted => {
-    //         if (deleted.deletedCount) {
-    //             <div className="toast toast-top toast-start">
-    //                 <div className="alert alert-success">
-    //                     <span>{data.product} is successfully Deleted.</span>
-    //                 </div>
-    //             </div>
 
-    //         }
-    //         navigate(`/dashboard/yourBooking/${email}`)
-    //     })
 
 
     console.log("SELECTED BOOKING", email);

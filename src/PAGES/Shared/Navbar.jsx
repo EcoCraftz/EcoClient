@@ -44,7 +44,8 @@ const Navbar = () => {
         </li>
         <li><NavLink to='/products'>Products</NavLink></li>
         <li><NavLink to='/dashboard'>Dashboard</NavLink></li>
-        <li><NavLink to='/register'>Register</NavLink></li>
+        <li><NavLink to='/'>About Us</NavLink></li>
+        {/* <li><NavLink to='/register'>Register</NavLink></li> */}
         <li>{user?.email && <span><FaRegUserCircle></FaRegUserCircle>Welcome {user?.email}</span>}</li>
         <li>{user?.email ? <button onClick={signOut} className='btn btn-sm'>Sign Out</button>
             : <NavLink to='/login'>Login</NavLink>}</li>

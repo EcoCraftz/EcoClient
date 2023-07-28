@@ -5,7 +5,7 @@ const useAdmin = user => {
     const [adLoading, setAdloading] = useState(true);
     useEffect(() => {
         const email = user?.email;
-        fetch(`https://manufacturer-website-server-vercel01.vercel.app/admin/${email}`, {
+        fetch(`http://localhost:4000/admin/${email}`, {
             method: 'GET',
             headers: {
                 'content-type': 'application/json',
