@@ -40,7 +40,7 @@ const OtherSelected = () => {
                 {
                     data.map(other => <div key={other._id} className="card lg:w-96 sm:w-full glass shadow-xl">
                         <figure className='transition ease-in-out delay-100 hover:translate-x-4 hover:scale-110 duration-300 overflow-hidden mt-3'>
-                            <img src={other.image} alt="car!" className='rounded-xl max-w-xs' /></figure>
+                            <img onClick={() => handleSelected(other._id)} src={other.image} alt="car!" className='rounded-xl max-w-xs' /></figure>
                         <div className="card-body">
                             <h2 className="card-title">{other.name.toUpperCase()}</h2>
                             <p>Catagory:{other.catagory}</p>
