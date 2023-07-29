@@ -43,6 +43,8 @@ const Footer = () => {
                         <div><span className='text-xl text-orange-500'><ImInstagram /></span></div>
                         <div><span className='text-2xl text-green-500'><RiWhatsappFill /></span></div>
 
+                        {/* awesome footer */}
+
 
 
                     </div>
