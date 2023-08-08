@@ -37,7 +37,7 @@ const Products = () => {
             <div className='bg-green-100 px-16'>
 
                 <p className='text-4xl font-semibold text-center uppercase mt-16'>Our Products</p>
-                <div className='grid sm:grid-cols-1 lg:grid-cols-3 gap-2 mt-5'>
+                <div className='grid sm:grid-cols-1 lg:grid-cols-3 gap-2 mt-5 '>
                     {
                         data.map(product => <div
                             key={product._id}

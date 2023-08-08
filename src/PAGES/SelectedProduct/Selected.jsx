@@ -51,14 +51,15 @@ const Selected = () => {
         <div>
             <Navbar></Navbar>
 
-            <div id='topDiv' className='mx-2 grid lg:grid-cols-2 sm:grid-cols-1 justify-center items-center border shadow-xl'
+            <div id='topDiv' className='mx-2 grid lg:grid-cols-2 sm:grid-cols-1 sm:overflow-hidden justify-center items-center border shadow-xl'
                 style={{ height: '100vh' }}>
-                <div id='imgHolder' className="mx-auto border-2 rounded-2xl shadow-xl shadow-gray-400" style={{ width: '350px', height: '300px' }}>
-                    <ReactImageMagnify className='w-full h-full' {...{
+                <div id='imgHolder' className="mx-auto" style={{ width: '350px', height: '300px' }}>
+                    <ReactImageMagnify className='w-full h-full sm:w-1/2 sm:h-1/2 ' {...{
                         smallImage: {
                             alt: `${data.name}`,
                             isFluidWidth: true,
                             src: imgURL,
+
                         },
                         largeImage: {
                             src: imgURL,

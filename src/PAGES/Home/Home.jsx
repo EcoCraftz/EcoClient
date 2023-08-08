@@ -8,7 +8,7 @@ import Message from './Message';
 const Home = () => {
 
     return (
-        <div>
+        <div className='relative'>
             <TopBoard></TopBoard>
             <HomeNav></HomeNav>
             <Banner></Banner>

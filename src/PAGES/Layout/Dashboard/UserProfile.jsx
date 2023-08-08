@@ -74,7 +74,7 @@ const UserProfile = () => {
     return (
 
         <div>
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto sm:overflow-x-scroll">
                 <table className="table">
                     {/* head */}
                     <thead>
@@ -82,7 +82,6 @@ const UserProfile = () => {
                             <th>User Email</th>
                             <th>User Status</th>
                             <th>Action</th>
-                            <th></th>
                         </tr>
                     </thead>
                     <tbody>

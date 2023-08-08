@@ -32,7 +32,7 @@ const OtherSelected = () => {
             <div className='flex lg:flex-row lg:justify-start sm:flex-col sm:justify-center items-center gap-20 p-6'>
                 <button onClick={() => navigate('/')} className='btn btn-sm btn-warning'>
                     <HiOutlineHome></HiOutlineHome>Home</button>
-                {user?.displayName && <span>Welcome {user.displayName}</span>}
+                {/* {user?.displayName && <span>Welcome {user.displayName}</span>} */}
                 <h1 className='uppercase text-2xl font-serif font-bold'>Explore Our {catagory} </h1>
             </div>
             <div className='grid sm:grid-cols-1 lg:grid-cols-3 gap-2 my-5'>
@@ -45,7 +45,7 @@ const OtherSelected = () => {
                             <h2 className="card-title">{other.name.toUpperCase()}</h2>
                             <p>Catagory:{other.catagory}</p>
                             <p>{other.description.slice(0, 55)}...</p>
-                            <div className="card-actions justify-end">
+                            <div className="card-actions justify-start overflow-hidden">
                                 <button className="btn btn-sm btn-success"
                                     onClick={() => handleSelected(other._id)}
                                 >Learn More</button>

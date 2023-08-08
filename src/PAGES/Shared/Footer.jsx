@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 const Footer = () => {
     return (
         <>
-            <footer className="footer p-10 bg-gray-700 text-white">
+            <footer className="footer sm:w-full p-10 bg-gray-700 text-white">
                 <div>
                     <span className="text-xl text-teal-500 uppercase font-bold">Services</span>
                     <Link to="" className=" hover:text-teal-400">Branding</Link>
