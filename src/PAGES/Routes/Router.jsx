@@ -19,6 +19,7 @@ import UpdateProfile from "../Layout/Dashboard/UpdateProfile";
 import UserBooking from "../Layout/Dashboard/UserBooking/UserBooking";
 import YourBooking from "../Layout/Dashboard/YourBooking/YourBooking";
 import BookingDetails from "../Bookings/BookingDetails";
+import EditBooking from "../Layout/Dashboard/YourBooking/EditBooking";
 
 
 
@@ -103,6 +104,11 @@ const router = createBrowserRouter([{
                 path: '/dashboard/add',
                 element: <Add></Add>
             },
+            {
+                path: '/dashboard/editBooking/:id',
+                element: <EditBooking />
+            },
+
 
 
 

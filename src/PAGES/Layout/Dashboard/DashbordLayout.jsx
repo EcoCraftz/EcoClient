@@ -22,9 +22,9 @@ const DashbordLayout = () => {
                     <Outlet></Outlet>
 
                 </div>
-                <div className="drawer-side">
+                <div className="drawer-side z-10">
                     <label htmlFor="dashBoard-drawer" className="drawer-overlay"></label>
-                    <ul className="menu p-4 w-full h-full bg-base-200 text-base-content" id='sidebar-menu'>
+                    <ul className="menu p-4 lg:w-full lg:h-full sm:w-1/2 sm:h-1/2 bg-base-200 text-base-content" id='sidebar-menu'>
                         {/* Sidebar content here */}
                         {/* eslint-disable-next-line react/prop-types */}
 
@@ -34,9 +34,7 @@ const DashbordLayout = () => {
                             <li><NavLink to='/dashboard/add'>Add Product</NavLink></li>
                             <li><NavLink to='/dashboard/userProfile'> All Users</NavLink></li>
                         </div>}
-
                     </ul>
-
                 </div>
             </div>
 

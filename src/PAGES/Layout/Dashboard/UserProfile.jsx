@@ -68,46 +68,45 @@ const UserProfile = () => {
                     }
                 })
         }
-
     }
 
     return (
 
-        <div>
-            <div className="overflow-x-auto sm:overflow-x-scroll">
-                <table className="table">
-                    {/* head */}
-                    <thead>
-                        <tr>
-                            <th>User Email</th>
-                            <th>User Status</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {data.map(user => <tr key={user._id}>
-                            <td>
-                                <span className="badge badge-ghost badge-sm">{user.email}</span>
-                            </td>
-                            <td>
-                                {user?.role === 'Admin' ? <button className="btn btn-success btn-xs">Admin</button> :
-                                    <button className="btn btn-warning btn-xs">General</button>}
-                            </td>
-                            <th className="flex flex-row justify-start items-center gap-2">
-                                <button onClick={() => makeAdmin(user.email)} disabled={user.role}
-                                    className="btn btn-ghost btn-xs">Make Admin</button>
-                                <button
-                                    onClick={() => handleDelete(user.email)}
-                                    className="text-xl text-red-500 btn btn-ghost"><MdDeleteForever></MdDeleteForever></button>
-                            </th>
-                        </tr>)}
+
+        <div className="overflow-x-auto">
+            <table className="table table-xs table-pin-rows table-pin-cols">
+                {/* head */}
+                <thead>
+                    <tr className="text-zinc-800">
+                        <th>User Email</th>
+                        <th>User Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {data.map(user => <tr key={user._id}>
+                        <td>
+                            <span className="badge badge-ghost badge-sm">{user.email}</span>
+                        </td>
+                        <td>
+                            {user?.role === 'Admin' ? <button className="btn btn-success btn-xs">Admin</button> :
+                                <button className="btn btn-warning btn-xs">General</button>}
+                        </td>
+                        <th className="flex flex-row justify-start items-center gap-2">
+                            <button onClick={() => makeAdmin(user.email)} disabled={user.role}
+                                className="btn btn-ghost btn-xs">Make Admin</button>
+                            <button
+                                onClick={() => handleDelete(user.email)}
+                                className="text-xl text-red-500 btn btn-ghost"><MdDeleteForever></MdDeleteForever></button>
+                        </th>
+                    </tr>)}
 
 
-                    </tbody>
-                </table>
-            </div>
-
+                </tbody>
+            </table>
         </div>
+
+
     );
 };
 

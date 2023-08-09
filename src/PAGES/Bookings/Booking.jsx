@@ -2,13 +2,14 @@
 import React, { useContext } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import Loading from '../Shared/Loading';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { AuthContext } from '../Contexts/UserContext';
 import Navbar from '../Shared/Navbar';
 
 const Booking = () => {
     const { user } = useContext(AuthContext)
     const { id } = useParams();
+    const navigate = useNavigate();
     const { data, isLoading } = useQuery({
         queryKey: ["booking"],
         queryFn: async () => {
@@ -43,6 +44,8 @@ const Booking = () => {
             if (data.acknowledged) {
                 alert(`${bookingData.product} is inserted to DB successfully`);
             }
+            navigate(`/dashboard/yourBooking/${user?.email}`)
+
         })
         console.log(bookingData);
     }

@@ -26,7 +26,9 @@ const BookingDetails = () => {
     if (isLoading) {
         return <Loading></Loading>
     }
-
+    const handleEdit = (id) => {
+        navigate(`/dashboard/editBooking/${id}`)
+    }
 
 
     const handleDelete = id => {
@@ -39,42 +41,36 @@ const BookingDetails = () => {
                 }
             }).then(res => res.json())
                 .then(deleted => {
-                    if (deleted.deletedCount) {
-                        <div className="toast toast-top toast-start">
-                            <div className="alert alert-success">
-                                <span>{data.product} is successfully Deleted.</span>
-                            </div>
-                        </div>
-
-                    }
-                    { admin ? navigate(`/dashboard/userBooking`) : navigate(`/dashboard/yourBooking/${email}`) }
+                    if (deleted.deletedCount) { admin ? navigate(`/dashboard/userBooking`) : navigate(`/dashboard/yourBooking/${email}`) }
                 })
         }
     }
-
-
-
-
-
-
-
     console.log("SELECTED BOOKING", email);
     return (
-        <div className='flex flex-row gap-4 justify-center items-center bg-green-200 w-3/4 my-4 mx-auto p-5 border rounded-2xl shadow-2xl'>
-            <div>
+        <div className="hero min-h-screen bg-gray-200">
+            <div className="hero-content flex-col lg:flex-row-reverse">
                 <img src={data?.image} alt="Product image" className='w-56 h-56 border-e-4 rounded-lg shadow-lg' />
-            </div>
-            <div>
-                <p className='text-2xl font-thin'>Product ID:{data._id}</p>
-                <p className='uppercase font-serif text-xl'>{data.product}</p>
-                <p>Catagory: <span className='font-semi-bold text-xl'>{data.catagory}</span></p>
-                <p>Quantity: <span className='font-bold text-lg'>{data.quantity}</span></p>
-                <div className='mt-6'>
-                    <button htmlFor="delete-user" onClick={() => handleDelete(data._id)} className='btn btn-sm btn-error'>Delete</button>
+                <div>
+                    <p className='text-2xl font-thin'>Product ID:{data._id}</p>
+                    <p className='uppercase font-serif text-xl'>{data.product}</p>
+                    <p>Catagory: <span className='font-semi-bold text-xl'>{data.catagory}</span></p>
+                    <p>Customer Email: <span className='font-serif text-sm text-blue-700'>{data.email}</span></p>
+                    <p>Booking From: <span className='font-serif text-sm text-green-800'>{data.country}</span></p>
+
+                    <p className='text-lg'>Contact: <span className='text-xl text-gray-900'>
+                        {data.contact}</span></p>
+
+                    <p className='text-2xl'>Quantity: <span className='font-bold text-lg'>{data.quantity}</span></p>
+                    <div>
+                        {admin ? <div className='mt-6'>
+                            <button onClick={() => handleDelete(data._id)} className='btn btn-sm btn-error'>Delete</button>
+                        </div>
+                            : <div className='mt-6'>
+                                <button onClick={() => handleEdit(data._id)} className='btn btn-sm btn-warning'>Edit</button>
+                            </div>}
+                    </div>
                 </div>
-
             </div>
-
         </div>
     );
 };

@@ -21,48 +21,46 @@ const YourBooking = () => {
     }
     console.log("your data", data)
     return (
-        <div>
-            <div className="overflow-x-auto">
-                <table className="table">
-                    {/* head */}
-                    <thead>
-                        <tr>
-                            <th>Product Name</th>
-                            <th>Booking From</th>
-                            <th>Catagory</th>
-                            <th>Booking Details</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {data.map(booking => <tr key={booking._id}>
-                            <td>
-                                <div className="flex items-center space-x-3">
-                                    {/* <div className="avatar">
+
+        <div className="overflow-x-auto">
+            <table className="table table-sm table-pin-rows table-pin-cols">
+                {/* head */}
+                <thead>
+                    <tr className='text-green-700'>
+                        <th>Product Name</th>
+                        <th>Booking From</th>
+                        <th>Catagory</th>
+                        <th>Booking Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {data.map(booking => <tr key={booking._id}>
+                        <td>
+                            <div className="flex items-center space-x-3">
+                                {/* <div className="avatar">
                                         <div className="mask mask-squircle w-12 h-12">
                                             <img src="/tailwind-css-component-profile-2@56w.png" alt="Avatar Tailwind CSS Component" />
                                         </div>
                                     </div> */}
-                                    <div>
-                                        <div className="font-bold">{booking.product}</div>
-                                    </div>
+                                <div>
+                                    <div className="font-bold">{booking.product}</div>
                                 </div>
-                            </td>
-                            <td>
-                                {booking.country}
-                                <br />
-                                <span className="badge badge-ghost badge-sm">{booking.email}</span>
-                            </td>
-                            <td>{booking.catagory}</td>
-                            <th>
-                                <button onClick={() => handleNavigate(booking._id)} className="btn btn-ghost btn-xs">details</button>
-                            </th>
-                        </tr>)}
+                            </div>
+                        </td>
+                        <td>
+                            {booking.country}
+                            <br />
+                            <span className="badge badge-ghost badge-sm">{booking.email}</span>
+                        </td>
+                        <td>{booking.catagory}</td>
+                        <th>
+                            <button onClick={() => handleNavigate(booking._id)} className="btn btn-ghost btn-xs">details</button>
+                        </th>
+                    </tr>)}
 
 
-                    </tbody>
-                </table>
-            </div>
-
+                </tbody>
+            </table>
         </div>
     );
 };
