@@ -78,13 +78,15 @@ const UserProfile = () => {
                 {/* head */}
                 <thead>
                     <tr className="text-zinc-800">
+                        <th>SL No</th>
                         <th>User Email</th>
                         <th>User Status</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {data.map(user => <tr key={user._id}>
+                    {data.map((user, index) => <tr key={user._id}>
+                        <th>{index + 1}</th>
                         <td>
                             <span className="badge badge-ghost badge-sm">{user.email}</span>
                         </td>

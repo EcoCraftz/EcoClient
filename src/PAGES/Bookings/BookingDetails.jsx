@@ -5,6 +5,7 @@ import { getAuth } from 'firebase/auth';
 import app from '../../Firebase/firebase.config';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import useAdmin from '../NewPages/Hooks/UseAdmin';
+import bg from '../../assets/2.jpg';
 
 
 const BookingDetails = () => {
@@ -46,10 +47,21 @@ const BookingDetails = () => {
         }
     }
     console.log("SELECTED BOOKING", email);
+    const saturation = 25;
+    const blurAmount = 50;
+    const brightness = 5;
+    const opacity = 0.65;
     return (
         <div className="hero min-h-screen bg-gray-200">
-            <div className="hero-content flex-col lg:flex-row-reverse">
-                <img src={data?.image} alt="Product image" className='w-56 h-56 border-e-4 rounded-lg shadow-lg' />
+            <img src={bg} alt="BG" className="h-full bg-base-200 w-full"
+                style={{
+                    WebkitFilter: `brightness(${brightness}%) saturation(${saturation}%) blur(${blurAmount}px)`,
+                    filter: `brightness(${brightness}%) saturation(${saturation}%) blur(${blurAmount}px)`,
+                    opacity: opacity
+                }}
+            />
+            <div className="hero-content flex-col lg:flex-row-reverse lg:glass">
+                <img src={data?.image} alt="Product image" className="lg:max-w-lg rounded-lg shadow-2xl" />
                 <div>
                     <p className='text-2xl font-thin'>Product ID:{data._id}</p>
                     <p className='uppercase font-serif text-xl'>{data.product}</p>
@@ -61,6 +73,11 @@ const BookingDetails = () => {
                         {data.contact}</span></p>
 
                     <p className='text-2xl'>Quantity: <span className='font-bold text-lg'>{data.quantity}</span></p>
+
+
+
+
+
                     <div>
                         {admin ? <div className='mt-6'>
                             <button onClick={() => handleDelete(data._id)} className='btn btn-sm btn-error'>Delete</button>

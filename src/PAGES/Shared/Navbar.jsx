@@ -4,6 +4,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import "./CSS/Navbar.css";
 import { AuthContext } from '../Contexts/UserContext';
 import { FaRegUserCircle } from 'react-icons/fa';
+import logo from '../../assets/logo_prevew.png'
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -54,8 +55,8 @@ const Navbar = () => {
     </>
 
     return (
-        <div className=''>
-            <div className="navbar bg-base-300 mt-0 fixed w-full z-10 top-0">
+        <div style={{ height: '80px' }}>
+            <div className="navbar bg-base-300 mt-0 w-full z-10">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -66,7 +67,9 @@ const Navbar = () => {
                         </ul>
                     </div>
                     {/* <a className="btn btn-ghost normal-case text-xl">daisyUI</a> */}
-                    <NavLink to='/' className="btn btn-ghost normal-case text-xl">HOME</NavLink>
+                    <NavLink to='/' style={{ width: '200px', height: '80px' }}>
+                        <img src={logo} alt="" />
+                    </NavLink>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">

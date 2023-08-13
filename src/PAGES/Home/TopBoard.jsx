@@ -19,7 +19,7 @@ const TopBoard = () => {
 
 
     return (
-        <div className="text-4xl font-bold bg-gradient-to-r from-red-500 to-zinc-800 flex flex-row justify-between px-5 items-center lg:fixed lg:top-0 w-full mx-auto z-10">
+        <div className="text-4xl font-bold bg-gradient-to-r from-teal-900 to-zinc-800 flex flex-row justify-between px-5 items-center lg:fixed lg:top-0 w-full mx-auto z-10">
             <div>
                 <div className='text-xl font-mono text-black flex flex-row justify-center items-center gap-2'>
                     <h1><FcClock></FcClock></h1>

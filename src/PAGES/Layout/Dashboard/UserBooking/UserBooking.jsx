@@ -25,6 +25,7 @@ const UserBooking = () => {
                 {/* head */}
                 <thead>
                     <tr className="text-indigo-500">
+                        <th>SL No</th>
                         <th>Product Name</th>
                         <th>Booking From</th>
                         <th>Catagory</th>
@@ -32,14 +33,15 @@ const UserBooking = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {data.map(booking => <tr key={booking._id}>
+                    {data.map((booking, index) => <tr key={booking._id}>
+                        <th>{index + 1}</th>
                         <td>
                             <div className="flex items-center space-x-3">
-                                {/* <div className="avatar">
-                                        <div className="mask mask-squircle w-12 h-12">
-                                            <img src="/tailwind-css-component-profile-2@56w.png" alt="Avatar Tailwind CSS Component" />
-                                        </div>
-                                    </div> */}
+                                <div className="avatar">
+                                    <div className="mask mask-squircle w-12 h-12">
+                                        <img src={booking?.image} onClick={() => handleNavigate(booking._id)} alt="Avatar Tailwind CSS Component" className="hover:cursor-pointer" />
+                                    </div>
+                                </div>
                                 <div>
                                     <div className="font-bold">{booking.product}</div>
                                 </div>

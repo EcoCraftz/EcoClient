@@ -7,7 +7,8 @@ import app from '../../../Firebase/firebase.config';
 import useToken from '../Hooks/UseToken';
 import Loading from '../../Shared/Loading';
 import GoogleLogin from './GoogleLogin';
-
+// import registration from "../../../assets/registration.gif";
+import bg from "../../../assets/logo-removebg-preview.png";
 
 const Register = () => {
 
@@ -62,7 +63,11 @@ const Register = () => {
     }
 
     return (
-        <div className='flex h-screen justify-center items-center'>
+        <div className='flex lg:flex-row flex-col-reverse gap-10 h-screen justify-center items-center'
+        >
+            <div>
+                <img src={bg} alt="" className='max-w-1/2' />
+            </div>
             <div className="card w-96 bg-base-100 shadow-xl">
                 <div className="card-body">
                     <h2 className="text-center text-2xl font-bold">Register</h2>

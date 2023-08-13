@@ -7,7 +7,7 @@ import { getAuth } from 'firebase/auth';
 import Loading from '../../Shared/Loading';
 import useToken from '../Hooks/UseToken';
 import GoogleLogin from './GoogleLogin';
-
+import login from '../../../assets/login-animate.gif';
 const Login = () => {
 
     const { register, formState: { errors }, handleSubmit } = useForm();
@@ -47,7 +47,10 @@ const Login = () => {
     }
 
     return (
-        <div className='flex h-screen justify-center items-center'>
+        <div className='flex lg:flex-row flex-col-reverse gap-10 h-screen justify-center items-center'>
+            <div className=''>
+                <img src={login} alt="" className='max-w-1/2' />
+            </div>
             <div className="card w-96 bg-base-100 shadow-xl">
                 <div className="card-body">
                     <h2 className="text-center font-bold text-2xl">Login</h2>
