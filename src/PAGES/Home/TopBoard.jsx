@@ -23,7 +23,7 @@ const TopBoard = () => {
             <div>
                 <div className='text-xl font-mono text-black flex flex-row justify-center items-center gap-2'>
                     <h1><FcClock></FcClock></h1>
-                    <p className='font-thin'>{time.toLocaleTimeString()}</p>
+                    <p className='font-thin text-warning'>{time.toLocaleTimeString()}</p>
                 </div>
             </div>
             <div>

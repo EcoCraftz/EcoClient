@@ -55,7 +55,7 @@ const Navbar = () => {
     </>
 
     return (
-        <div style={{ height: '80px' }}>
+        <div style={{ height: '80px' }} className='flex flex-row justify-center items-center'>
             <div className="navbar bg-base-300 mt-0 w-full z-10">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -67,9 +67,11 @@ const Navbar = () => {
                         </ul>
                     </div>
                     {/* <a className="btn btn-ghost normal-case text-xl">daisyUI</a> */}
-                    <NavLink to='/' style={{ width: '200px', height: '80px' }}>
-                        <img src={logo} alt="" />
-                    </NavLink>
+                    <div>
+                        <NavLink to='/'>
+                            <img src={logo} alt="" style={{ width: '200px', height: '100px' }} />
+                        </NavLink>
+                    </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">

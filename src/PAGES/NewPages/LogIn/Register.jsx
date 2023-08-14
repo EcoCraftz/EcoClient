@@ -63,14 +63,14 @@ const Register = () => {
     }
 
     return (
-        <div className='flex lg:flex-row flex-col-reverse gap-10 h-screen justify-center items-center'
+        <div className='flex lg:flex-row gap-10 h-screen justify-center items-center'
         >
-            <div>
+            <div className='hidden lg:flex'>
                 <img src={bg} alt="" className='max-w-1/2' />
             </div>
             <div className="card w-96 bg-base-100 shadow-xl">
                 <div className="card-body">
-                    <h2 className="text-center text-2xl font-bold">Register</h2>
+                    <h2 className="text-center text-2xl font-bold">Register Here</h2>
                     <form onSubmit={handleSubmit(onSubmit)}>
 
                         <div className="form-control w-full max-w-xs">

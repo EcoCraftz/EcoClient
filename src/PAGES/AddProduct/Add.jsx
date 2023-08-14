@@ -1,6 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import bg from "../../assets/1.png";
 
 const Add = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
@@ -38,11 +39,28 @@ const Add = () => {
             }
         });
     }
+    const saturation = 25;
+    const blurAmount = 50;
+    const brightness = 5;
+    // const opacity = 0.65;
     return (
-        <div>
+        <div className="w-full bg-base-100 shadow-xl image-full mb-4"
+
+            style={{
+                backgroundImage: `url(${bg})`,
+                WebkitFilter: `brightness(${brightness}%) saturation(${saturation}%) blur(${blurAmount}px)`,
+                filter: `brightness(${brightness}%) saturation(${saturation}%) blur(${blurAmount}px)`,
+                backgroundRepeat: "repeat",
+
+            }}>
+
+
+
+
+
             <h2 className="text-center font-bold text-2xl uppercase mt-5">Add A Product</h2>
             <div className='flex h-screen justify-center items-start'>
-                <div className="card w-96 bg-base-100 shadow-xl">
+                <div className="card w-96 glass shadow-xl">
                     <div className="card-body">
                         {/* <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto repellat laborum fugit expedita dicta sequi? Consequuntur illum earum dolorum facere amet dignissimos recusandae! Fugiat, veritatis. Rerum quos nostrum dolores quis necessitatibus porro illo inventore officia adipisci! Optio repellat veniam impedit odit voluptate voluptatibus vero, dignissimos expedita, iusto molestias, molestiae facilis.</p> */}
 
@@ -54,7 +72,7 @@ const Add = () => {
                                 <input
                                     type="text"
                                     placeholder="Name here"
-                                    className="input input-bordered w-full max-w-xs"
+                                    className="input input-bordered border-spacing-4 w-full max-w-xs"
                                     {...register("name", {
                                         required: {
                                             value: true,

@@ -54,7 +54,7 @@ const UserBooking = () => {
                         </td>
                         <td>{booking.catagory}</td>
                         <th>
-                            <button onClick={() => handleNavigate(booking._id)} className="btn btn-ghost btn-xs">details</button>
+                            <button onClick={() => handleNavigate(booking._id)} className="btn bg-black btn-xs text-white hover:bg-warning">details</button>
                         </th>
                     </tr>)}
                 </tbody>
