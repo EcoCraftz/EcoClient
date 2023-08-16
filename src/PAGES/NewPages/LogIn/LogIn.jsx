@@ -25,7 +25,7 @@ const Login = () => {
     let from = location.state?.from?.pathname || "/";
 
     const onSubmit = data => {
-        console.log(data)
+        // console.log(data)
         signInWithEmailAndPassword(data.email, data.password);
     };
     const navigate = useNavigate()
@@ -64,6 +64,7 @@ const Login = () => {
                                 type="email"
                                 placeholder="Email here"
                                 className="input input-bordered w-full max-w-xs"
+                                style={{ border: "1px solid blue" }}
                                 {...register("email", {
                                     required: {
                                         value: true,
@@ -89,6 +90,7 @@ const Login = () => {
                                 type="password"
                                 placeholder="Password here"
                                 className="input input-bordered w-full max-w-xs"
+                                style={{ border: "1px solid blue" }}
                                 {...register("password", {
                                     required: {
                                         value: true,

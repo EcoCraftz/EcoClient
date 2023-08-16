@@ -20,6 +20,7 @@ import UserBooking from "../Layout/Dashboard/UserBooking/UserBooking";
 import YourBooking from "../Layout/Dashboard/YourBooking/YourBooking";
 import BookingDetails from "../Bookings/BookingDetails";
 import EditBooking from "../Layout/Dashboard/YourBooking/EditBooking";
+import EditSelected from "../SelectedProduct/Edit/EditSelected";
 
 
 
@@ -108,6 +109,11 @@ const router = createBrowserRouter([{
                 path: '/dashboard/editBooking/:id',
                 element: <EditBooking />
             },
+            {
+                path: '/dashboard/editSelected/:id',
+                element: <EditSelected />
+            },
+
 
 
 

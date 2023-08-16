@@ -12,6 +12,7 @@ const Message = () => {
                     initial={{ opacity: 0, scale: 0, y: 100 }}
                     whileInView={{ opacity: 1, scale: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
+                    viewport={{ once: true }}
                     className="hero-content flex-col lg:flex-row-reverse  border rounded-xl shadow-2xl">
                     <img src={bird} className="max-w-sm rounded-lg shadow-2xl" />
                     <div className='px-10'>
@@ -23,6 +24,7 @@ const Message = () => {
                     initial={{ opacity: 0, scale: 0, y: 100 }}
                     whileInView={{ opacity: 1, scale: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
+                    viewport={{ once: true }}
                     className="hero-content flex-col lg:flex-row border rounded-xl shadow-2xl" >
                     <img src={bird} className="max-w-sm rounded-lg shadow-2xl" />
                     <div className='px-10'>
@@ -36,6 +38,7 @@ const Message = () => {
                 initial={{ opacity: 0, scale: 0, y: 100 }}
                 whileInView={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
                 className="card w-full bg-base-100 shadow-xl image-full mb-4">
                 <figure><img src={bg} alt="BG" /></figure>
                 <div className="card-body">

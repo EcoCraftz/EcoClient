@@ -7,7 +7,7 @@ const useToken = user => {
         const name = user?.user?.displayName;
         const curentUser = { email: email, name: name };
         if (email) {
-            console.log(curentUser);
+            // console.log(curentUser);
             fetch(`http://localhost:4000/user/${email}`, {
                 method: "PUT",
                 headers: {
@@ -15,7 +15,7 @@ const useToken = user => {
                 },
                 body: JSON.stringify(curentUser)
             }).then(res => res.json()).then(data => {
-                console.log("inside useToken", data);
+                // console.log("inside useToken", data);
                 const accessToken = data.token;
                 localStorage.setItem('accessToken', accessToken);
                 setToken(accessToken);

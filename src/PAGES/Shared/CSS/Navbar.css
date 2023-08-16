@@ -39,7 +39,7 @@
         position: absolute;
         margin-top: 30px;
         z-index: 2;
-        background-image: linear-gradient(rgba(45, 192, 118, 0.712), rgba(114, 175, 86, 0.788));
+        background-image: linear-gradient(rgba(45, 192, 118, 0.9), rgba(114, 175, 86, 0.9));
         color: rgb(4, 4, 27);
         border-radius: 5px;
 

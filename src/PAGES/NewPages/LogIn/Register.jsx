@@ -81,6 +81,7 @@ const Register = () => {
                                 type="text"
                                 placeholder="Your Name"
                                 className="input input-bordered w-full max-w-xs"
+                                style={{ border: "1px solid black" }}
                                 {...register("name", {
                                     required: {
                                         value: true,
@@ -105,6 +106,7 @@ const Register = () => {
                                 type="email"
                                 placeholder="Your Email"
                                 className="input input-bordered w-full max-w-xs"
+                                style={{ border: "1px solid black" }}
                                 {...register("email", {
                                     required: {
                                         value: true,
@@ -129,6 +131,7 @@ const Register = () => {
                                 type="password"
                                 placeholder="Password"
                                 className="input input-bordered w-full max-w-xs"
+                                style={{ border: "1px solid black" }}
                                 {...register("password", {
                                     required: {
                                         value: true,

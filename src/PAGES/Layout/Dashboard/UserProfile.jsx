@@ -4,9 +4,6 @@ import { MdDeleteForever } from 'react-icons/md';
 import { getAuth } from "firebase/auth";
 import app from "../../../Firebase/firebase.config";
 import { useAuthState } from "react-firebase-hooks/auth";
-// import app from "../../../Firebase/firebase.config";
-// import { getAuth } from "firebase/auth";
-// import { useAuthState } from "react-firebase-hooks/auth";
 
 const UserProfile = () => {
     const auth = getAuth(app);
@@ -24,7 +21,6 @@ const UserProfile = () => {
     if (isLoading) {
         return <Loading></Loading>
     }
-    console.log(data);
 
     const makeAdmin = (email) => {
         fetch(`http://localhost:4000/user/admin/${email}`, {

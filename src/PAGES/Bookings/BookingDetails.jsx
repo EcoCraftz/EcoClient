@@ -46,7 +46,6 @@ const BookingDetails = () => {
                 })
         }
     }
-    console.log("SELECTED BOOKING", email);
     const saturation = 25;
     const blurAmount = 50;
     const brightness = 5;

@@ -19,7 +19,7 @@ const YourBooking = () => {
     const handleNavigate = (id) => {
         navigate(`/dashboard/bookingDetails/${id}`);
     }
-    console.log("your data", data)
+    // console.log("your data", data)
     return (
 
         <div className="overflow-x-auto">

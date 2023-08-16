@@ -11,7 +11,7 @@ const Add = () => {
         const formData = new FormData();
         const image = data.image[0];
         formData.append('image', image);
-        const url = `https://api.imgbb.com/1/upload?key=2a3fc4f6e67cf2e4035b828c8ded79ad`;
+        const url = `https://api.imgbb.com/1/upload?key=116aa0d121bd7177af4e1e86cf6e9223`;
         fetch(url, {
             method: "POST",
             body: formData
@@ -72,7 +72,8 @@ const Add = () => {
                                 <input
                                     type="text"
                                     placeholder="Name here"
-                                    className="input input-bordered border-spacing-4 w-full max-w-xs"
+                                    className="input input-bordered w-full max-w-xs"
+                                    style={{ border: "1px solid green" }}
                                     {...register("name", {
                                         required: {
                                             value: true,
@@ -95,6 +96,7 @@ const Add = () => {
                                     type="select"
                                     placeholder="Select Catagory"
                                     className="input input-bordered w-full max-w-xs"
+                                    style={{ border: "1px solid green" }}
                                     {...register("catagory", {
                                         required: {
                                             value: true,
@@ -124,6 +126,7 @@ const Add = () => {
                                     type="textarea"
                                     placeholder="description here"
                                     className="input input-bordered w-full max-w-xs"
+                                    style={{ border: "1px solid green" }}
                                     {...register("description", {
                                         required: {
                                             value: true,
@@ -146,7 +149,8 @@ const Add = () => {
                                 <input
                                     type="file"
                                     placeholder="image here"
-                                    className="input input-bordered w-full max-w-xs"
+                                    className="input-bordered w-full max-w-xs"
+
                                     {...register("image", {
                                         required: {
                                             value: true,

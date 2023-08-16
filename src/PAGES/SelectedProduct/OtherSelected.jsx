@@ -5,13 +5,15 @@ import { useNavigate, useParams } from 'react-router-dom';
 import Loading from '../Shared/Loading';
 import { HiOutlineHome } from 'react-icons/hi';
 import { AuthContext } from '../Contexts/UserContext';
+import useAdmin from '../NewPages/Hooks/UseAdmin';
+import { BiEdit } from 'react-icons/bi';
 
 const OtherSelected = () => {
     const { user } = useContext(AuthContext);
-    console.log("Context: ", user);
+    const [admin] = useAdmin(user);
     const { catagory } = useParams();
     const navigate = useNavigate();
-    const { data, isLoading } = useQuery({
+    const { data, isLoading, refetch } = useQuery({
         queryKey: ["other"],
         queryFn: async () => {
             const res = await fetch(`http://localhost:4000/other/${catagory}`);
@@ -26,6 +28,29 @@ const OtherSelected = () => {
 
     const handleSelected = (id) => {
         navigate(`/products/${id}`);
+    }
+
+    const handleEdit = id => {
+        navigate(`/dashboard/editSelected/${id}`);
+    }
+
+    const handleDelete = (id, name) => {
+        console.log(id);
+        const procced = confirm(`Are you sure to Delete ${name}!`);
+        if (procced) {
+            fetch(`http://localhost:4000/deleteProduct/${id}`, {
+                method: 'DELETE',
+                headers: {
+                    "authorization": `Bearer ${localStorage.getItem('accessToken')}`
+                }
+            }).then(res => res.json())
+                .then(data => {
+                    if (data.deletedCount) {
+                        alert(`${name} is deleted`);
+                        refetch();
+                    }
+                })
+        }
     }
     return (
         <>
@@ -46,9 +71,15 @@ const OtherSelected = () => {
                             <p>Catagory:{other.catagory}</p>
                             <p>{other.description.slice(0, 55)}...</p>
                             <div className="card-actions justify-start overflow-hidden">
-                                <button className="btn btn-sm btn-success"
-                                    onClick={() => handleSelected(other._id)}
-                                >Learn More</button>
+                                {admin ? <button className="btn btn-sm btn-warning"
+                                    onClick={() => handleEdit(other._id)}
+                                >Edit<BiEdit /></button>
+                                    : <button className="btn btn-sm btn-success"
+                                        onClick={() => handleSelected(other._id)}
+                                    >Learn More</button>}
+                                {admin && <button onClick={() => handleDelete(other._id, other.name)}
+
+                                    className='btn btn-sm btn-error'>Delete</button>}
                             </div>
                         </div>
                     </div>)
