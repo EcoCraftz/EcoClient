@@ -22,7 +22,9 @@
     "react-icons": "^4.10.1",
     "react-image-magnify": "^2.7.4",
     "react-router-dom": "^6.13.0",
-    "react-sweetalert2": "^0.6.0"
+    "react-slideshow-image": "^4.2.1",
+    "react-sweetalert2": "^0.6.0",
+    "swiper": "^10.2.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.37",

@@ -3,7 +3,7 @@ import React from 'react';
 import TopBoard from './TopBoard';
 import Banner from './Banner';
 import HomeNav from './HomeNav';
-import Message from './Message';
+import ExtraPage from './Extra/ExtraPage';
 
 const Home = () => {
 
@@ -12,8 +12,7 @@ const Home = () => {
             <TopBoard></TopBoard>
             <HomeNav></HomeNav>
             <Banner></Banner>
-            <Message></Message>
-
+            <ExtraPage />
         </div>
     );
 };

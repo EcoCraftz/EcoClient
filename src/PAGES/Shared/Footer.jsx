@@ -19,7 +19,7 @@ const Footer = () => {
                 <div>
                     <span className="text-xl text-blue-500 uppercase font-bold">Company</span>
                     <Link to="/" className=" hover:text-blue-500">Home</Link>
-                    <Link to="" className=" hover:text-blue-500">About us</Link>
+                    <Link to="/about" className=" hover:text-blue-500">About us</Link>
                     <Link to="" className=" hover:text-blue-500">Contact</Link>
                     <Link to="" className=" hover:text-blue-500">Jobs</Link>
                 </div>

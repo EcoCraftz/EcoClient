@@ -21,6 +21,7 @@ import YourBooking from "../Layout/Dashboard/YourBooking/YourBooking";
 import BookingDetails from "../Bookings/BookingDetails";
 import EditBooking from "../Layout/Dashboard/YourBooking/EditBooking";
 import EditSelected from "../SelectedProduct/Edit/EditSelected";
+import About from "../Shared/About";
 
 
 
@@ -65,6 +66,11 @@ const router = createBrowserRouter([{
     {
         path: '/selected/:catagory',
         element: <Catagory></Catagory>
+
+    },
+    {
+        path: '/about',
+        element: <About></About>
 
     },
     //this is private route area
