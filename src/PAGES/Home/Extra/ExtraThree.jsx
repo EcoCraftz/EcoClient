@@ -10,8 +10,8 @@ const ExtraThree = () => {
     ];
     return (
         <div className='px-24'>
-            <div className='w-1/2 mx-auto'>
-                <Zoom scale={1.4} indicators={true}>
+            <div className='w-full lg:w-1/2 mx-auto'>
+                <Zoom scale={0.75} indicators={true}>
                     {images.map((each, index) => (
                         <div key={index} style={{ width: "100%" }}>
                             <img style={{ objectFit: "cover", width: "100%" }} alt="Slide Image" src={each} />

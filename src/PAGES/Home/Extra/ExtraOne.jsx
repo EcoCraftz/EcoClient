@@ -8,7 +8,7 @@ const responsiveSettings = [
     {
         breakpoint: 800,
         settings: {
-            slidesToShow: 3,
+            slidesToShow: 4,
             slidesToScroll: 3
         }
     },
@@ -16,7 +16,14 @@ const responsiveSettings = [
         breakpoint: 500,
         settings: {
             slidesToShow: 2,
-            slidesToScroll: 2
+            slidesToScroll: 1,
+        }
+    },
+    {
+        breakpoint: 400,
+        settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
         }
     }
 ];
@@ -26,10 +33,14 @@ const images = [
 const ExtraOne = () => {
     return (
         <div>
-            <Slide slidesToScroll={2} slidesToShow={2} indicators={true} responsive={responsiveSettings} >
+            <h2 className="text-2xl font-serif ms-4">About Jute</h2>
+            <p className="text-md font-semibold ms-8 flex-wrap">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta architecto laboriosam accusamus dolorum eveniet veniam eius voluptas nemo nobis molestias iusto quasi, necessitatibus quia rerum ipsa amet quibusdam dignissimos minus.</p>
+            <Slide slidesToScroll={2} slidesToShow={2} indicators={true} responsive={responsiveSettings} duration={2000}>
                 {images.map((each, index) => (
-                    <div key={index} style={{ width: "100%" }}>
-                        <img style={{ objectFit: "cover", width: "80%", height: "180px" }} alt="Slide Image" src={each} className="mx-auto" />
+                    <div className="card card-compact bg-base-100 shadow-xl min-h-full" key={index} style={{ width: "100%" }}>
+                        <div className="card-body">
+                            <img style={{ objectFit: "cover", width: "95%", height: "180px", borderRadius: "20px" }} alt="Slide Image" src={each} className="mx-auto" />
+                        </div>
                     </div>
                 ))}
             </Slide>
@@ -38,3 +49,9 @@ const ExtraOne = () => {
 };
 
 export default ExtraOne;
+
+{/* <div key={index} style={{ width: "100%" }}>
+<img style={{ objectFit: "cover", width: "95%", height: "180px" }} alt="Slide Image" src={each} className="mx-auto" />
+</div> */}
+
+
