@@ -1,9 +1,14 @@
 import { Slide } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css';
 import { motion } from 'framer-motion';
-import { useQuery } from "@tanstack/react-query";
-import Loading from "../../Shared/Loading";
-import { useNavigate } from 'react-router-dom';
+// import { useQuery } from "@tanstack/react-query";
+// import Loading from "../../Shared/Loading";
+// import { useNavigate } from 'react-router-dom';
+
+import img1 from "../../../assets/1.png";
+import img2 from "../../../assets/2.jpg";
+import img3 from "../../../assets/bird.png";
+import img4 from "../../../assets/1.png";
 const responsiveSettings = [
     {
         breakpoint: 800,
@@ -29,26 +34,28 @@ const responsiveSettings = [
 ];
 
 
-
+const images = [
+    img1, img2, img3, img4
+];
 
 const ExtraOne = () => {
-    const navigate = useNavigate();
-    const { data, isLoading } = useQuery({
-        queryKey: ["juteProducts"],
-        queryFn: async () => {
-            const res = await fetch('http://localhost:4000/products');
-            const data = await res.json();
-            return data;
-        }
-    });
+    // const navigate = useNavigate();
+    // const { data, isLoading } = useQuery({
+    //     queryKey: ["juteProducts"],
+    //     queryFn: async () => {
+    //         const res = await fetch('http://localhost:4000/products');
+    //         const data = await res.json();
+    //         return data;
+    //     }
+    // });
 
-    if (isLoading) {
-        return <Loading></Loading>
-    }
+    // if (isLoading) {
+    //     return <Loading></Loading>
+    // }
 
-    const handleSelected = (id) => {
-        navigate(`/products/${id}`);
-    }
+    // const handleSelected = (id) => {
+    //     navigate(`/products/${id}`);
+    // }
     return (
         <motion.div style={{ backgroundColor: '#ABEBC6' }}
             initial={{ opacity: 0, scale: 0, y: 100 }}
@@ -64,11 +71,19 @@ const ExtraOne = () => {
 
 
             <Slide slidesToScroll={2} slidesToShow={2} indicators={true} responsive={responsiveSettings} duration={2000}>
-                {data.map((each, index) => (
+                {/* {data.map((each, index) => (
                     <div className="card card-compact glass shadow-xl min-h-full" key={index} style={{ width: "98%" }}>
                         <div className="card-body">
                             <img onClick={() => handleSelected(each?._id)}
                                 style={{ objectFit: "cover", width: "95%", height: "180px", borderRadius: "20px" }} alt="Slide Image" src={each?.image} className="mx-auto cursor-pointer" />
+                        </div>
+                    </div>
+                ))} */}
+
+                {images.map((each, index) => (
+                    <div className="card card-compact glass shadow-xl min-h-full" key={index} style={{ width: "98%" }}>
+                        <div className="card-body">
+                            <img style={{ objectFit: "cover", width: "95%", height: "180px", borderRadius: "20px" }} alt="Slide Image" src={each} className="mx-auto" />
                         </div>
                     </div>
                 ))}
