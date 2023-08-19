@@ -29,7 +29,7 @@ const TopBoard = () => {
             <div>
                 <div className='text-lg font-serif text-white flex flex-row justify-start items-center gap-2'>
                     <h1><SiMinutemailer></SiMinutemailer></h1>
-                    <h1>xyz@gmail.com</h1>
+                    <h1>ecocraftzbd@gmail.com</h1>
                 </div>
                 <div className='text-lg font-serif text-white flex flex-row justify-start items-center gap-2'>
                     <h1><BiSolidPhoneCall></BiSolidPhoneCall></h1>

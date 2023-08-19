@@ -16,12 +16,12 @@ const Banner = () => {
     ];
     return (
 
-        < div className='max-h-screen overflow-hidden my-4'>
-            <Zoom scale={0.75} indicators={true} duration={1500}>
+        < div className='max-h-screen overflow-hidden my-4 lg:block'>
+            <Zoom scale={0.75} indicators={true} duration={2500} cssClass=' -z-40'>
                 {images.map((each, index) => (
                     <div key={index} style={{ width: "100%" }} className='card card-compact bg-base-100 shadow-xl min-h-full'>
                         <div className='card-body' id='Slide'>
-                            <img style={{ objectFit: "cover", width: "90%", borderRadius: "15px" }} alt="Slide Image" src={each} className='mx-auto' />
+                            <img style={{ objectFit: "cover", width: "98%", height: "450px", borderRadius: "15px" }} alt="Slide Image" src={each} className='mx-auto' />
                         </div>
                     </div>
                 ))}
