@@ -33,14 +33,18 @@ const images = [
 ];
 const ExtraTwo = () => {
     return (
-        <motion.div style={{ backgroundColor: '#F5CBA7' }}
+        <motion.div
             initial={{ opacity: 0, scale: 0, y: 100 }}
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
             className="mx-4 rounded-2xl shadow-xl shadow-slate-200 my-2">
-            <h2 className="text-2xl font-serif ms-4">About Handicrafts</h2>
-            <p className="text-md font-semibold ms-8 flex-wrap">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta architecto laboriosam accusamus dolorum eveniet veniam eius voluptas nemo nobis molestias iusto quasi, necessitatibus quia rerum ipsa amet quibusdam dignissimos minus.</p>
+            <div className='rounded-lg shadow-lg shadow-orange-400 mb-4'>
+                <div className="text-2xl font-serif font-semibold w-fit ms-2 my-4 border-b border-b-teal-500">
+                    About Handicrafts
+                </div>
+                <p className="text-md font-semibold ms-8 flex-wrap">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta architecto laboriosam accusamus dolorum eveniet veniam eius voluptas nemo nobis molestias iusto quasi, necessitatibus quia rerum ipsa amet quibusdam dignissimos minus.</p>
+            </div>
             <Slide slidesToScroll={2} slidesToShow={2} indicators={true} responsive={responsiveSettings} duration={2000}>
                 {images.map((each, index) => (
                     <div className="card card-compact glass shadow-xl min-h-full" key={index} style={{ width: "98%" }}>

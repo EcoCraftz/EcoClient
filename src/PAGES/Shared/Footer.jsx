@@ -33,7 +33,7 @@ const Footer = () => {
             <footer className="footer px-10 py-4 border-t bg-gray-900 text-base-content border-base-300">
 
                 <div className="md:place-self-center md:justify-self-start">
-                    <div><span className='text-lg text-white hover:text-green-600'>Stay Connected</span><hr /></div>
+                    <div className='border-b-amber-500 border-b'><span className='text-lg text-white hover:text-green-600'>Stay Connected</span></div>
                     <div className="grid grid-flow-col gap-4 justify-start items-center">
                         <div><span className='text-2xl text-teal-500'><FaTwitter /></span></div>
                         <div><span className='text-2xl text-blue-500'><BsFacebook /></span></div>

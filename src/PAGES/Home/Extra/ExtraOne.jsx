@@ -57,7 +57,7 @@ const ExtraOne = () => {
     //     navigate(`/products/${id}`);
     // }
     return (
-        <motion.div style={{ backgroundColor: '#ABEBC6' }}
+        <motion.div
             initial={{ opacity: 0, scale: 0, y: 100 }}
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -65,9 +65,14 @@ const ExtraOne = () => {
             className="mx-4 rounded-2xl shadow-xl shadow-slate-200 my-8">
 
 
-            <h2 className="text-2xl font-serif ms-4">About Jute Products</h2>
+            <div
+                className='rounded-lg shadow-lg shadow-green-400'>
+                <div className="text-2xl font-serif font-semibold w-fit ms-2 my-4 border-b border-b-amber-500">
+                    About Jute Products
+                </div>
 
-            <p className="text-md font-semibold ms-8 flex-wrap">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta architecto laboriosam accusamus dolorum eveniet veniam eius voluptas nemo nobis molestias iusto quasi, necessitatibus quia rerum ipsa amet quibusdam dignissimos minus.</p>
+                <p className="text-md font-semibold ms-8 flex-wrap">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta architecto laboriosam accusamus dolorum eveniet veniam eius voluptas nemo nobis molestias iusto quasi, necessitatibus quia rerum ipsa amet quibusdam dignissimos minus.</p>
+            </div>
 
 
             <Slide slidesToScroll={2} slidesToShow={2} indicators={true} responsive={responsiveSettings} duration={2000}>
