@@ -127,7 +127,7 @@ const EditSelected = () => {
                     {!isAgree && <div>
                         <h1 className="text-5xl font-bold">{data.name}</h1>
                         <h3 className="text-2xl font-serif text-white">Catagory: {data.catagory}</h3>
-                        <p className="py-6">{data.description}</p>
+                        <p className="py-6 text-white font-serif">{data.description}</p>
                         <button onClick={() => setIsAgree(true)}
                             className="btn btn-sm btn-warning">Change Information</button>
 

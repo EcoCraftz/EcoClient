@@ -13,7 +13,7 @@ const ExtraThree = () => {
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-2">
                 {
                     images.map((img, index) => <div key={index}>
-                        <img src={img} alt="" className="w-full rounded-xl shadow-2xl shadow-white" />
+                        <img src={img} alt="" className="w-full rounded-xl shadow-xl shadow-white" />
                     </div>)
                 }
             </div>
