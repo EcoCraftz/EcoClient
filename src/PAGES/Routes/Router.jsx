@@ -3,11 +3,9 @@ import LandingPage from "../Layout/LandingPage";
 import Home from "../Home/Home";
 import Loading from "../Shared/Loading";
 import Add from "../AddProduct/Add";
-import Products from "../Products/products";
 import ProductCart from "../Products/ProductCart";
 import Selected from "../SelectedProduct/Selected";
 import OtherSelected from "../SelectedProduct/OtherSelected";
-import Catagory from "../Catagory/Catagory";
 import DashbordLayout from "../Layout/Dashboard/DashbordLayout";
 import Dashbord from "../Layout/Dashboard/Dashbord";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
@@ -22,6 +20,8 @@ import BookingDetails from "../Bookings/BookingDetails";
 import EditBooking from "../Layout/Dashboard/YourBooking/EditBooking";
 import EditSelected from "../SelectedProduct/Edit/EditSelected";
 import About from "../Shared/About";
+import Products from "../Products/Products";
+import ExtraForMobile from "../Home/Extra/ExtraForMobile";
 
 
 
@@ -63,15 +63,15 @@ const router = createBrowserRouter([{
         element: <OtherSelected></OtherSelected>
 
     },
-    {
-        path: '/selected/:catagory',
-        element: <Catagory></Catagory>
 
-    },
     {
         path: '/about',
         element: <About></About>
 
+    },
+    {
+        path: '/catagory',
+        element: <ExtraForMobile />
     },
     //this is private route area
     {
