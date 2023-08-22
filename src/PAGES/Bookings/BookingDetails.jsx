@@ -6,9 +6,11 @@ import app from '../../Firebase/firebase.config';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import useAdmin from '../NewPages/Hooks/UseAdmin';
 import bg from '../../assets/2.jpg';
+import { useState } from 'react';
 
 
 const BookingDetails = () => {
+    const [isShiped, setIsShiped] = useState(false);
     const navigate = useNavigate();
     const auth = getAuth(app);
     const [user] = useAuthState(auth);
@@ -46,6 +48,10 @@ const BookingDetails = () => {
                 })
         }
     }
+
+    const handleBack = () => {
+        { admin ? navigate(`/dashboard/userBooking`) : navigate(`/dashboard/yourBooking/${email}`) }
+    }
     const saturation = 25;
     const blurAmount = 50;
     const brightness = 5;
@@ -79,12 +85,13 @@ const BookingDetails = () => {
 
                     <div>
                         {admin ? <div className='mt-6'>
-                            <button onClick={() => handleDelete(data._id)} className='btn btn-sm btn-error'>Delete</button>
+                            {isShiped ? <button onClick={() => handleDelete(data._id)} className='btn btn-sm btn-error'>Delete</button> : <button onClick={() => setIsShiped(true)} className='btn btn-sm btn-success'>shipted</button>}
                         </div>
                             : <div className='mt-6'>
                                 <button onClick={() => handleEdit(data._id)} className='btn btn-sm btn-warning'>Edit</button>
                             </div>}
                     </div>
+                    <button onClick={handleBack} className='btn btn-sm btn-warning mt-2'>Back</button>
                 </div>
             </div>
         </div>
