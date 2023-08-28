@@ -12,7 +12,7 @@ const EditBooking = () => {
     const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
     useEffect(() => {
-        fetch(`http://localhost:4000/details/${id}`).then(res => res.json()).then(data => {
+        fetch(`https://eco-server-ecocraftz.vercel.app/details/${id}`).then(res => res.json()).then(data => {
             setEditData(data)
             setLoading(false)
         })
@@ -20,7 +20,7 @@ const EditBooking = () => {
     // const { data, isLoading } = useQuery({
     //     queryKey: ["editBooking"],
     //     queryFn: async () => {
-    //         const res = await fetch(`http://localhost:4000/details/${id}`);
+    //         const res = await fetch(`https://eco-server-ecocraftz.vercel.app/details/${id}`);
     //         const data = await res.json();
     //         return data;
     //     }
@@ -38,7 +38,7 @@ const EditBooking = () => {
         const country = form.country.value;
         const changedData = { contact, quantity, country }
         console.log(changedData);
-        fetch(`http://localhost:4000/updateBooking/${id}`, {
+        fetch(`https://eco-server-ecocraftz.vercel.app/updateBooking/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',

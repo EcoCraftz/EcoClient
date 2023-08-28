@@ -12,7 +12,7 @@ const UserProfile = () => {
     const { data, isLoading, refetch } = useQuery({
         queryKey: ["users"],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:4000/users`);
+            const res = await fetch(`https://eco-server-ecocraftz.vercel.app/users`);
             const data = await res.json();
             return data;
         }
@@ -23,7 +23,7 @@ const UserProfile = () => {
     }
 
     const makeAdmin = (email) => {
-        fetch(`http://localhost:4000/user/admin/${email}`, {
+        fetch(`https://eco-server-ecocraftz.vercel.app/user/admin/${email}`, {
             method: 'PUT',
             headers: {
                 "authorization": `Bearer ${localStorage.getItem('accessToken')}`
@@ -51,7 +51,7 @@ const UserProfile = () => {
         }
         const procced = confirm(`Are you sure to Delete ${email}!`);
         if (procced) {
-            fetch(`http://localhost:4000/users/${email}`, {
+            fetch(`https://eco-server-ecocraftz.vercel.app/users/${email}`, {
                 method: 'DELETE',
                 headers: {
                     "authorization": `Bearer ${localStorage.getItem('accessToken')}`

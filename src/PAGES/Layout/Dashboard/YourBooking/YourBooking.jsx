@@ -7,7 +7,7 @@ const YourBooking = () => {
     const { data, isLoading } = useQuery({
         queryKey: ["yourBookingData"],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:4000/bookings/${email}`);
+            const res = await fetch(`https://eco-server-ecocraftz.vercel.app/bookings/${email}`);
             const data = await res.json();
             return data;
         }

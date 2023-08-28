@@ -20,7 +20,7 @@ const BookingDetails = () => {
     const { data, isLoading } = useQuery({
         queryKey: ["BookingDetails"],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:4000/details/${id}`);
+            const res = await fetch(`https://eco-server-ecocraftz.vercel.app/details/${id}`);
             const data = await res.json();
             return data;
         }
@@ -37,7 +37,7 @@ const BookingDetails = () => {
     const handleDelete = id => {
         const procced = confirm(`Do you want to delete ${data.product} of ${id}`);
         if (procced) {
-            fetch(`http://localhost:4000/deleteBooking/${id}`, {
+            fetch(`https://eco-server-ecocraftz.vercel.app/deleteBooking/${id}`, {
                 method: 'DELETE',
                 headers: {
                     "authorization": `Bearer ${localStorage.getItem('accessToken')}`

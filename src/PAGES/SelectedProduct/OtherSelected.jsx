@@ -16,7 +16,7 @@ const OtherSelected = () => {
     const { data, isLoading, refetch } = useQuery({
         queryKey: ["other"],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:4000/other/${catagory}`);
+            const res = await fetch(`https://eco-server-ecocraftz.vercel.app/other/${catagory}`);
             const data = await res.json();
             return data;
         }
@@ -38,7 +38,7 @@ const OtherSelected = () => {
         console.log(id);
         const procced = confirm(`Are you sure to Delete ${name}!`);
         if (procced) {
-            fetch(`http://localhost:4000/deleteProduct/${id}`, {
+            fetch(`https://eco-server-ecocraftz.vercel.app/deleteProduct/${id}`, {
                 method: 'DELETE',
                 headers: {
                     "authorization": `Bearer ${localStorage.getItem('accessToken')}`

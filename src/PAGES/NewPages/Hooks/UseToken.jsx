@@ -8,7 +8,7 @@ const useToken = user => {
         const curentUser = { email: email, name: name };
         if (email) {
             // console.log(curentUser);
-            fetch(`http://localhost:4000/user/${email}`, {
+            fetch(`https://eco-server-ecocraftz.vercel.app/user/${email}`, {
                 method: "PUT",
                 headers: {
                     'context-type': "application/json"

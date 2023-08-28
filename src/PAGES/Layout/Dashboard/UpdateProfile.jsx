@@ -11,7 +11,7 @@ const UpdateProfile = () => {
     const { data, isLoading } = useQuery({
         queryKey: ["profile"],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:4000/profile/${email}`);
+            const res = await fetch(`https://eco-server-ecocraftz.vercel.app/profile/${email}`);
             const data = await res.json();
             return data;
         }

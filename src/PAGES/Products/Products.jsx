@@ -14,7 +14,7 @@ const Products = () => {
     const { data, isLoading } = useQuery({
         queryKey: ["products"],
         queryFn: async () => {
-            const res = await fetch('http://localhost:4000/products');
+            const res = await fetch('https://eco-server-ecocraftz.vercel.app/products');
             const data = await res.json();
             return data;
         }

@@ -7,7 +7,7 @@ const UserBooking = () => {
     const { data, isLoading } = useQuery({
         queryKey: ["bookings"],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:4000/bookings`);
+            const res = await fetch(`https://eco-server-ecocraftz.vercel.app/bookings`);
             const data = await res.json();
             return data;
         }

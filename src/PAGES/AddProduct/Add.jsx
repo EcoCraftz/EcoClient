@@ -25,7 +25,7 @@ const Add = () => {
                     description: data.description,
                     image: imgData.data.url
                 };
-                fetch('http://localhost:4000/products', {
+                fetch('https://eco-server-ecocraftz.vercel.app/products', {
                     method: 'POST',
                     headers: {
                         "Content-Type": "application/json"

@@ -16,7 +16,7 @@ const Selected = () => {
     const { data, isLoading } = useQuery({
         queryKey: ["product"],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:4000/products/${id}`);
+            const res = await fetch(`https://eco-server-ecocraftz.vercel.app/products/${id}`);
             const data = await res.json();
             return data;
         }
@@ -25,7 +25,7 @@ const Selected = () => {
     console.log(qCatagory);
 
     useEffect(() => {
-        const url = `http://localhost:4000/products`;
+        const url = `https://eco-server-ecocraftz.vercel.app/products`;
         fetch(url).then(res => res.json()).then(others => {
             const otherData = others.filter(other => other.catagory !== qCatagory);
             console.log(otherData);

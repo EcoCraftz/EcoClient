@@ -13,7 +13,7 @@ const Booking = () => {
     const { data, isLoading } = useQuery({
         queryKey: ["booking"],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:4000/products/${id}`);
+            const res = await fetch(`https://eco-server-ecocraftz.vercel.app/products/${id}`);
             const data = await res.json();
             return data;
         }
@@ -34,7 +34,7 @@ const Booking = () => {
             contact: form.contact.value,
             image: data.image
         };
-        fetch('http://localhost:4000/bookings', {
+        fetch('https://eco-server-ecocraftz.vercel.app/bookings', {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"

@@ -13,7 +13,7 @@ const EditSelected = () => {
     const { data, isLoading, refetch } = useQuery({
         queryKey: ["selected"],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:4000/products/${id}`);
+            const res = await fetch(`https://eco-server-ecocraftz.vercel.app/products/${id}`);
             const data = await res.json();
             return data;
         }
@@ -40,7 +40,7 @@ const EditSelected = () => {
                 const changedData = {
                     image: imgData.data.url
                 }
-                fetch(`http://localhost:4000/updateImage/${id}`, {
+                fetch(`https://eco-server-ecocraftz.vercel.app/updateImage/${id}`, {
                     method: 'PUT',
                     headers: {
                         'content-type': 'application/json',
@@ -66,7 +66,7 @@ const EditSelected = () => {
             description: info.description,
             image: data.image
         };
-        fetch(`http://localhost:4000/updateImage/${id}`, {
+        fetch(`https://eco-server-ecocraftz.vercel.app/updateImage/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
