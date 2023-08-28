@@ -35,7 +35,7 @@ const BookingDetails = () => {
 
 
     const handleDelete = id => {
-        const procced = confirm(`Do you want to delete ${data.product} of ${id}`);
+        const procced = confirm(`Do you want to delete ${data.product} !!`);
         if (procced) {
             fetch(`https://eco-server-ecocraftz.vercel.app/deleteBooking/${id}`, {
                 method: 'DELETE',
@@ -46,6 +46,9 @@ const BookingDetails = () => {
                 .then(deleted => {
                     if (deleted.deletedCount) { admin ? navigate(`/dashboard/userBooking`) : navigate(`/dashboard/yourBooking/${email}`) }
                 })
+        }
+        else {
+            setIsShiped(false);
         }
     }
 
@@ -85,13 +88,13 @@ const BookingDetails = () => {
 
                     <div>
                         {admin ? <div className='mt-6'>
-                            {isShiped ? <button onClick={() => handleDelete(data._id)} className='btn btn-sm btn-error'>Delete</button> : <button onClick={() => setIsShiped(true)} className='btn btn-sm btn-success'>shipted</button>}
+                            {isShiped ? <button onClick={() => handleDelete(data._id)} className='btn btn-sm btn-error'>Delete</button> : <button onClick={() => setIsShiped(true)} className='btn btn-sm btn-success'>Send to trash</button>}
                         </div>
                             : <div className='mt-6'>
                                 <button onClick={() => handleEdit(data._id)} className='btn btn-sm btn-warning'>Edit</button>
                             </div>}
                     </div>
-                    <button onClick={handleBack} className='btn btn-sm btn-warning mt-2'>Back</button>
+                    <button onClick={handleBack} className='btn btn-sm bg-teal-400 border-teal-400 mt-2 font-bold'>Back</button>
                 </div>
             </div>
         </div>

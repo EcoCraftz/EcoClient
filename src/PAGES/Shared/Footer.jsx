@@ -25,7 +25,7 @@ const Footer = () => {
                 </div>
                 <div>
                     <span className="text-xl text-green-400 uppercase font-bold">Legal</span>
-                    <Link to="" className=" hover:text-green-400">Terms of use</Link>
+                    <Link to="/terms" className=" hover:text-green-400">Terms of use</Link>
                     <Link to="" className=" hover:text-green-400">Privacy policy</Link>
                     <Link to="" className=" hover:text-green-400">Cookie policy</Link>
                 </div>

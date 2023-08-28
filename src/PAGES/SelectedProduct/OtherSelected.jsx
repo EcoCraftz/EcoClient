@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { useNavigate, useParams } from 'react-router-dom';
 import Loading from '../Shared/Loading';
@@ -7,8 +7,10 @@ import { HiOutlineHome } from 'react-icons/hi';
 import { AuthContext } from '../Contexts/UserContext';
 import useAdmin from '../NewPages/Hooks/UseAdmin';
 import { BiEdit } from 'react-icons/bi';
-
+import { BiSolidDashboard } from 'react-icons/bi';
+import { BsMenuButtonFill } from 'react-icons/bs';
 const OtherSelected = () => {
+    const [isCatagory, setIsCatagory] = useState(false);
     const { user } = useContext(AuthContext);
     const [admin] = useAdmin(user);
     const { catagory } = useParams();
@@ -52,13 +54,56 @@ const OtherSelected = () => {
                 })
         }
     }
+
+    const handleClick = async (catagory) => {
+        navigate(`/other/${catagory}`);
+        await fetch(`https://eco-server-ecocraftz.vercel.app/other/${catagory}`).then(res => res.json()).then(myData => {
+            if (myData.length) {
+                refetch();
+                setIsCatagory(false);
+            }
+        })
+    }
+
+
     return (
         <>
-            <div className='flex lg:flex-row lg:justify-start sm:flex-col sm:justify-center items-center gap-20 p-6'>
-                <button onClick={() => navigate('/')} className='btn btn-sm btn-warning'>
-                    <HiOutlineHome></HiOutlineHome>Home</button>
+            <div className='flex lg:flex-row lg:justify-start flex-col-reverse justify-center items-center lg:gap-10 gap-4 p-6'>
+
+                <div className='relative'>
+                    <div>
+                        <button onMouseEnter={() => setIsCatagory(!isCatagory)}
+                            className='btn btn-sm btn-warning mb-1'>
+                            <BsMenuButtonFill></BsMenuButtonFill>Catagories</button>
+                    </div>
+                    {
+                        isCatagory && <div className='flex flex-col items-start absolute z-10 bg-warning w-full p-2 rounded-lg'>
+                            <div onClick={() => handleClick("chandor")}
+                                className=' cursor-pointer uppercase mb-2 hover:border-b-4 hover:border-b-green-400'>chandor</div>
+
+                            <div onClick={() => handleClick("pot")}
+                                className='cursor-pointer uppercase mb-2 hover:border-b-4 hover:border-b-green-400'>pot</div>
+
+                            <div onClick={() => handleClick("sataronji")}
+                                className='cursor-pointer uppercase mb-2 hover:border-b-4 hover:border-b-green-400'>sataronji</div>
+
+                            <div onClick={() => handleClick("ladies bag")}
+                                className=' cursor-pointer uppercase mb-2 hover:border-b-4 hover:border-b-green-400'>ladies bag</div>
+
+                            <div onClick={() => handleClick("papose")}
+                                className='cursor-pointer uppercase mb-2 hover:border-b-4 hover:border-b-green-400'>papose</div>
+
+                        </div>
+                    }
+
+                </div>
+                <button onClick={() => navigate('/dashboard')} className='btn btn-sm btn-warning'>
+                    <BiSolidDashboard></BiSolidDashboard>Dashboard</button>
+                <div onClick={() => navigate('/')} className='btn btn-sm btn-warning'>
+                    <HiOutlineHome></HiOutlineHome>Home</div>
                 {/* {user?.displayName && <span>Welcome {user.displayName}</span>} */}
                 <h1 className='uppercase text-2xl font-serif font-bold'>Explore Our {catagory} </h1>
+
             </div>
             <div className='grid sm:grid-cols-1 lg:grid-cols-3 gap-2 my-5'>
 

@@ -22,6 +22,7 @@ import EditSelected from "../SelectedProduct/Edit/EditSelected";
 import About from "../Shared/About";
 import Products from "../Products/Products";
 import ExtraForMobile from "../Home/Extra/ExtraForMobile";
+import Terms from "../Licences/Terms";
 
 
 
@@ -73,6 +74,12 @@ const router = createBrowserRouter([{
         path: '/catagory',
         element: <ExtraForMobile />
     },
+
+    {
+        path: '/terms',
+        element: <Terms />
+    },
+
     //this is private route area
     {
         path: '/booking/:id',

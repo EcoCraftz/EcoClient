@@ -1,11 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Loading from "../../Shared/Loading";
 import bg from '../../../assets/logo_prevew.png'
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 const EditSelected = () => {
+    const navigate = useNavigate();
     const { register, formState: { errors }, handleSubmit } = useForm();
     const { id } = useParams();
     const [toggled, setToggled] = useState(false);
@@ -83,6 +84,10 @@ const EditSelected = () => {
         });
 
     }
+
+    const handleBack = (catalog) => {
+        navigate(`/other/${catalog}`);
+    }
     // console.log(data)
     return (
         <div>
@@ -128,8 +133,13 @@ const EditSelected = () => {
                         <h1 className="text-5xl font-bold">{data.name}</h1>
                         <h3 className="text-2xl font-serif text-white">Catagory: {data.catagory}</h3>
                         <p className="py-6 text-white font-serif">{data.description}</p>
-                        <button onClick={() => setIsAgree(true)}
-                            className="btn btn-sm btn-warning">Change Information</button>
+                        <div className="flex flex-col gap-2 w-fit">
+                            <button onClick={() => setIsAgree(true)}
+                                className="btn btn-sm btn-warning">Change Information</button>
+                            <button onClick={() => handleBack(data.catagory)}
+                                className="btn btn-sm btn-warning w-fit">Back</button>
+                        </div>
+
 
                     </div>}
 
@@ -221,6 +231,8 @@ const EditSelected = () => {
                             <input onClick={() => setIsAgree(false)} value="Unchanged" className='btn btn-sm w-full max-w-xs bg-green-300 hover:bg-green-600 mt-4' />
                         </form>
                     </div>}
+
+
 
                 </div>
             </div>
