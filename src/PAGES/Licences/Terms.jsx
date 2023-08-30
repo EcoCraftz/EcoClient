@@ -1,4 +1,4 @@
-
+import { ImAttachment } from "react-icons/im";
 const Terms = () => {
     const webTerms = [
         {
@@ -51,8 +51,8 @@ const Terms = () => {
             </div>
 
             {
-                webTerms.map((term, index) => <div key={index} className="my-4 w-3/4 mx-auto flex-wrap ">
-                    <h1 className="text-2xl font-semibold">{term.title}</h1>
+                webTerms.map((term, index) => <div key={index} className="my-4 w-full lg:w-3/4 mx-auto flex-wrap ">
+                    <h1 className="text-2xl font-semibold flex flex-row justify-start items-center my-2"><span className="text-lg"><ImAttachment></ImAttachment></span>{term.title}</h1>
                     <p>{term.details}</p>
                 </div>)
             }

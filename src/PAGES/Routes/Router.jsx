@@ -23,6 +23,8 @@ import About from "../Shared/About";
 import Products from "../Products/Products";
 import ExtraForMobile from "../Home/Extra/ExtraForMobile";
 import Terms from "../Licences/Terms";
+import Policy from "../Licences/Policy";
+import Cookies from "../Licences/Cookies";
 
 
 
@@ -78,6 +80,14 @@ const router = createBrowserRouter([{
     {
         path: '/terms',
         element: <Terms />
+    },
+    {
+        path: '/policy',
+        element: <Policy />
+    },
+    {
+        path: '/cookie',
+        element: <Cookies />
     },
 
     //this is private route area

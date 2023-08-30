@@ -1,4 +1,4 @@
-import { FaTwitter } from 'react-icons/fa';
+import { FaLinkedin } from 'react-icons/fa';
 import { IoLogoYoutube } from 'react-icons/io';
 import { BsFacebook } from 'react-icons/bs';
 import { RiWhatsappFill } from 'react-icons/ri';
@@ -26,8 +26,8 @@ const Footer = () => {
                 <div>
                     <span className="text-xl text-green-400 uppercase font-bold">Legal</span>
                     <Link to="/terms" className=" hover:text-green-400">Terms of use</Link>
-                    <Link to="" className=" hover:text-green-400">Privacy policy</Link>
-                    <Link to="" className=" hover:text-green-400">Cookie policy</Link>
+                    <Link to="/policy" className=" hover:text-green-400">Privacy policy</Link>
+                    <Link to="/cookie" className=" hover:text-green-400">Cookie policy</Link>
                 </div>
             </footer>
             <footer className="footer px-10 py-4 border-t bg-gray-900 text-base-content border-base-300">
@@ -35,8 +35,18 @@ const Footer = () => {
                 <div className="md:place-self-center md:justify-self-start">
                     <div className='border-b-amber-500 border-b'><span className='text-lg text-white hover:text-green-600'>Stay Connected</span></div>
                     <div className="grid grid-flow-col gap-4 justify-start items-center">
-                        <div><span className='text-2xl text-teal-500'><FaTwitter /></span></div>
-                        <div><span className='text-2xl text-blue-500'><BsFacebook /></span></div>
+
+                        <div>
+                            <span className='text-2xl text-blue-500'>
+                                <a href='https://www.facebook.com/profile.php?id=100095597736036' target='_blank' rel="noopener noreferrer"><BsFacebook /></a></span>
+                        </div>
+
+                        <div>
+                            <span className='text-2xl text-teal-500'>
+                                <a href='https://www.linkedin.com/feed/?trk=homepage-basic_sign-in-submit' target='_blank' rel="noopener noreferrer">
+                                    <FaLinkedin /></a></span>
+                        </div>
+
                         <div><span className='text-2xl text-red-500'><IoLogoYoutube /></span></div>
                         <div><span className='text-xl text-orange-500'><ImInstagram /></span></div>
                         <div><span className='text-2xl text-green-500'><RiWhatsappFill /></span></div>
