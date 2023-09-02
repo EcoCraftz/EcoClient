@@ -5,10 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import Loading from "../../Shared/Loading";
 import { useNavigate } from 'react-router-dom';
 
-// import img1 from "../../../assets/1.png";
-// import img2 from "../../../assets/2.jpg";
-// import img3 from "../../../assets/bird.png";
-// import img4 from "../../../assets/1.png";
+
 const responsiveSettings = [
     {
         breakpoint: 800,
@@ -34,9 +31,7 @@ const responsiveSettings = [
 ];
 
 
-// const images = [
-//     img1, img2, img3, img4
-// ];
+
 
 const ExtraOne = () => {
     const navigate = useNavigate();
@@ -85,13 +80,6 @@ const ExtraOne = () => {
                     </div>
                 ))}
 
-                {/* {images.map((each, index) => (
-                    <div className="card card-compact glass shadow-xl min-h-full" key={index} style={{ width: "98%" }}>
-                        <div className="card-body">
-                            <img style={{ objectFit: "cover", width: "95%", height: "180px", borderRadius: "20px" }} alt="Slide Image" src={each} className="mx-auto" />
-                        </div>
-                    </div>
-                ))} */}
             </Slide>
         </motion.div>
     );

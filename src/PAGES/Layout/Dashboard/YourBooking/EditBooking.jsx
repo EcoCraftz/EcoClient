@@ -73,7 +73,7 @@ const EditBooking = () => {
             />
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <div className="text-center lg:text-left">
-                    <img src={editData.image} className="max-w-sm rounded-lg shadow-2xl" />
+                    <img src={editData.image} className="max-w-sm min-h-screen rounded-lg shadow-2xl overflow-hidden" />
 
                 </div>
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl">

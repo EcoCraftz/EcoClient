@@ -3,9 +3,25 @@ import { IoLogoYoutube } from 'react-icons/io';
 import { BsFacebook } from 'react-icons/bs';
 import { RiWhatsappFill } from 'react-icons/ri';
 import { ImInstagram } from 'react-icons/im';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { getAuth } from 'firebase/auth';
+import app from '../../Firebase/firebase.config';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { useContext } from 'react';
+import { AuthContext } from '../Contexts/UserContext';
 
 const Footer = () => {
+    const navigate = useNavigate();
+    const auth = getAuth(app);
+    const [user] = useAuthState(auth);
+    const { logOut } = useContext(AuthContext);
+    const signOut = () => {
+        logOut().then(() => {
+
+        }).catch(error => { console.error(error) })
+        navigate('/')
+    }
+
     return (
         <>
             <footer className="footer sm:w-full p-10 bg-gray-700 text-white">
@@ -21,7 +37,9 @@ const Footer = () => {
                     <Link to="/" className=" hover:text-blue-500">Home</Link>
                     <Link to="/about" className=" hover:text-blue-500">About us</Link>
                     <Link to="" className=" hover:text-blue-500">Contact</Link>
-                    <Link to="" className=" hover:text-blue-500">Jobs</Link>
+                    {user ? <span onClick={signOut}
+                        className=" hover:text-blue-500">LogOut</span>
+                        : <Link to="/login" className=" hover:text-blue-500">LogIn</Link>}
                 </div>
                 <div>
                     <span className="text-xl text-green-400 uppercase font-bold">Legal</span>

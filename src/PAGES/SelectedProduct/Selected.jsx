@@ -22,13 +22,11 @@ const Selected = () => {
         }
     });
     const qCatagory = data?.catagory;
-    console.log(qCatagory);
 
     useEffect(() => {
-        const url = `https://eco-server-ecocraftz.vercel.app/products`;
+        const url = `https://eco-server-ecocraftz.vercel.app/otherProducts`;
         fetch(url).then(res => res.json()).then(others => {
             const otherData = others.filter(other => other.catagory !== qCatagory);
-            console.log(otherData);
             setOthers(otherData);
         });
     }, [qCatagory])
