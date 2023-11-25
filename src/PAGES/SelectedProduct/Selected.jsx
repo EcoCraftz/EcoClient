@@ -46,7 +46,7 @@ const Selected = () => {
     const imgURL = data.image;
 
     return (
-        <div>
+        <div className='bg-gradient-to-tl from-green-200 via-green-300 to-blue-500'>
             <Navbar></Navbar>
 
             <div id='topDiv' className='mx-2 grid lg:grid-cols-2 sm:grid-cols-1 sm:overflow-hidden justify-center items-center border shadow-xl'

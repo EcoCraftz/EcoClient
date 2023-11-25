@@ -11,7 +11,7 @@ const ExtraFour = () => {
     const [allVideos, setAllVideos] = useState([]);
     useEffect(() => {
         fetch(url).then(res => res.json()).then(vedios => {
-            console.log(vedios);
+            // console.log(vedios);
             const result = vedios.items.map(vedio => ({
                 ...vedio,
                 Vediolink: "https://www.youtube.com/embed/" + vedio.id.videoId

@@ -50,12 +50,12 @@ const Booking = () => {
         console.log(bookingData);
     }
     return (
-        <div>
+        <div className='bg-gradient-to-tl from-green-200 via-green-300 to-blue-500'>
             <Navbar></Navbar>
             <div className='mt-20 mx-10'>
                 <h1 className='text-2xl font-serif font-bold'>Complete Your Booking Details</h1>
             </div>
-            <div className="hero min-h-screen bg-base-200 mt-2">
+            <div className="hero min-h-screen glass mt-2">
                 <div className="hero-content flex-col lg:flex-row">
                     <div className="text-center lg:text-left">
                         <img src={data.image} alt="" className='rounded-lg shadow-2xl' style={{ height: '400px', width: '450px' }} />
