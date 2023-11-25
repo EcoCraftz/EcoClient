@@ -49,7 +49,7 @@ const Selected = () => {
         <div className='bg-gradient-to-tl from-green-200 via-green-300 to-blue-500'>
             <Navbar></Navbar>
 
-            <div id='topDiv' className='mx-2 grid lg:grid-cols-2 sm:grid-cols-1 sm:overflow-hidden justify-center items-center border shadow-xl'
+            <div id='topDiv' className='mx-2 grid lg:grid-cols-2 sm:grid-cols-1 sm:overflow-hidden justify-center items-center'
                 style={{ height: '100vh' }}>
                 <div id='imgHolder' className="mx-auto" style={{ width: '350px', height: '300px' }}>
                     <ReactImageMagnify className='w-full h-full sm:w-1/2 sm:h-1/2 ' {...{
@@ -89,12 +89,12 @@ const Selected = () => {
             </div>
 
             <div id='otherProducts'>
-                <div className='text-4xl font-semibold font-serif text-center text-success mx-auto mt-10 border rounded-xl shadow-lg shadow-yellow-200 lg:w-2/5 sm:w-100'>Our Other Products</div>
-                <div className='grid sm:grid-cols-1 lg:grid-cols-3 gap-2 my-5'>
+                <div className='text-4xl font-semibold font-serif text-center text-error mx-auto mt-10 border rounded-xl shadow-lg shadow-white lg:w-2/5 sm:w-100'>Our Other Products</div>
+                <div className='grid sm:grid-cols-1 lg:grid-cols-3 gap-2 mt-5'>
                     {
-                        others.map(other => <div key={other._id} className="card w-96 bg-base-100 shadow-xl">
+                        others.map(other => <div key={other._id} className="card w-96 glass shadow-xl">
                             <figure className='transition ease-in-out delay-300 hover:translate-x-4 hover:translate-y-4 hover:scale-125 duration-300 overflow-hidden px-10 pt-10'>
-                                <img src={other.image} alt={other.name} className="rounded-xl max-w-50 w-32 h-32"
+                                <img src={other.image} alt={other.name} className="rounded-xl h-32"
 
                                 />
 
