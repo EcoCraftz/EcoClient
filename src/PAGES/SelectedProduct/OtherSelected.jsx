@@ -67,7 +67,7 @@ const OtherSelected = () => {
 
 
     return (
-        <>
+        <div className='bg-gradient-to-br from-red-400 via-emerald-300 to-purple-400'>
             <div className='flex lg:flex-row lg:justify-start flex-col-reverse justify-center items-center lg:gap-10 gap-4 p-6'>
 
                 <div className='relative'>
@@ -105,26 +105,28 @@ const OtherSelected = () => {
                 <h1 className='uppercase text-2xl font-serif font-bold'>Explore Our {catagory} </h1>
 
             </div>
-            <div className='grid sm:grid-cols-1 lg:grid-cols-3 gap-2 my-5'>
+            <div className='grid sm:grid-cols-1 lg:grid-cols-3 gap-2 mx-10 py-4'>
 
                 {
                     data.map(other => <div key={other._id} className="card lg:w-96 sm:w-full glass shadow-xl">
                         <figure className='transition ease-in-out delay-100 hover:translate-x-4 hover:scale-110 duration-300 overflow-hidden mt-3'>
                             <img onClick={() => handleSelected(other._id)} src={other.image} alt="car!" className='rounded-xl max-w-xs' /></figure>
                         <div className="card-body">
-                            <h2 className="card-title">{other.name.toUpperCase()}</h2>
-                            <p>Catagory:{other.catagory}</p>
-                            <p>{other.description.slice(0, 55)}...</p>
-                            <div className="card-actions justify-start overflow-hidden">
-                                {admin ? <button className="btn btn-sm btn-warning"
-                                    onClick={() => handleEdit(other._id)}
-                                >Edit<BiEdit /></button>
-                                    : <button className="btn btn-sm btn-success"
-                                        onClick={() => handleSelected(other._id)}
-                                    >Learn More</button>}
-                                {admin && <button onClick={() => handleDelete(other._id, other.name)}
+                            <div className='border border-t-4 border-l-4 border-green-400 rounded-lg p-2  '>
+                                <h2 className="card-title">{other.name.toUpperCase()}</h2>
+                                <p>Catagory:{other.catagory}</p>
+                                <p>{other.description.slice(0, 55)}...</p>
+                                <div className="card-actions justify-start overflow-hidden">
+                                    {admin ? <button className="btn btn-sm btn-warning"
+                                        onClick={() => handleEdit(other._id)}
+                                    >Edit<BiEdit /></button>
+                                        : <button className="btn btn-sm btn-success"
+                                            onClick={() => handleSelected(other._id)}
+                                        >Learn More</button>}
+                                    {admin && <button onClick={() => handleDelete(other._id, other.name)}
 
-                                    className='btn btn-sm btn-error'>Delete</button>}
+                                        className='btn btn-sm btn-error'>Delete</button>}
+                                </div>
                             </div>
                         </div>
                     </div>)
@@ -132,7 +134,7 @@ const OtherSelected = () => {
 
             </div>
 
-        </>
+        </div>
     );
 };
 

@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import bg from "../../assets/1.png";
+// import bg from "../../assets/1.png";
 
 const Add = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
@@ -39,26 +39,26 @@ const Add = () => {
             }
         });
     }
-    const saturation = 25;
-    const blurAmount = 50;
-    const brightness = 5;
+    // const saturation = 25;
+    // const blurAmount = 50;
+    // const brightness = 5;
     // const opacity = 0.65;
     return (
-        <div className="w-full bg-base-100 shadow-xl image-full mb-4"
+        <div className="bg-gradient-to-b from-cyan-800 via-blue-100 to-emerald-200 shadow-xl"
 
-            style={{
-                backgroundImage: `url(${bg})`,
-                WebkitFilter: `brightness(${brightness}%) saturation(${saturation}%) blur(${blurAmount}px)`,
-                filter: `brightness(${brightness}%) saturation(${saturation}%) blur(${blurAmount}px)`,
-                backgroundRepeat: "repeat",
+        // style={{
+        //     backgroundImage: `url(${bg})`,
+        //     WebkitFilter: `brightness(${brightness}%) saturation(${saturation}%) blur(${blurAmount}px)`,
+        //     filter: `brightness(${brightness}%) saturation(${saturation}%) blur(${blurAmount}px)`,
+        //     backgroundRepeat: "repeat", }}
 
-            }}>
-
-
+        >
 
 
 
-            <h2 className="text-center font-bold text-2xl uppercase mt-5">Add A Product</h2>
+
+
+            <h2 className="text-center font-bold text-2xl uppercase">Add A Product</h2>
             <div className='flex h-screen justify-center items-start'>
                 <div className="card w-96 glass shadow-xl">
                     <div className="card-body">

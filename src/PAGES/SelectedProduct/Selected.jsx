@@ -52,7 +52,7 @@ const Selected = () => {
             <div id='topDiv' className='mx-2 grid lg:grid-cols-2 sm:grid-cols-1 sm:overflow-hidden justify-center items-center'
                 style={{ height: '100vh' }}>
                 <div id='imgHolder' className="mx-auto" style={{ width: '350px', height: '300px' }}>
-                    <ReactImageMagnify className='w-full h-full sm:w-1/2 sm:h-1/2 ' {...{
+                    <ReactImageMagnify  {...{
                         smallImage: {
                             alt: `${data.name}`,
                             isFluidWidth: true,
@@ -88,9 +88,9 @@ const Selected = () => {
 
             </div>
 
-            <div id='otherProducts'>
+            <div id='otherProducts' className='pb-2'>
                 <div className='text-4xl font-semibold font-serif text-center text-error mx-auto mt-10 border rounded-xl shadow-lg shadow-white lg:w-2/5 sm:w-100'>Our Other Products</div>
-                <div className='grid sm:grid-cols-1 lg:grid-cols-3 gap-2 mt-5'>
+                <div className='grid sm:grid-cols-1 lg:grid-cols-3 gap-2 mt-5 mx-10'>
                     {
                         others.map(other => <div key={other._id} className="card w-96 glass shadow-xl">
                             <figure className='transition ease-in-out delay-300 hover:translate-x-4 hover:translate-y-4 hover:scale-125 duration-300 overflow-hidden px-10 pt-10'>
