@@ -1,15 +1,21 @@
 // eslint-disable-next-line no-unused-vars
-import React, { useContext } from 'react';
+import React, { useContext, useMemo, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import Loading from '../Shared/Loading';
 import { useNavigate, useParams } from 'react-router-dom';
 import { AuthContext } from '../Contexts/UserContext';
 import Navbar from '../Shared/Navbar';
+import countryList from 'react-select-country-list';
+import Select from 'react-select';
 
 const Booking = () => {
-    const { user } = useContext(AuthContext)
+    const [value, setValue] = useState();
+    const options = useMemo(() => countryList().getData(), []);
+
+    const { user } = useContext(AuthContext);
     const { id } = useParams();
     const navigate = useNavigate();
+
     const { data, isLoading } = useQuery({
         queryKey: ["booking"],
         queryFn: async () => {
@@ -18,20 +24,26 @@ const Booking = () => {
             return data;
         }
     });
+
     if (isLoading) {
         return <Loading></Loading>
     }
 
     const handleConfirm = (event) => {
         event.preventDefault();
+
+        const selectedCountryName = countryList().getLabel(value.value);
+
         const form = event.target;
         const bookingData = {
-            email: form.email.value,
-            product: form.product.value,
-            catagory: form.catagory.value,
+            code: data?.code,
+            email: user?.email,
+            product: data.name,
+            catagory: data.catagory,
             quantity: form.quantity.value,
-            country: form.country.value.toUpperCase(),
+            country: selectedCountryName,
             contact: form.contact.value,
+            address: form.address.value,
             image: data.image
         };
         fetch('https://eco-server-ecocraftz.vercel.app/bookings', {
@@ -47,39 +59,34 @@ const Booking = () => {
             navigate(`/dashboard/yourBooking/${user?.email}`)
 
         })
-        console.log(bookingData);
+        // console.log(bookingData);
+    }
+
+
+    const changeHandler = value => {
+        setValue(value);
     }
     return (
+
         <div className='bg-gradient-to-tl from-green-200 via-green-300 to-blue-500'>
             <Navbar></Navbar>
-            <div className='mt-20 mx-10'>
-                <h1 className='text-2xl font-serif font-bold'>Complete Your Booking Details</h1>
-            </div>
+
             <div className="hero min-h-screen glass mt-2">
                 <div className="hero-content flex-col lg:flex-row">
                     <div className="text-center lg:text-left">
+
+                        <div className='border border-l-4 border-b-2 border-violet-600 shadow-lg p-2 rounded-md my-2'>
+                            <h2>Product Code: <span className='font-semibold text-lg'>{data?.code}</span></h2>
+                            <h2>Your Email: <span className='text-sm font-thin text-blue-800'>{user?.email}</span></h2>
+                            <h2>Product Name: <span className='text-xl text-teal-800'>{data.name}</span></h2>
+                            <h2>Catagory: <span className='uppercase'>{data.catagory}</span></h2>
+                        </div>
                         <img src={data.image} alt="" className='rounded-lg shadow-2xl' style={{ height: '400px', width: '450px' }} />
                     </div>
-                    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl glass">
+                        <h1 className='text-2xl font-serif font-bold mx-auto'>Confirm Your Booking</h1>
                         <form onSubmit={handleConfirm} className="card-body">
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Email</span>
-                                </label>
-                                <input type="email" name='email' value={user?.email} className="input input-bordered" required />
-                            </div>
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Product</span>
-                                </label>
-                                <input type="text" name='product' value={data.name} className="input input-bordered" required />
-                            </div>
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Catagory</span>
-                                </label>
-                                <input type="text" name='catagory' value={data.catagory} className="input input-bordered" required />
-                            </div>
+
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Quantity</span>
@@ -90,11 +97,18 @@ const Booking = () => {
                                 <label className="label">
                                     <span className="label-text">Country</span>
                                 </label>
-                                <input type="text" name='country' placeholder='Your Country Name ' className="input input-bordered" />
+                                <Select options={options} value={value} onChange={changeHandler} type="text" name='country' />
                             </div>
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Contact</span>
+                                    <span className="label-text">Full Address</span>
+                                </label>
+                                <textarea type="text" name='address' placeholder='State/City, Road/House No' className="input input-bordered" required />
+                            </div>
+
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Contact Number</span>
                                 </label>
                                 <input type="number" name='contact' placeholder='Give Your Contact Number' className="input input-bordered" required />
                             </div>

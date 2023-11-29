@@ -5,7 +5,7 @@ import { getAuth } from 'firebase/auth';
 import app from '../../Firebase/firebase.config';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import useAdmin from '../NewPages/Hooks/UseAdmin';
-import bg from '../../assets/2.jpg';
+// import bg from '../../assets/2.jpg';
 import { useState } from 'react';
 
 
@@ -55,27 +55,30 @@ const BookingDetails = () => {
     const handleBack = () => {
         { admin ? navigate(`/dashboard/userBooking`) : navigate(`/dashboard/yourBooking/${email}`) }
     }
-    const saturation = 25;
-    const blurAmount = 50;
-    const brightness = 5;
-    const opacity = 0.65;
+    // const saturation = 25;
+    // const blurAmount = 50;
+    // const brightness = 5;
+    // const opacity = 0.65;
     return (
-        <div className="hero min-h-screen bg-gray-200">
-            <img src={bg} alt="BG" className="h-full bg-base-200 w-full"
+        <div className="min-h-screen bg-gradient-to-br from-green-100 via-cyan-300 to-blue-300 pt-10">
+            {/* <img src={bg} alt="BG" className="h-full bg-base-200 w-full"
                 style={{
                     WebkitFilter: `brightness(${brightness}%) saturation(${saturation}%) blur(${blurAmount}px)`,
                     filter: `brightness(${brightness}%) saturation(${saturation}%) blur(${blurAmount}px)`,
                     opacity: opacity
                 }}
-            />
-            <div className="hero-content flex-col lg:flex-row-reverse lg:glass">
-                <img src={data?.image} alt="Product image" className="lg:max-w-lg rounded-lg shadow-2xl" />
+            /> */}
+            <div className="flex flex-col lg:flex-row-reverse justify-evenly items-center">
                 <div>
-                    <p className='text-2xl font-thin'>Product ID:{data._id}</p>
+                    <img src={data?.image} alt="Product image" className="lg:max-w-lg rounded-lg shadow-2xl" />
+                </div>
+                <div>
+                    <p className='text-2xl font-thin'>Product Code:{data.code}</p>
                     <p className='uppercase font-serif text-xl'>{data.product}</p>
-                    <p>Catagory: <span className='font-semi-bold text-xl'>{data.catagory}</span></p>
+                    <p>Catagory: <span className='uppercase font-semi-bold text-xl'>{data.catagory}</span></p>
                     <p>Customer Email: <span className='font-serif text-sm text-blue-700'>{data.email}</span></p>
-                    <p>Booking From: <span className='font-serif text-sm text-green-800'>{data.country}</span></p>
+                    <p>Booking From: <span className='font-serif text-sm text-green-800'>{data.address}</span>,<span>
+                        {data.country}</span></p>
 
                     <p className='text-lg'>Contact: <span className='text-xl text-gray-900'>
                         {data.contact}</span></p>

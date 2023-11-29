@@ -20,6 +20,7 @@ const Add = () => {
                 console.log(imgData.data.url);
 
                 const product = {
+                    code: data.code,
                     name: data.name,
                     catagory: data.catagory,
                     description: data.description,
@@ -58,13 +59,36 @@ const Add = () => {
 
 
 
-            <h2 className="text-center font-bold text-2xl uppercase">Add A Product</h2>
+            <h2 className="text-center font-bold text-2xl uppercase p-4">Add A Product</h2>
             <div className='flex h-screen justify-center items-start'>
                 <div className="card w-96 glass shadow-xl">
                     <div className="card-body">
                         {/* <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto repellat laborum fugit expedita dicta sequi? Consequuntur illum earum dolorum facere amet dignissimos recusandae! Fugiat, veritatis. Rerum quos nostrum dolores quis necessitatibus porro illo inventore officia adipisci! Optio repellat veniam impedit odit voluptate voluptatibus vero, dignissimos expedita, iusto molestias, molestiae facilis.</p> */}
 
                         <form onSubmit={handleSubmit(handleAddProduct)}>
+                            <div className="form-control w-full max-w-xs">
+                                <label className="label">
+                                    <span className="label-text">Product Code</span>
+                                </label>
+                                <input
+                                    type="text"
+                                    placeholder="Input Code"
+                                    className="input input-bordered w-full max-w-xs"
+                                    style={{ border: "1px solid green" }}
+                                    {...register("code", {
+                                        required: {
+                                            value: true,
+                                            message: "Product Code is required"
+                                        }
+
+                                    })} />
+                                <label className="label">
+                                    {errors.code?.type === 'required' && <span
+                                        className="label-text-alt text-red-500">{errors.code.message}</span>}
+                                    {errors.code?.type === 'pattern' && <span
+                                        className="label-text-alt text-red-500">{errors.code.message}</span>}
+                                </label>
+                            </div>
                             <div className="form-control w-full max-w-xs">
                                 <label className="label">
                                     <span className="label-text">Product Name</span>

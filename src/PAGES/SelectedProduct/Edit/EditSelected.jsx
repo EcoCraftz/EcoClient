@@ -62,6 +62,7 @@ const EditSelected = () => {
 
     const handleEdit = (info) => {
         const productInfo = {
+            code: info.code,
             name: info.name,
             catagory: info.catagory,
             description: info.description,
@@ -147,6 +148,30 @@ const EditSelected = () => {
 
                     {isAgree && <div>
                         <form onSubmit={handleSubmit(handleEdit)}>
+                            <div className="form-control w-full max-w-xs">
+                                <label className="label">
+                                    <span className="label-text">Product Code</span>
+                                </label>
+                                <input
+                                    type="text"
+                                    placeholder="Input Code"
+                                    defaultValue={data?.code}
+                                    className="input input-bordered w-full max-w-xs"
+                                    style={{ border: "1px solid green" }}
+                                    {...register("code", {
+                                        required: {
+                                            value: true,
+                                            message: "Product Code is required"
+                                        }
+
+                                    })} />
+                                <label className="label">
+                                    {errors.code?.type === 'required' && <span
+                                        className="label-text-alt text-red-500">{errors.code.message}</span>}
+                                    {errors.code?.type === 'pattern' && <span
+                                        className="label-text-alt text-red-500">{errors.code.message}</span>}
+                                </label>
+                            </div>
                             <div className="form-control w-full max-w-xs">
                                 <label className="label">
                                     <span className="label-text text-white">Product Name</span>
