@@ -36,27 +36,27 @@ const Navbar = () => {
 
     const navItem = <>
 
-        <li id='parent'>
+        <li id='parent' className='lg:border-2 lg:border-black rounded-ss-2xl rounded-ee-2xl mx-1'>
             <a>Catagory</a>
             <ul id='onhover' className="p-2">
                 {productList}
             </ul>
 
         </li>
-        <li><NavLink to='/products'>Products</NavLink></li>
-        <li><NavLink to='/dashboard'>Dashboard</NavLink></li>
-        <li><NavLink to='/about'>About Us</NavLink></li>
+        <li className='lg:border-2 lg:border-black rounded-ss-2xl rounded-ee-2xl mx-1'><NavLink to='/products'>Products</NavLink></li>
+        <li className='lg:border-2 lg:border-black rounded-ss-2xl rounded-ee-2xl mx-1'><NavLink to='/dashboard'>Dashboard</NavLink></li>
+        <li className='lg:border-2 lg:border-black rounded-ss-2xl rounded-ee-2xl mx-1'><NavLink to='/about'>About Us</NavLink></li>
         {/* <li><NavLink to='/register'>Register</NavLink></li> */}
-        <li>{user?.email && <span><FaRegUserCircle></FaRegUserCircle>Welcome {user?.email}</span>}</li>
-        <li>{user?.email ? <button onClick={signOut} className='btn btn-sm'>Sign Out</button>
-            : <NavLink to='/login'>Login</NavLink>}</li>
+        <li>{user?.email && <span><FaRegUserCircle></FaRegUserCircle>{user?.email}</span>}</li>
+        <li>{user?.email ? <button onClick={signOut} className='btn btn-sm btn-error shadow-xl'>Sign Out</button>
+            : <NavLink to='/login'><button className='btn btn-sm btn-success'>Login</button></NavLink>}</li>
 
 
     </>
 
     return (
         <div >
-            <div className="navbar bg-base-300 lg:mt-10 w-full z-100">
+            <div className="navbar bg-gradient-to-r from-green-400 via-cyan-600 to-blue-400 lg:mt-10 w-full z-100">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
