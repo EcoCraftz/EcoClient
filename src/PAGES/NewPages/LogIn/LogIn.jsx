@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useForm } from "react-hook-form";
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -9,7 +9,7 @@ import useToken from '../Hooks/UseToken';
 import GoogleLogin from './GoogleLogin';
 import login from '../../../assets/login-animate.gif';
 const Login = () => {
-
+    const RefEmail = useRef('');
     const { register, formState: { errors }, handleSubmit } = useForm();
     const auth = getAuth(app)
     const [
@@ -28,7 +28,8 @@ const Login = () => {
         // console.log(data)
         signInWithEmailAndPassword(data.email, data.password);
     };
-    const navigate = useNavigate()
+
+    const navigate = useNavigate();
     useEffect(() => {
 
         if (token) {
@@ -43,8 +44,13 @@ const Login = () => {
 
     let signinError;
     if (error) {
+
         signinError = <p className='text-red-500'><small>{error.message}</small></p>
     }
+
+
+
+
 
     return (
         <div className='flex lg:flex-row gap-10 h-screen justify-center items-center'>
@@ -62,9 +68,11 @@ const Login = () => {
                             </label>
                             <input
                                 type="email"
+                                ref={RefEmail}
                                 placeholder="Email here"
                                 className="input input-bordered w-full max-w-xs"
                                 style={{ border: "1px solid blue" }}
+
                                 {...register("email", {
                                     required: {
                                         value: true,
@@ -111,7 +119,8 @@ const Login = () => {
                         {signinError}
                         <input type="submit" value="Login" className='btn w-full max-w-xs btn-sm btn-primary' />
                     </form>
-                    <p><small>New to EcoCraft? <Link className='text-secondary' to="/register">Create New Account</Link></small></p>
+
+                    <p><small>New to EcoCraftz? <Link className='text-secondary' to="/register">Create New Account</Link></small></p>
 
                     <div className="divider">OR</div>
                     <GoogleLogin></GoogleLogin>
