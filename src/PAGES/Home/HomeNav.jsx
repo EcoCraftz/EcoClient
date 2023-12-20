@@ -49,7 +49,7 @@ const Navbar = () => {
         {/* <li><NavLink to='/register'>Register</NavLink></li> */}
         <li>{user?.email && <span><FaRegUserCircle></FaRegUserCircle>{user?.email}</span>}</li>
         <li>{user?.email ? <button onClick={signOut} className='btn btn-sm btn-error shadow-xl'>Sign Out</button>
-            : <NavLink to='/login'><button className='btn btn-sm btn-success'>Login</button></NavLink>}</li>
+            : <button className='btn btn-sm btn-success' onClick={() => navigate("/login")}>Login</button>}</li>
 
 
     </>
