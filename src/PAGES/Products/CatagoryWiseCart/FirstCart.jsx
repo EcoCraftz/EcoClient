@@ -9,7 +9,7 @@ const FirstCart = () => {
     const { data, isLoading } = useQuery({
         queryKey: ["cart1"],
         queryFn: async () => {
-            const res = await fetch('http://localhost:4000/products/pot');
+            const res = await fetch('https://eco-server-ecocraftz.vercel.app/product/pot');
             const data = await res.json();
             return data;
         }

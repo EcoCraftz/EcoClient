@@ -2,12 +2,12 @@ import { useQuery } from "@tanstack/react-query";
 import Loading from "../../Shared/Loading";
 import { useNavigate } from "react-router-dom";
 import { MdReadMore } from "react-icons/md";
-const ThirdCart = () => {
+const ForthCart = () => {
     const navigate = useNavigate();
     const { data, isLoading } = useQuery({
-        queryKey: ["cart3"],
+        queryKey: ["cart4"],
         queryFn: async () => {
-            const res = await fetch('https://eco-server-ecocraftz.vercel.app/product/sataronji');
+            const res = await fetch('https://eco-server-ecocraftz.vercel.app/product/chandor');
             const data = await res.json();
             return data;
         }
@@ -53,4 +53,4 @@ const ThirdCart = () => {
     );
 };
 
-export default ThirdCart;
+export default ForthCart;
