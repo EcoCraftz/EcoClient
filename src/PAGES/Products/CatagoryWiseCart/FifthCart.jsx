@@ -22,7 +22,7 @@ const FifthCart = () => {
     }
     return (
         <div className="bg-gradient-to-b from-green-400 via-cyan-400 to-blue-400">
-            <div className="">
+            <div className="border border-b-black shadow-lg">
                 <p className="p-3 text-4xl font-semibold">EcoCraftz <span className="uppercase">{data[0].catagory}</span></p>
             </div>
             <div className='grid sm:grid-cols-1 lg:grid-cols-3 lg:ms-5 mt-5'>
@@ -35,7 +35,7 @@ const FifthCart = () => {
                             <figure className='mt-3'>
                                 <img src={item.image} alt="image" className='rounded-xl' style={{ height: '200px' }} /></figure>
                             <div className="card-actions justify-end">
-                                <button className="btn btn-sm btn-success"
+                                <button className="btn btn-sm btn-primary"
                                     onClick={() => handleSelected(item._id)}
                                 >Learn More</button>
                             </div>
@@ -47,7 +47,8 @@ const FifthCart = () => {
 
             </div>
             <div className="flex flex-row justify-center lg:justify-end p-2">
-                <button className="btn btn-ghost text-orange-600" onClick={() => navigate(`/other/${data[0].catagory}`)}>see more <span className="text-2xl"><MdReadMore /></span></button>
+                <button className="btn btn-ghost text-white font-semibold"
+                    onClick={() => navigate(`/other/${data[0].catagory}`)}>see more <span className="text-2xl"><MdReadMore /></span></button>
             </div>
         </div>
     );

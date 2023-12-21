@@ -1,7 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { useNavigate, useParams } from "react-router-dom";
 import Loading from "../../Shared/Loading";
-import bg from '../../../assets/logo_prevew.png'
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
@@ -91,9 +90,9 @@ const EditSelected = () => {
     }
     // console.log(data)
     return (
-        <div>
-            <div className="hero min-h-screen" style={{ backgroundImage: `url(${bg})` }}>
-                <div className="hero-overlay bg-opacity-60"></div>
+        <div className="bg-gradient-to-tl from-lime-800 via-cyan-800 to-fuchsia-400">
+            <div className="hero min-h-screen">
+
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div>
                         <img src={data?.image} className="lg:max-w-lg rounded-lg shadow-2xl" />

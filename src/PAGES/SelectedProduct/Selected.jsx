@@ -89,7 +89,7 @@ const Selected = () => {
             </div>
 
             <div id='otherProducts' className='pb-2'>
-                <div className='text-4xl font-semibold font-serif text-center text-error mx-auto mt-10 border rounded-xl shadow-lg shadow-white lg:w-2/5 sm:w-100'>Our Other Products</div>
+                <div className='text-4xl font-semibold font-serif text-center text-error mx-auto mt-10 border rounded-xl border-yellow-200 shadow-md shadow-yellow-200 lg:w-2/5 sm:w-100'>Our Other Products</div>
                 <div className='grid sm:grid-cols-1 lg:grid-cols-3 gap-2 mt-5 mx-10'>
                     {
                         others.map(other => <div key={other._id} className="card w-96 glass shadow-xl">
