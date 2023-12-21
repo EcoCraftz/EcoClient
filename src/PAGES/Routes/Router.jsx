@@ -25,6 +25,7 @@ import ExtraForMobile from "../Home/Extra/ExtraForMobile";
 import Terms from "../Licences/Terms";
 import Policy from "../Licences/Policy";
 import Cookies from "../Licences/Cookies";
+import AddCatagory from "../Catagory/AddCatagory";
 
 
 
@@ -127,6 +128,10 @@ const router = createBrowserRouter([{
             {
                 path: '/dashboard/add',
                 element: <Add></Add>
+            },
+            {
+                path: '/dashboard/addCatagory',
+                element: <AddCatagory></AddCatagory>
             },
             {
                 path: '/dashboard/editBooking/:id',

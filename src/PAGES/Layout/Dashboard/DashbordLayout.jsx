@@ -31,8 +31,9 @@ const DashbordLayout = () => {
                         {!admin && <li><NavLink to={`/dashboard/yourBooking/${email}`}>Your Booking</NavLink></li>}
                         {admin && <div>
                             <li><NavLink to='/dashboard/userBooking'>User Booking</NavLink></li>
-                            <li><NavLink to='/dashboard/add'>Add Product</NavLink></li>
                             <li><NavLink to='/dashboard/userProfile'> All Users</NavLink></li>
+                            <li><NavLink to='/dashboard/add'>Add Product</NavLink></li>
+                            <li><NavLink to='/dashboard/addCatagory'>Add Catagory</NavLink></li>
                         </div>}
                     </ul>
                 </div>

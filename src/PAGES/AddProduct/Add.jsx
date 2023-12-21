@@ -17,7 +17,7 @@ const Add = () => {
             body: formData
         }).then(res => res.json()).then(imgData => {
             if (imgData.success) {
-                console.log(imgData.data.url);
+                // console.log(imgData.data.url);
 
                 const product = {
                     code: data.code,
