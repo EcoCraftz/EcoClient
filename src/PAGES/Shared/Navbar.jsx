@@ -13,6 +13,7 @@ const Navbar = () => {
     const navigate = useNavigate();
 
 
+
     const { data, isLoading } = useQuery({
         queryKey: ["catagory"],
         queryFn: async () => {
@@ -32,7 +33,7 @@ const Navbar = () => {
     const insertedCatagoryList = <>
         {
             data.map(item => <li key={item._id}><button onClick={() => handleClicked(item.item)}
-                type='button' value='ladies bag' className='uppercase'>{item.item}</button></li>)
+                type='button' className='uppercase'>{item.item}</button></li>)
         }
     </>
 

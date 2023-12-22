@@ -11,6 +11,7 @@ import { BiSolidDashboard } from 'react-icons/bi';
 import { BsMenuButtonFill } from 'react-icons/bs';
 const OtherSelected = () => {
     const [isCatagory, setIsCatagory] = useState(false);
+    const [catagoryList, setCatagoryList] = useState(false);
     const { user } = useContext(AuthContext);
     const [admin] = useAdmin(user);
     const { catagory } = useParams();
@@ -24,9 +25,20 @@ const OtherSelected = () => {
         }
     });
 
+    useEffect(() => {
+        const url = `http://localhost:4000/insertedCatagory`;
+        fetch(url)
+            .then(res => res.json())
+            .then(data => setCatagoryList(data))
+
+    }, [catagory])
+
+
     if (isLoading) {
         return <Loading></Loading>
     }
+
+    // console.log("from other selected page", catagoryList);
 
     const handleSelected = (id) => {
         navigate(`/products/${id}`);
@@ -78,7 +90,10 @@ const OtherSelected = () => {
                     </div>
                     {
                         isCatagory && <div className='flex flex-col items-start absolute z-10 bg-warning w-full p-2 rounded-lg'>
-                            <div onClick={() => handleClick("chandor")}
+                            {catagoryList.map(item => <div key={item._id} onClick={() => handleClick(item.item)}
+                                className=' cursor-pointer uppercase mb-2 hover:border-b-4 hover:border-b-green-400'>{item.item}</div>)}
+
+                            {/* <div onClick={() => handleClick("chandor")}
                                 className=' cursor-pointer uppercase mb-2 hover:border-b-4 hover:border-b-green-400'>chandor</div>
 
                             <div onClick={() => handleClick("pot")}
@@ -91,7 +106,7 @@ const OtherSelected = () => {
                                 className=' cursor-pointer uppercase mb-2 hover:border-b-4 hover:border-b-green-400'>ladies bag</div>
 
                             <div onClick={() => handleClick("papose")}
-                                className='cursor-pointer uppercase mb-2 hover:border-b-4 hover:border-b-green-400'>papose</div>
+                                className='cursor-pointer uppercase mb-2 hover:border-b-4 hover:border-b-green-400'>papose</div> */}
 
                         </div>
                     }

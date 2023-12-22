@@ -15,6 +15,9 @@ const AddCatagory = () => {
     if (isLoading) {
         return <Loading></Loading>
     }
+    console.log("from addCata", data);
+    const item = Object.assign({}, data);
+    console.log("from addCata array to object", item);
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -77,7 +80,6 @@ const AddCatagory = () => {
                         <h2 className="card-title">{index + 1}.{catagory.item}</h2>
                         <p></p>
                         <div className="card-actions justify-end">
-                            <button className="btn btn-sm btn-primary">Edit</button>
                             <button onClick={() => handleDelete(catagory._id, catagory.item)} className="btn btn-sm btn-error">Delete</button>
                         </div>
                     </div>
