@@ -1,10 +1,27 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
+import { useQuery } from '@tanstack/react-query';
 import { useForm } from 'react-hook-form';
+import Loading from '../Shared/Loading';
 // import bg from "../../assets/1.png";
 
 const Add = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
+
+
+    const { data, isLoading } = useQuery({
+        queryKey: ["catagory"],
+        queryFn: async () => {
+            const res = await fetch(`http://localhost:4000/insertedCatagory`);
+            const data = await res.json();
+            return data;
+        }
+    });
+
+
+    if (isLoading) {
+        return <Loading></Loading>
+    }
 
     const handleAddProduct = (data) => {
         console.log(data);
@@ -129,11 +146,11 @@ const Add = () => {
                                     })} >
 
                                     <option value=""></option>
-                                    <option value="chandor">Chandor</option>
-                                    <option value="ladies bag">Ladies Bag</option>
-                                    <option value="papose">Papose</option>
-                                    <option value="pot">Pot</option>
-                                    <option value="sataronji">Sataronji</option>
+                                    {
+                                        data.map(item => <option key={item._id} value={item.item} className='uppercase'>
+                                            {item.item}</option>)
+                                    }
+
                                 </select>
                                 <label className="label">
                                     {errors.catagory?.type === 'required' && <span

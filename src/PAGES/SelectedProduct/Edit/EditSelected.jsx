@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { useNavigate, useParams } from "react-router-dom";
 import Loading from "../../Shared/Loading";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 
 const EditSelected = () => {
@@ -10,6 +10,7 @@ const EditSelected = () => {
     const { id } = useParams();
     const [toggled, setToggled] = useState(false);
     const [isAgree, setIsAgree] = useState(false);
+    const [catagoryList, setCatagoryList] = useState("");
     const { data, isLoading, refetch } = useQuery({
         queryKey: ["selected"],
         queryFn: async () => {
@@ -18,6 +19,14 @@ const EditSelected = () => {
             return data;
         }
     });
+
+    useEffect(() => {
+        const url = `http://localhost:4000/insertedCatagory`;
+        fetch(url)
+            .then(res => res.json())
+            .then(data => setCatagoryList(data))
+
+    }, [id])
 
     if (isLoading) {
         return <Loading></Loading>
@@ -213,11 +222,15 @@ const EditSelected = () => {
                                     })} >
 
                                     <option value=""></option>
-                                    <option value="chandor">Chandor</option>
+                                    {
+                                        catagoryList.map(item => <option key={item._id} value={item.item} className='uppercase'>
+                                            {item.item}</option>)
+                                    }
+                                    {/* <option value="chandor">Chandor</option>
                                     <option value="ladies bag">Ladies Bag</option>
                                     <option value="papose">Papose</option>
                                     <option value="pot">Pot</option>
-                                    <option value="sataronji">Sataronji</option>
+                                    <option value="sataronji">Sataronji</option> */}
                                 </select>
                                 <label className="label">
                                     {errors.catagory?.type === 'required' && <span

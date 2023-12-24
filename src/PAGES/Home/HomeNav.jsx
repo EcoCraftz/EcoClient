@@ -5,23 +5,46 @@ import "../Shared/CSS/Navbar.css";
 import { AuthContext } from '../Contexts/UserContext';
 import { FaRegUserCircle } from 'react-icons/fa';
 import logo from '../../assets/logo_prevew.png'
+import { useQuery } from '@tanstack/react-query';
+import Loading from '../Shared/Loading';
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
 
     const navigate = useNavigate();
-    const productList = <>
-        <li><button onClick={(event) => handleClicked(event.target.value)}
-            type='button' value='ladies bag' className='uppercase'>Ladies bag</button></li>
-        <li><button onClick={(event) => handleClicked(event.target.value)}
-            type='button' value='sataronji' className='uppercase'>sataronji</button></li>
-        <li><button onClick={(event) => handleClicked(event.target.value)}
-            type='button' value='chandor' className='uppercase'>chandor</button></li>
-        <li><button onClick={(event) => handleClicked(event.target.value)}
-            type='button' value='papose' className='uppercase'>papose</button></li>
-        <li><button onClick={(event) => handleClicked(event.target.value)}
-            type='button' value='pot' className='uppercase'>pot</button></li>
+
+    const { data, isLoading } = useQuery({
+        queryKey: ["catagory"],
+        queryFn: async () => {
+            const res = await fetch(`http://localhost:4000/insertedCatagory`);
+            const data = await res.json();
+            return data;
+        }
+    });
+
+
+    if (isLoading) {
+        return <Loading></Loading>
+    }
+
+    const insertedCatagoryList = <>
+        {
+            data.map(item => <li key={item._id}><button onClick={() => handleClicked(item.item)}
+                type='button' className='uppercase'>{item.item}</button></li>)
+        }
     </>
+    // const productList = <>
+    //     <li><button onClick={(event) => handleClicked(event.target.value)}
+    //         type='button' value='ladies bag' className='uppercase'>Ladies bag</button></li>
+    //     <li><button onClick={(event) => handleClicked(event.target.value)}
+    //         type='button' value='sataronji' className='uppercase'>sataronji</button></li>
+    //     <li><button onClick={(event) => handleClicked(event.target.value)}
+    //         type='button' value='chandor' className='uppercase'>chandor</button></li>
+    //     <li><button onClick={(event) => handleClicked(event.target.value)}
+    //         type='button' value='papose' className='uppercase'>papose</button></li>
+    //     <li><button onClick={(event) => handleClicked(event.target.value)}
+    //         type='button' value='pot' className='uppercase'>pot</button></li>
+    // </>
 
     const handleClicked = (catagory) => {
         navigate(`/other/${catagory}`)
@@ -39,7 +62,7 @@ const Navbar = () => {
         <li id='parent' className='lg:border-2 lg:border-black rounded-ss-2xl rounded-ee-2xl mx-1'>
             <a>Catagory</a>
             <ul id='onhover' className="p-2">
-                {productList}
+                {insertedCatagoryList}
             </ul>
 
         </li>

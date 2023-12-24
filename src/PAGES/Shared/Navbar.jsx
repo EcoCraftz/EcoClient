@@ -41,18 +41,18 @@ const Navbar = () => {
 
 
 
-    const productList = <>
-        <li><button onClick={(event) => handleClicked(event.target.value)}
-            type='button' value='ladies bag' className='uppercase'>Ladies bag</button></li>
-        <li><button onClick={(event) => handleClicked(event.target.value)}
-            type='button' value='sataronji' className='uppercase'>sataronji</button></li>
-        <li><button onClick={(event) => handleClicked(event.target.value)}
-            type='button' value='chandor' className='uppercase'>chandor</button></li>
-        <li><button onClick={(event) => handleClicked(event.target.value)}
-            type='button' value='papose' className='uppercase'>papose</button></li>
-        <li><button onClick={(event) => handleClicked(event.target.value)}
-            type='button' value='pot' className='uppercase'>pot</button></li>
-    </>
+    // const productList = <>
+    //     <li><button onClick={(event) => handleClicked(event.target.value)}
+    //         type='button' value='ladies bag' className='uppercase'>Ladies bag</button></li>
+    //     <li><button onClick={(event) => handleClicked(event.target.value)}
+    //         type='button' value='sataronji' className='uppercase'>sataronji</button></li>
+    //     <li><button onClick={(event) => handleClicked(event.target.value)}
+    //         type='button' value='chandor' className='uppercase'>chandor</button></li>
+    //     <li><button onClick={(event) => handleClicked(event.target.value)}
+    //         type='button' value='papose' className='uppercase'>papose</button></li>
+    //     <li><button onClick={(event) => handleClicked(event.target.value)}
+    //         type='button' value='pot' className='uppercase'>pot</button></li>
+    // </>
 
     const handleClicked = (catagory) => {
         navigate(`/other/${catagory}`)
@@ -67,15 +67,15 @@ const Navbar = () => {
 
     const navItem = <>
 
-        <li id='parent' className='lg:border-2 lg:border-black rounded-ss-2xl rounded-ee-2xl mx-1'>
+        {/* <li id='parent' className='lg:border-2 lg:border-black rounded-ss-2xl rounded-ee-2xl mx-1'>
             <a>Catagory</a>
             <ul id='onhover' className="p-2">
                 {productList}
             </ul>
 
-        </li>
+        </li> */}
         <li id='parent' className='lg:border-2 lg:border-black rounded-ss-2xl rounded-ee-2xl mx-1'>
-            <a>Catagory2</a>
+            <a>Catagory</a>
             <ul id='onhover' className="p-2">
                 {insertedCatagoryList}
             </ul>

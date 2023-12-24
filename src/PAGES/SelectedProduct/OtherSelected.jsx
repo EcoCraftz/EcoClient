@@ -11,7 +11,7 @@ import { BiSolidDashboard } from 'react-icons/bi';
 import { BsMenuButtonFill } from 'react-icons/bs';
 const OtherSelected = () => {
     const [isCatagory, setIsCatagory] = useState(false);
-    const [catagoryList, setCatagoryList] = useState(false);
+    const [catagoryList, setCatagoryList] = useState("");
     const { user } = useContext(AuthContext);
     const [admin] = useAdmin(user);
     const { catagory } = useParams();
@@ -92,22 +92,6 @@ const OtherSelected = () => {
                         isCatagory && <div className='flex flex-col items-start absolute z-10 bg-warning w-full p-2 rounded-lg'>
                             {catagoryList.map(item => <div key={item._id} onClick={() => handleClick(item.item)}
                                 className=' cursor-pointer uppercase mb-2 hover:border-b-4 hover:border-b-green-400'>{item.item}</div>)}
-
-                            {/* <div onClick={() => handleClick("chandor")}
-                                className=' cursor-pointer uppercase mb-2 hover:border-b-4 hover:border-b-green-400'>chandor</div>
-
-                            <div onClick={() => handleClick("pot")}
-                                className='cursor-pointer uppercase mb-2 hover:border-b-4 hover:border-b-green-400'>pot</div>
-
-                            <div onClick={() => handleClick("sataronji")}
-                                className='cursor-pointer uppercase mb-2 hover:border-b-4 hover:border-b-green-400'>sataronji</div>
-
-                            <div onClick={() => handleClick("ladies bag")}
-                                className=' cursor-pointer uppercase mb-2 hover:border-b-4 hover:border-b-green-400'>ladies bag</div>
-
-                            <div onClick={() => handleClick("papose")}
-                                className='cursor-pointer uppercase mb-2 hover:border-b-4 hover:border-b-green-400'>papose</div> */}
-
                         </div>
                     }
 

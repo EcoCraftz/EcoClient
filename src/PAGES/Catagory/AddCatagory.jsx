@@ -15,9 +15,7 @@ const AddCatagory = () => {
     if (isLoading) {
         return <Loading></Loading>
     }
-    console.log("from addCata", data);
-    const item = Object.assign({}, data);
-    console.log("from addCata array to object", item);
+
 
     const handleSubmit = e => {
         e.preventDefault();

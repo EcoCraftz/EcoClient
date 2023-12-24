@@ -26,7 +26,6 @@ import Terms from "../Licences/Terms";
 import Policy from "../Licences/Policy";
 import Cookies from "../Licences/Cookies";
 import AddCatagory from "../Catagory/AddCatagory";
-import CatagoryContext from "../Contexts/CatagoryContext";
 
 
 
@@ -71,8 +70,7 @@ const router = createBrowserRouter([{
 
     {
         path: '/about',
-        element: <CatagoryContext><About></About></CatagoryContext>
-
+        element: <About></About>
     },
     {
         path: '/catagory',
