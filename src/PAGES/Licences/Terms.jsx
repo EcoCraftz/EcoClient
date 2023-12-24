@@ -1,5 +1,10 @@
+import { useState } from "react";
 import { ImAttachment } from "react-icons/im";
+import QR from "../../assets/images/myGitHub-qr-code.png"
 const Terms = () => {
+    const [one, setOne] = useState(false);
+    const [two, setTwo] = useState(false);
+
     const webTerms = [
         {
             title: "Acceptance of Terms",
@@ -57,8 +62,18 @@ const Terms = () => {
                 </div>)
             }
 
-            <div className="flex flex-row justify-end">
-                <span className="text-sm">Last updated: 28 Augest,2023</span>
+            <div className="flex flex-col items-end justify-end">
+                <div className="flex flex-row items-center">
+                    <div>
+                        <span className="text-sm">Last <span onClick={() => setOne(!one)}>updated</span>: 28 Augest,<span onClick={() => setTwo(!two)}>2023</span></span>
+                    </div>
+                </div>
+                {one && two && <div className="flex flex-col items-center">
+                    <p className="text-xl font-bold text-teal-800">To Know About Our Website Developer Scan The QR Code</p>
+                    <p>
+                        <img src={QR} alt="QR CODE" style={{ height: "100px", width: "100px" }} />
+                    </p>
+                </div>}
             </div>
 
         </div>

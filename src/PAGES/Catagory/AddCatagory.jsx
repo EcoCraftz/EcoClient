@@ -5,7 +5,7 @@ const AddCatagory = () => {
     const { data, isLoading, refetch } = useQuery({
         queryKey: ["catagory"],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:4000/insertedCatagory`);
+            const res = await fetch(`https://eco-server-ecocraftz.vercel.app/insertedCatagory`);
             const data = await res.json();
             return data;
         }
@@ -26,7 +26,7 @@ const AddCatagory = () => {
         };
         e.target.reset();
 
-        fetch('http://localhost:4000/insertedCatagory', {
+        fetch('https://eco-server-ecocraftz.vercel.app/insertedCatagory', {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"
@@ -45,7 +45,7 @@ const AddCatagory = () => {
         console.log(id);
         const procced = confirm(`Are you sure to Delete ${item}!`);
         if (procced) {
-            fetch(`http://localhost:4000/insertedCatagory/${id}`, {
+            fetch(`https://eco-server-ecocraftz.vercel.app/insertedCatagory/${id}`, {
                 method: 'DELETE',
                 headers: {
                     "authorization": `Bearer ${localStorage.getItem('accessToken')}`

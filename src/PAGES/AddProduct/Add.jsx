@@ -12,7 +12,7 @@ const Add = () => {
     const { data, isLoading } = useQuery({
         queryKey: ["catagory"],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:4000/insertedCatagory`);
+            const res = await fetch(`https://eco-server-ecocraftz.vercel.app/insertedCatagory`);
             const data = await res.json();
             return data;
         }

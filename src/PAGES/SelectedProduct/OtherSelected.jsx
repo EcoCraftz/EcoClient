@@ -26,7 +26,7 @@ const OtherSelected = () => {
     });
 
     useEffect(() => {
-        const url = `http://localhost:4000/insertedCatagory`;
+        const url = `https://eco-server-ecocraftz.vercel.app/insertedCatagory`;
         fetch(url)
             .then(res => res.json())
             .then(data => setCatagoryList(data))
