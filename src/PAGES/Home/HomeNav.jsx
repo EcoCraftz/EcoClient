@@ -4,7 +4,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import "../Shared/CSS/Navbar.css";
 import { AuthContext } from '../Contexts/UserContext';
 import { FaRegUserCircle } from 'react-icons/fa';
-import logo from '../../assets/logo_prevew.png'
+import logo from '../../assets/images/Eco logo.png';
 import { useQuery } from '@tanstack/react-query';
 import Loading from '../Shared/Loading';
 
@@ -78,7 +78,7 @@ const Navbar = () => {
     </>
 
     return (
-        <div >
+        <div style={{ height: 'auto' }} className='lg:mt-14' >
             <div className="navbar bg-gradient-to-r from-green-400 via-cyan-600 to-blue-400 lg:mt-10 w-full z-100">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -90,7 +90,7 @@ const Navbar = () => {
                         </ul>
                     </div>
                     {/* <a className="btn btn-ghost normal-case text-xl">daisyUI</a> */}
-                    <NavLink to='/' style={{ width: '200px', height: '100px', padding: '10px' }}>
+                    <NavLink to='/' style={{ width: '200px', height: 'auto', padding: '10px' }}>
                         <img src={logo} alt="" className='h-full w-full' />
                     </NavLink>
                 </div>

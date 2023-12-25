@@ -71,7 +71,7 @@ const Booking = () => {
         <div className='bg-gradient-to-tl from-green-200 via-green-300 to-blue-500'>
             <Navbar></Navbar>
 
-            <div className="hero min-h-screen glass mt-2">
+            <div className="hero min-h-screen glass">
                 <div className="hero-content flex-col lg:flex-row">
                     <div className="text-center lg:text-left">
 

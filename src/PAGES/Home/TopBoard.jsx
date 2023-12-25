@@ -27,13 +27,13 @@ const TopBoard = () => {
                 </div>
             </div>
             <div>
-                <div className='text-lg font-serif text-white flex flex-row justify-start items-center gap-2'>
+                <div className='text-lg font-thin text-white flex flex-row justify-start items-center gap-2'>
                     <h1><SiMinutemailer></SiMinutemailer></h1>
                     <h1>ecocraftzbd@gmail.com</h1>
                 </div>
-                <div className='text-lg font-serif text-white flex flex-row justify-start items-center gap-2'>
+                <div className='text-lg font-thin text-white flex flex-row justify-start items-center gap-2'>
                     <h1><BiSolidPhoneCall></BiSolidPhoneCall></h1>
-                    <h1>01111111111</h1>
+                    <h1>+8801732-712133</h1>
                 </div>
             </div>
 

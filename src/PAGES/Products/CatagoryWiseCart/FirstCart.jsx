@@ -24,7 +24,7 @@ const FirstCart = () => {
     }
     return (
         <div className="bg-gradient-to-b from-green-400 via-cyan-400 to-blue-400">
-            <div className="mt-4 border border-b-black shadow-lg">
+            <div className="border border-b-black shadow-lg">
                 <p className="p-3 text-4xl font-semibold">EcoCraftz <span className="uppercase">{data[0].catagory}</span></p>
             </div>
             <div className='grid sm:grid-cols-1 lg:grid-cols-3 lg:ms-5 mt-5'>

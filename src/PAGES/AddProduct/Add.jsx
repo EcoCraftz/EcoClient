@@ -77,12 +77,13 @@ const Add = () => {
 
 
             <h2 className="text-center font-bold text-2xl uppercase p-4">Add A Product</h2>
-            <div className='flex h-screen justify-center items-start'>
-                <div className="card w-96 glass shadow-xl">
-                    <div className="card-body">
-                        {/* <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto repellat laborum fugit expedita dicta sequi? Consequuntur illum earum dolorum facere amet dignissimos recusandae! Fugiat, veritatis. Rerum quos nostrum dolores quis necessitatibus porro illo inventore officia adipisci! Optio repellat veniam impedit odit voluptate voluptatibus vero, dignissimos expedita, iusto molestias, molestiae facilis.</p> */}
+            <div className="p-4 "> {/* it is for form wraping div  */}
+                <form onSubmit={handleSubmit(handleAddProduct)}>
+                    <div className="card w-96 glass shadow-xl">
+                        <div className="card-body">
+                            {/* <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto repellat laborum fugit expedita dicta sequi? Consequuntur illum earum dolorum facere amet dignissimos recusandae! Fugiat, veritatis. Rerum quos nostrum dolores quis necessitatibus porro illo inventore officia adipisci! Optio repellat veniam impedit odit voluptate voluptatibus vero, dignissimos expedita, iusto molestias, molestiae facilis.</p> */}
 
-                        <form onSubmit={handleSubmit(handleAddProduct)}>
+
                             <div className="form-control w-full max-w-xs">
                                 <label className="label">
                                     <span className="label-text">Product Code</span>
@@ -208,9 +209,10 @@ const Add = () => {
 
 
                             <input type="submit" value="Add A Product" className='btn w-full max-w-xs bg-green-300 hover:bg-green-600' />
-                        </form>
+
+                        </div>
                     </div>
-                </div>
+                </form>
             </div>
 
         </div>

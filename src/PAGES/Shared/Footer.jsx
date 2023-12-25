@@ -56,7 +56,7 @@ const Footer = () => {
 
                         <div>
                             <span className='text-2xl text-blue-500'>
-                                <a href='https://www.facebook.com/profile.php?id=100095597736036' target='_blank' rel="noopener noreferrer"><BsFacebook /></a></span>
+                                <a href='https://www.facebook.com/profile.php?id=100095672072414' target='_blank' rel="noopener noreferrer"><BsFacebook /></a></span>
                         </div>
 
                         <div>
@@ -65,9 +65,14 @@ const Footer = () => {
                                     <FaLinkedin /></a></span>
                         </div>
 
-                        <div><span className='text-2xl text-red-500'><IoLogoYoutube /></span></div>
-                        <div><span className='text-xl text-orange-500'><ImInstagram /></span></div>
-                        <div><span className='text-2xl text-green-500'><RiWhatsappFill /></span></div>
+                        <div><span className='text-2xl text-red-500'>
+                            <a href='https://www.youtube.com/channel/UC65iEpUDqxaRjR-xb11CYYg' target='_blank' rel="noopener noreferrer">
+                                <IoLogoYoutube /> </a></span></div>
+                        <div><span className='text-xl text-orange-500'><a href='https://www.instagram.com/ecocraftz/' target='_blank' rel="noopener noreferrer">
+                            <ImInstagram /></a></span></div>
+                        <div><span className='text-2xl text-green-500'>
+                            <a href='https://wa.link/5wh0xj' target='_blank' rel="noopener noreferrer">
+                                <RiWhatsappFill /></a></span></div>
                     </div>
                 </div>
 
