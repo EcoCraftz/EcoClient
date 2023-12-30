@@ -112,16 +112,21 @@ const OtherSelected = () => {
                             <img onClick={() => handleSelected(other._id)} src={other.image} alt="car!" className='rounded-xl max-w-xs' /></figure>
                         <div className="card-body">
                             <div className='border border-t-4 border-l-4 border-green-400 rounded-lg p-2  '>
-                                <h2 className="card-title">{other.name.toUpperCase()}</h2>
-                                <p>Catagory:{other.catagory}</p>
-                                <p>{other.description.slice(0, 55)}...</p>
+                                <ul className='list-disc list-outside ms-4'>
+                                    <li><h2 className="card-title">{other.name.toUpperCase()}</h2></li>
+                                    <li><span className='font-semibold'>Catagory:</span>{other.catagory}</li>
+                                    <li> <p>{other.description.slice(0, 55)}...</p></li>
+                                </ul>
+
+
+
                                 <div className="card-actions justify-start overflow-hidden">
                                     {admin ? <button className="btn btn-sm btn-warning"
                                         onClick={() => handleEdit(other._id)}
                                     >Edit<BiEdit /></button>
                                         : <button className="btn btn-sm btn-success"
                                             onClick={() => handleSelected(other._id)}
-                                        >Learn More</button>}
+                                        >See Details</button>}
                                     {admin && <button onClick={() => handleDelete(other._id, other.name)}
 
                                         className='btn btn-sm btn-error'>Delete</button>}
