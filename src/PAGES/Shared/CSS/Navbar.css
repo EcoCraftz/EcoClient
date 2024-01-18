@@ -39,9 +39,11 @@
         position: absolute;
         margin-top: 34px;
         z-index: 2;
-        background-image: linear-gradient(rgba(45, 192, 118, 0.9), rgba(114, 175, 86, 0.9));
-        color: rgb(4, 4, 27);
+        background-color: green;
+        /* background-image: linear-gradient(rgb(22, 95, 4), rgba(19, 54, 3, 0.9)); */
+        color: white;
         border-radius: 5px;
+        min-height: auto;
 
     }
 }

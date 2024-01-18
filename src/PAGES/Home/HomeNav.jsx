@@ -33,6 +33,134 @@ const Navbar = () => {
                 type='button' className='uppercase'>{item.item}</button></li>)
         }
     </>
+    const productList = <>
+        <div className='w-full h-auto lg:flex flex-row justify-start items-start gap-5'>
+            <div>
+                <li className=''>
+                    <details>
+                        <summary>Bag</summary>
+                        <ul className='ms-24'>
+                            <li><a>Submenu 1</a></li>
+                            <li><a>Submenu 2</a></li>
+                            <li><a>Submenu 2</a></li>
+                            <li><a>Submenu 2</a></li>
+                            <li><a>Submenu 2</a></li>
+                            <li><a>Submenu 2</a></li>
+                            <li><a>Submenu 2</a></li>
+                            <li><a>Submenu 2</a></li>
+                            <li><a>Submenu 2</a></li>
+                            <li><a>Submenu 2</a></li>
+                            <li><a>Submenu 2</a></li>
+                            <li><a>Submenu 2</a></li>
+                            {/* <li>
+                        <details>
+                            <summary>Parent</summary>
+                            <ul>
+                                <li><a>Submenu 1</a></li>
+                                <li><a>Submenu 2</a></li>
+                            </ul>
+                        </details>
+                    </li> */}
+                        </ul>
+                    </details>
+                    <details>
+                        <summary>Busket</summary>
+                        <ul className='ms-24'>
+                            <li><a>Submenu 2</a></li>
+                            <li><a>Submenu 1</a></li>
+                            <li><a>Submenu 1</a></li>
+                            <li><a>Submenu 1</a></li>
+                            <li><a>Submenu 1</a></li>
+                            <li><a>Submenu 1</a></li>
+                            <li><a>Submenu 1</a></li>
+                            <li><a>Submenu 1</a></li>
+                        </ul>
+                    </details>
+                    <details>
+                        <summary>Decortive Product</summary>
+                        <ul className='ms-24'>
+                            <li><a>Submenu 1</a></li>
+                            <li><a>Submenu 2</a></li>
+                            <li><a>Submenu 2</a></li>
+                            <li><a>Submenu 2</a></li>
+                            <li><a>Submenu 2</a></li>
+                            <li><a>Submenu 2</a></li>
+                        </ul>
+                    </details>
+                    <details>
+                        <summary>Home Textile</summary>
+                        <ul className='ms-24'>
+                            <li><a>Submenu 1</a></li>
+                            <li><a>Submenu 1</a></li>
+                            <li><a>Submenu 1</a></li>
+                            <li><a>Submenu 1</a></li>
+                            <li><a>Submenu 1</a></li>
+                            <li><a>Submenu 2</a></li>
+                        </ul>
+                    </details>
+                    <details>
+                        <summary>Sack</summary>
+                        <ul className='ms-24'>
+                            <li><a>Submenu 1</a></li>
+                            <li><a>Submenu 2</a></li>
+                        </ul>
+                    </details>
+
+                    <details>
+                        <summary>Footware</summary>
+                        <ul className='ms-24'>
+                            <li><a>Man</a></li>
+                            <li><a>Women</a></li>
+                            <li><a>Children</a></li>
+                            <li><a>Sold</a></li>
+
+                        </ul>
+                    </details>
+
+                </li>
+            </div>
+
+            <div className="divider lg:divider-horizontal divider-primary">|</div>
+            <div>
+                <li>
+                    <a>Carpet</a>
+                </li>
+                <li>
+                    <a>Jute Yarn</a>
+                </li>
+                <li >
+                    <a>Raw Jute</a>
+                </li>
+                <li >
+                    <a>Jute Rope</a>
+                </li>
+                <li >
+                    <a>Fabric</a>
+                </li>
+                <li >
+                    <a>Jute Tape</a>
+                </li>
+                <li >
+                    <a>Net</a>
+                </li>
+                <li >
+                    <a>Tassels</a>
+                </li>
+                <li >
+                    <a>Fashionable Cap</a>
+                </li>
+                <li >
+                    <a>Note Book</a>
+                </li>
+                <li >
+                    <a>File</a>
+                </li>
+
+            </div>
+
+
+        </div>
+    </>
     // const productList = <>
     //     <li><button onClick={(event) => handleClicked(event.target.value)}
     //         type='button' value='ladies bag' className='uppercase'>Ladies bag</button></li>
@@ -57,11 +185,24 @@ const Navbar = () => {
         }).catch(error => { console.error(error) })
     }
 
+
+
     const navItem = <>
 
         <li id='parent' className='lg:border-2 lg:border-black rounded-ss-2xl rounded-ee-2xl mx-1'>
+
+            <a>New</a>
+            <ul id='onhover' className="p-2" >
+                {productList}
+            </ul>
+
+
+
+
+        </li>
+        <li id='parent' className='lg:border-2 lg:border-black rounded-ss-2xl rounded-ee-2xl mx-1'>
             <a>Catagory</a>
-            <ul id='onhover' className="p-2">
+            <ul id='onhover' className="p-2" >
                 {insertedCatagoryList}
             </ul>
 
@@ -78,8 +219,8 @@ const Navbar = () => {
     </>
 
     return (
-        <div style={{ height: 'auto' }} className='lg:mt-14' >
-            <div className="navbar bg-gradient-to-r from-green-400 via-cyan-600 to-blue-400 lg:mt-10 w-full z-100">
+        <div style={{ height: 'auto' }} className='' >
+            <div className="navbar bg-gradient-to-r from-green-400 via-cyan-600 to-blue-400 lg:fixed top-0  w-full z-20">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
