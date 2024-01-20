@@ -20,11 +20,13 @@ const AddCatagory = () => {
     const handleSubmit = e => {
         e.preventDefault();
         const form = e.target;
-        const item = form.catagory.value.toLowerCase();
+        const item = form.catagory.value;
+        const parent = form.parent.value;
         const insertedItem = {
-            item: item
+            item: item,
+            parent: parent
         };
-        e.target.reset();
+        // e.target.reset();
 
         fetch('https://eco-server-ecocraftz.vercel.app/insertedCatagory', {
             method: 'POST',
@@ -65,20 +67,25 @@ const AddCatagory = () => {
             <div className="lg:min-h-screen flex flex-row items-center">
                 <div>
                     <h1 className="text-3xl font-semibold mb-5">Add Here</h1>
-                    <form onSubmit={handleSubmit}>
-                        <input type="text" placeholder="Type here" name="catagory" className="input input-bordered input-accent w-full" />
-                        <input type="submit" value="add" className="btn btn-sm btn-success my-5" />
-                    </form>
+                    <div className="w-1/2">
+                        <form onSubmit={handleSubmit}>
+                            <label>Parent Name</label>
+                            <input type="text" placeholder="Type here" name="parent" className="input input-bordered input-accent w-full my-2" />
+                            <label>Catagory Name</label>
+                            <input type="text" placeholder="Type here" name="catagory" className="input input-bordered input-accent w-full my-2" />
+                            <input type="submit" value="add" className="btn btn-sm btn-success my-5" />
+                        </form>
+                    </div>
                 </div>
             </div>
-            <div className="lg:min-h-screen grid sm:grid-cols-1 lg:grid-cols-2 gap-2">
-                {data.map((catagory, index) => <div key={catagory._id} className="card lg:w-96 glass">
+            <div className="bg-red-600">
+                {data.map((catagory, index) => <div key={catagory._id} className="glass">
 
-                    <div className="card-body items-center text-center">
-                        <h2 className="card-title">{index + 1}.{catagory.item}</h2>
-                        <p></p>
-                        <div className="card-actions justify-end">
-                            <button onClick={() => handleDelete(catagory._id, catagory.item)} className="btn btn-sm btn-error">Delete</button>
+                    <div className="flex flex-row justify-between items-center gap-4 p-2">
+                        <h2 className="text-lg">{index + 1}.{catagory.item}</h2>
+
+                        <div className=" flex">
+                            <button onClick={() => handleDelete(catagory._id, catagory.item)} className="btn btn-xs btn-error">Delete</button>
                         </div>
                     </div>
                 </div>)}

@@ -44,6 +44,7 @@
         color: white;
         border-radius: 5px;
         min-height: auto;
+        border: bottom 20px;
 
     }
 }

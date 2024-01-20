@@ -26,13 +26,21 @@ const Navbar = () => {
     if (isLoading) {
         return <Loading></Loading>
     }
+    //
+    // const bagList = <>
+    //     {data.filter(list => list.includes("bag"))}
+    // </>
+    // console.log(bagList)
+    console.log(data)
 
     const insertedCatagoryList = <>
         {
             data.map(item => <li key={item._id}><button onClick={() => handleClicked(item.item)}
                 type='button' className='uppercase'>{item.item}</button></li>)
         }
+
     </>
+    // console.log(insertedCatagoryList)
     const productList = <>
         <div className='w-full h-auto lg:flex flex-row justify-start items-start gap-5'>
             <div>
@@ -40,18 +48,11 @@ const Navbar = () => {
                     <details>
                         <summary>Bag</summary>
                         <ul className='ms-24'>
-                            <li><a>Submenu 1</a></li>
-                            <li><a>Submenu 2</a></li>
-                            <li><a>Submenu 2</a></li>
-                            <li><a>Submenu 2</a></li>
-                            <li><a>Submenu 2</a></li>
-                            <li><a>Submenu 2</a></li>
-                            <li><a>Submenu 2</a></li>
-                            <li><a>Submenu 2</a></li>
-                            <li><a>Submenu 2</a></li>
-                            <li><a>Submenu 2</a></li>
-                            <li><a>Submenu 2</a></li>
-                            <li><a>Submenu 2</a></li>
+                            {data.filter(products => products.parent.toLowerCase().includes('Bag'.toLowerCase())).map(List => (
+                                <li key={List._id} onClick={() => handleClicked(List.item)}>
+                                    <a className=''>{List.item}</a>
+                                </li>
+                            ))}
                             {/* <li>
                         <details>
                             <summary>Parent</summary>
