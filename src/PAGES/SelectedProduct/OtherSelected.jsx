@@ -82,14 +82,14 @@ const OtherSelected = () => {
         <div className='bg-gradient-to-br from-red-400 via-emerald-300 to-purple-400'>
             <div className='flex lg:flex-row lg:justify-start flex-col-reverse justify-center items-center lg:gap-10 gap-4 p-6'>
 
-                <div className='relative'>
+                <div className='relative hover:min-w-screen'>
                     <div>
                         <button onMouseEnter={() => setIsCatagory(!isCatagory)}
                             className='btn btn-sm btn-warning mb-1'>
                             <BsMenuButtonFill></BsMenuButtonFill>Catagories</button>
                     </div>
                     {
-                        isCatagory && <div className='flex flex-col items-start absolute z-10 bg-warning w-full p-2 rounded-lg'>
+                        isCatagory && <div className='flex flex-col items-start absolute z-10 bg-warning p-2 rounded-lg'>
                             {catagoryList.map(item => <div key={item._id} onClick={() => handleClick(item.item)}
                                 className=' cursor-pointer uppercase mb-2 hover:border-b-4 hover:border-b-green-400'>{item.item}</div>)}
                         </div>

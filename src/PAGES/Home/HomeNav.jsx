@@ -67,14 +67,11 @@ const Navbar = () => {
                     <details>
                         <summary>Busket</summary>
                         <ul className='ms-24'>
-                            <li><a>Submenu 2</a></li>
-                            <li><a>Submenu 1</a></li>
-                            <li><a>Submenu 1</a></li>
-                            <li><a>Submenu 1</a></li>
-                            <li><a>Submenu 1</a></li>
-                            <li><a>Submenu 1</a></li>
-                            <li><a>Submenu 1</a></li>
-                            <li><a>Submenu 1</a></li>
+                            {data.filter(products => products.parent.toLowerCase().includes('Basket'.toLowerCase())).map(List => (
+                                <li key={List._id} onClick={() => handleClicked(List.item)}>
+                                    <a className=''>{List.item}</a>
+                                </li>
+                            ))}
                         </ul>
                     </details>
                     <details>

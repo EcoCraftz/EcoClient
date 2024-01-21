@@ -1,12 +1,42 @@
 // eslint-disable-next-line no-unused-vars
-import React from 'react';
+import React, { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { useForm } from 'react-hook-form';
 import Loading from '../Shared/Loading';
 // import bg from "../../assets/1.png";
 
+
+const parentList = [
+    {
+        id: 1,
+        item: "Bag"
+    },
+    {
+        id: 2,
+        item: "Basket"
+    },
+    {
+        id: 3,
+        item: "Decorative Product"
+    },
+    {
+        id: 4,
+        item: "Home Textile"
+    },
+    {
+        id: 5,
+        item: "Sack"
+    },
+    {
+        id: 6,
+        item: "Footware"
+    },
+]
+
 const Add = () => {
+    // const [pList, setpList] = useState("")
     const { register, formState: { errors }, handleSubmit } = useForm();
+    // const parentName = register("parent")
     // const leadTime = {
     //     p1: "15 Working Days ",
     //     p2: "*After Confirmation of minimum 50% Advanced Payment",
@@ -45,6 +75,7 @@ const Add = () => {
                 const product = {
                     code: data.code,
                     name: data.name,
+                    parent: data.parent,
                     catagory: data.catagory,
                     description: data.description,
                     image: imgData.data.url,
@@ -74,7 +105,10 @@ const Add = () => {
         });
     }
 
-
+    // const handleChange = (data) => {
+    //     setpList(data.parent);
+    //     console.log(pList);
+    // }
 
 
 
@@ -143,6 +177,40 @@ const Add = () => {
                                 </div>
                                 <div className="form-control w-full max-w-xs">
                                     <label className="label">
+                                        <span className="label-text">Parent Catagory</span>
+                                    </label>
+                                    <select
+                                        type="select"
+                                        placeholder="Select Catagory"
+                                        className="input input-bordered w-full max-w-xs"
+                                        onChange={() => {
+
+                                            console.log("Here would go the my onChange",)
+                                        }}
+                                        style={{ border: "1px solid green" }}
+                                        {...register("parent", {
+                                            required: {
+                                                value: true,
+                                                message: "Parent Catagory is required"
+                                            }
+                                        })} >
+
+                                        <option value=""></option>
+                                        {
+                                            parentList.map(item => <option key={item.id} value={item.item} className=''>
+                                                {item.item}</option>)
+                                        }
+
+                                    </select>
+                                    <label className="label">
+                                        {errors.parent?.type === 'required' && <span
+                                            className="label-text-alt text-red-500">{errors.parent.message}</span>}
+                                        {errors.parent?.type === 'pattern' && <span
+                                            className="label-text-alt text-red-500">{errors.parent.message}</span>}
+                                    </label>
+                                </div>
+                                <div className="form-control w-full max-w-xs">
+                                    <label className="label">
                                         <span className="label-text">Catagory</span>
                                     </label>
                                     <select
@@ -159,7 +227,7 @@ const Add = () => {
 
                                         <option value=""></option>
                                         {
-                                            data.map(item => <option key={item._id} value={item.item} className='uppercase'>
+                                            data.map(item => <option key={item._id} value={item.item} className=''>
                                                 {item.item}</option>)
                                         }
 
