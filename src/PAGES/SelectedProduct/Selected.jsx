@@ -73,11 +73,24 @@ const Selected = () => {
                         <h1 className='text-xl font-sans font-bold uppercase me-10'>Product Code: {data?.code}</h1>
                         <ul className='list-disc list-outside ms-6'>
                             {data?.material && <li><span className='font-bold py-4'>Material: </span>{data?.material}</li>}
-                            <li><span className='font-bold py-4'>Imprint: </span>{data?.imprint}</li>
-                            <li><span className='font-bold py-4'>External Dimention: </span>{data?.external}</li>
-                            <li><span className='font-bold py-4'>Internal Dimention: </span>{data?.internal}</li>
-                            <li><span className='font-bold py-4'>Weight: </span>{data?.weight}</li>
-                            <li><span className='font-bold py-4'>Packeging: </span>{data?.packing}</li>
+                            {data?.color && <li><span className='font-bold py-4'>Color: </span>{data?.color}</li>}
+                            {data?.diameter && <li><span className='font-bold py-4'>Diameter: </span>{data?.diameter}</li>}
+                            {data?.size && <li><span className='font-bold py-4'>Size: </span>{data?.size}</li>}
+                            {data?.weight && <li><span className='font-bold py-4'>Weight: </span>{data?.weight}</li>}
+                            {data?.packing && <li><span className='font-bold py-4'>Packing: </span>{data?.packing}</li>}
+                            {data?.length && <li><span className='font-bold py-4'>Length: </span>{data?.length}</li>}
+                            {data?.gsm && <li><span className='font-bold py-4'>GSM: </span>{data?.gsm}</li>}
+                            {data?.style && <li><span className='font-bold py-4'>Style: </span>{data?.style}</li>}
+                            {data?.pattern && <li><span className='font-bold py-4'>Pattern: </span>{data?.pattern}</li>}
+                            {data?.purpose && <li><span className='font-bold py-4'>Purpose: </span>{data?.purpose}</li>}
+                            {data?.capacity && <li><span className='font-bold py-4'>Capacity: </span>{data?.capacity}</li>}
+                            {data?.gender && <li><span className='font-bold py-4'>Gender: </span>{data?.gender}</li>}
+                            {data?.quality && <li><span className='font-bold py-4'>Quality: </span>{data?.quality}</li>}
+                            {data?.resize && <li><span className='font-bold py-4'>Resize: </span>{data?.resize}</li>}
+                            {data?.type && <li><span className='font-bold py-4'>Type: </span>{data?.type}</li>}
+                            {data?.sewn && <li><span className='font-bold py-4'>Sewn: </span>{data?.sewn}</li>}
+                            {data?.application && <li><span className='font-bold py-4'>Application: </span>{data?.application}</li>}
+                            {data?.feature && <li><span className='font-bold py-4'>Feature: </span>{data?.feature}</li>}
 
 
 
