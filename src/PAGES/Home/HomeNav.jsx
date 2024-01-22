@@ -33,13 +33,13 @@ const Navbar = () => {
     // console.log(bagList)
     console.log(data)
 
-    const insertedCatagoryList = <>
-        {
-            data.map(item => <li key={item._id}><button onClick={() => handleClicked(item.item)}
-                type='button' className='uppercase'>{item.item}</button></li>)
-        }
+    // const insertedCatagoryList = <>
+    //     {
+    //         data.map(item => <li key={item._id}><button onClick={() => handleClicked(item.item)}
+    //             type='button' className='uppercase'>{item.item}</button></li>)
+    //     }
 
-    </>
+    // </>
     // console.log(insertedCatagoryList)
     const productList = <>
         <div className='w-full h-auto lg:flex flex-row justify-start items-start gap-5'>
@@ -77,40 +77,42 @@ const Navbar = () => {
                     <details>
                         <summary>Decortive Product</summary>
                         <ul className='ms-24'>
-                            <li><a>Submenu 1</a></li>
-                            <li><a>Submenu 2</a></li>
-                            <li><a>Submenu 2</a></li>
-                            <li><a>Submenu 2</a></li>
-                            <li><a>Submenu 2</a></li>
-                            <li><a>Submenu 2</a></li>
+                            {data.filter(products => products.parent.toLowerCase().includes('Decorative'.toLowerCase())).map(List => (
+                                <li key={List._id} onClick={() => handleClicked(List.item)}>
+                                    <a className=''>{List.item}</a>
+                                </li>
+                            ))}
                         </ul>
                     </details>
                     <details>
                         <summary>Home Textile</summary>
                         <ul className='ms-24'>
-                            <li><a>Submenu 1</a></li>
-                            <li><a>Submenu 1</a></li>
-                            <li><a>Submenu 1</a></li>
-                            <li><a>Submenu 1</a></li>
-                            <li><a>Submenu 1</a></li>
-                            <li><a>Submenu 2</a></li>
+                            {data.filter(products => products.parent.toLowerCase().includes('Home Textile'.toLowerCase())).map(List => (
+                                <li key={List._id} onClick={() => handleClicked(List.item)}>
+                                    <a className=''>{List.item}</a>
+                                </li>
+                            ))}
                         </ul>
                     </details>
                     <details>
                         <summary>Sack</summary>
                         <ul className='ms-24'>
-                            <li><a>Submenu 1</a></li>
-                            <li><a>Submenu 2</a></li>
+                            {data.filter(products => products.parent.toLowerCase().includes('Sack'.toLowerCase())).map(List => (
+                                <li key={List._id} onClick={() => handleClicked(List.item)}>
+                                    <a className=''>{List.item}</a>
+                                </li>
+                            ))}
                         </ul>
                     </details>
 
                     <details>
                         <summary>Footware</summary>
                         <ul className='ms-24'>
-                            <li><a>Man</a></li>
-                            <li><a>Women</a></li>
-                            <li><a>Children</a></li>
-                            <li><a>Sold</a></li>
+                            {data.filter(products => products.parent.toLowerCase().includes('Footware'.toLowerCase())).map(List => (
+                                <li key={List._id} onClick={() => handleClicked(List.item)}>
+                                    <a className=''>{List.item}</a>
+                                </li>
+                            ))}
 
                         </ul>
                     </details>
@@ -120,39 +122,11 @@ const Navbar = () => {
 
             <div className="divider lg:divider-horizontal divider-primary">|</div>
             <div>
-                <li>
-                    <a>Carpet</a>
-                </li>
-                <li>
-                    <a>Jute Yarn</a>
-                </li>
-                <li >
-                    <a>Raw Jute</a>
-                </li>
-                <li >
-                    <a>Jute Rope</a>
-                </li>
-                <li >
-                    <a>Fabric</a>
-                </li>
-                <li >
-                    <a>Jute Tape</a>
-                </li>
-                <li >
-                    <a>Net</a>
-                </li>
-                <li >
-                    <a>Tassels</a>
-                </li>
-                <li >
-                    <a>Fashionable Cap</a>
-                </li>
-                <li >
-                    <a>Note Book</a>
-                </li>
-                <li >
-                    <a>File</a>
-                </li>
+                {data.filter(products => products.parent.toLowerCase().includes('Default'.toLowerCase())).map(List => (
+                    <li key={List._id} onClick={() => handleClicked(List.item)}>
+                        <a className=''>{List.item}</a>
+                    </li>
+                ))}
 
             </div>
 
@@ -187,26 +161,28 @@ const Navbar = () => {
 
     const navItem = <>
 
+        <li className='rounded mx-1'><NavLink to='/'>
+            Home</NavLink></li>
         <li id='parent' className='lg:border-2 lg:border-black rounded-ss-2xl rounded-ee-2xl mx-1'>
 
-            <a>New</a>
+            <a>Products</a>
             <ul id='onhover' className="p-2" >
                 {productList}
             </ul>
-
-
-
-
         </li>
-        <li id='parent' className='lg:border-2 lg:border-black rounded-ss-2xl rounded-ee-2xl mx-1'>
+        {/* <li id='parent' className='lg:border-2 lg:border-black rounded-ss-2xl rounded-ee-2xl mx-1'>
             <a>Catagory</a>
             <ul id='onhover' className="p-2" >
                 {insertedCatagoryList}
             </ul>
 
-        </li>
+        </li> */}
         <li className='lg:border-2 lg:border-black rounded-ss-2xl rounded-ee-2xl mx-1'><NavLink to='/products'>Gallery</NavLink></li>
         <li className='lg:border-2 lg:border-black rounded-ss-2xl rounded-ee-2xl mx-1'><NavLink to='/dashboard'>Dashboard</NavLink></li>
+        <li className='lg:border-2 lg:border-black rounded-ss-2xl rounded-ee-2xl mx-1'><NavLink to='/csr'>CSR</NavLink></li>
+        <li className='lg:border-2 lg:border-black rounded-ss-2xl rounded-ee-2xl mx-1'><NavLink to='/covid'>Covid-19</NavLink></li>
+        <li className='lg:border-2 lg:border-black rounded-ss-2xl rounded-ee-2xl mx-1'><NavLink to='/carrer'>Carrer</NavLink></li>
+        <li className='lg:border-2 lg:border-black rounded-ss-2xl rounded-ee-2xl mx-1'><NavLink to='/contact'>Contact</NavLink></li>
         <li className='lg:border-2 lg:border-black rounded-ss-2xl rounded-ee-2xl mx-1'><NavLink to='/about'>About Us</NavLink></li>
         {/* <li><NavLink to='/register'>Register</NavLink></li> */}
         <li>{user?.email && <span><FaRegUserCircle></FaRegUserCircle>{user?.email}</span>}</li>

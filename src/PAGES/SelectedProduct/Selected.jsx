@@ -72,7 +72,7 @@ const Selected = () => {
                     <div className='border border-blue-500 border-l-4 border-b-4 lg:w-11/12 lg:p-2'>
                         <h1 className='text-xl font-sans font-bold uppercase me-10'>Product Code: {data?.code}</h1>
                         <ul className='list-disc list-outside ms-6'>
-                            <li><span className='font-bold py-4'>Material: </span>{data?.material}</li>
+                            {data?.material && <li><span className='font-bold py-4'>Material: </span>{data?.material}</li>}
                             <li><span className='font-bold py-4'>Imprint: </span>{data?.imprint}</li>
                             <li><span className='font-bold py-4'>External Dimention: </span>{data?.external}</li>
                             <li><span className='font-bold py-4'>Internal Dimention: </span>{data?.internal}</li>

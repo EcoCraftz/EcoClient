@@ -1,8 +1,9 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useEffect, useState } from 'react';
-import { SiMinutemailer } from 'react-icons/si';
+// import { SiMinutemailer } from 'react-icons/si';
 import { BiSolidPhoneCall } from 'react-icons/bi';
 import { FcClock } from 'react-icons/fc';
+import { IoIosMail } from "react-icons/io";
 
 const TopBoard = () => {
     const [time, setTime] = useState(new Date());
@@ -28,7 +29,7 @@ const TopBoard = () => {
             </div>
             <div>
                 <div className='text-lg font-thin text-white flex flex-row justify-start items-center gap-2'>
-                    <h1><SiMinutemailer></SiMinutemailer></h1>
+                    <h1>< IoIosMail /></h1>
                     <h1>ecocraftzbd@gmail.com</h1>
                 </div>
                 <div className='text-lg font-thin text-white flex flex-row justify-start items-center gap-2'>
