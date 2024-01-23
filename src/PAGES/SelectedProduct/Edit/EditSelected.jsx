@@ -4,6 +4,37 @@ import Loading from "../../Shared/Loading";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 
+const parentList = [
+    {
+        id: 1,
+        item: "Bag"
+    },
+    {
+        id: 2,
+        item: "Basket"
+    },
+    {
+        id: 3,
+        item: "Decorative Product"
+    },
+    {
+        id: 4,
+        item: "Home Textile"
+    },
+    {
+        id: 5,
+        item: "Sack"
+    },
+    {
+        id: 6,
+        item: "Footware"
+    },
+    {
+        id: 7,
+        item: "Default"
+    },
+]
+
 const EditSelected = () => {
     const navigate = useNavigate();
     const { register, formState: { errors }, handleSubmit } = useForm();
@@ -72,9 +103,29 @@ const EditSelected = () => {
         const productInfo = {
             code: info.code,
             name: info.name,
+            parent: info.parent,
             catagory: info.catagory,
             description: info.description,
-            image: data.image
+            image: info.image,
+            material: info.material,
+            color: info.color,
+            weight: info.weight,
+            diameter: info.diameter,
+            size: info.size,
+            packing: info.packing,
+            length: info.length,
+            gsm: info.gsm,
+            style: info.style,
+            pattern: info.pattern,
+            purpose: info.purpose,
+            capacity: info.capacity,
+            gender: info.gender,
+            quality: info.quality,
+            resize: info.resize,
+            type: info.type,
+            sewn: info.sewn,
+            application: info.application,
+            feature: info.feature,
         };
         fetch(`https://eco-server-ecocraftz.vercel.app/updateImage/${id}`, {
             method: 'PUT',
@@ -102,7 +153,7 @@ const EditSelected = () => {
         <div className="bg-gradient-to-tl from-lime-800 via-cyan-800 to-fuchsia-400">
             <div className="hero min-h-screen">
 
-                <div className="hero-content flex-col lg:flex-row-reverse">
+                <div className="hero-content flex-col">
                     <div>
                         <img src={data?.image} className="lg:max-w-lg rounded-lg shadow-2xl" />
                         <div className="flex lg:flex-row flex-col justify-start items-center gap-4">
@@ -158,7 +209,7 @@ const EditSelected = () => {
                         <form onSubmit={handleSubmit(handleEdit)}>
                             <div className="form-control w-full max-w-xs">
                                 <label className="label">
-                                    <span className="label-text">Product Code</span>
+                                    <span className="label-text text-white">Product Code</span>
                                 </label>
                                 <input
                                     type="text"
@@ -204,6 +255,41 @@ const EditSelected = () => {
                                         className="label-text-alt text-red-500">{errors.name.message}</span>}
                                 </label>
                             </div>
+                            <div className="form-control w-full max-w-xs">
+                                <label className="label">
+                                    <span className="label-text text-white">Parent Catagory</span>
+                                </label>
+                                <select
+                                    type="select"
+                                    placeholder="Select Catagory"
+                                    className="input input-bordered w-full max-w-xs"
+                                    onChange={() => {
+
+                                        console.log("Here would go the my onChange",)
+                                    }}
+                                    style={{ border: "1px solid green" }}
+                                    {...register("parent", {
+                                        required: {
+                                            value: true,
+                                            message: "Parent Catagory is required"
+                                        }
+                                    })} >
+
+                                    <option defaultValue={data.parent}></option>
+                                    {
+                                        parentList.map(item => <option key={item.id} value={item.item} className=''>
+                                            {item.item}</option>)
+                                    }
+
+                                </select>
+                                <label className="label">
+                                    {errors.parent?.type === 'required' && <span
+                                        className="label-text-alt text-red-500">{errors.parent.message}</span>}
+                                    {errors.parent?.type === 'pattern' && <span
+                                        className="label-text-alt text-red-500">{errors.parent.message}</span>}
+                                </label>
+                            </div>
+
                             <div className="form-control w-full max-w-xs">
                                 <label className="label">
                                     <span className="label-text text-white">Catagory</span>
@@ -264,8 +350,284 @@ const EditSelected = () => {
                                 </label>
                             </div>
 
-                            <input type="submit" value="Save the changes" className='btn btn-sm w-full max-w-xs bg-green-300 hover:bg-green-600' />
-                            <input onClick={() => setIsAgree(false)} value="Unchanged" className='btn btn-sm w-full max-w-xs bg-green-300 hover:bg-green-600 mt-4' />
+
+                            {/* this is for optional fields  */}
+                            <div className="card shadow-xl mb-2">
+                                <div className="card-body">
+                                    <h1 className='text-red-800 underline'>Optional Feilds</h1>
+
+                                    <div className="form-control w-full max-w-xs">
+                                        <label className="label">
+                                            <span className="label-text">Material</span>
+                                        </label>
+                                        <input
+                                            type="text"
+                                            placeholder="Material details"
+                                            className="input input-bordered w-full max-w-xs"
+                                            style={{ border: "1px solid green" }}
+                                            {...register("material", {
+
+                                            })} />
+
+                                    </div>
+                                    <div className="form-control w-full max-w-xs">
+                                        <label className="label">
+                                            <span className="label-text">Color</span>
+                                        </label>
+                                        <input
+                                            type="text"
+                                            placeholder="Color details"
+                                            className="input input-bordered w-full max-w-xs"
+                                            style={{ border: "1px solid green" }}
+                                            {...register("color", {
+
+                                            })} />
+
+                                    </div>
+                                    <div className="form-control w-full max-w-xs">
+                                        <label className="label">
+                                            <span className="label-text">Weight</span>
+                                        </label>
+                                        <input
+                                            type="text"
+                                            placeholder="Kg/gm"
+                                            className="input input-bordered w-full max-w-xs"
+                                            style={{ border: "1px solid green" }}
+                                            {...register("weight", {
+                                            })} />
+
+                                    </div>
+                                    <div className="form-control w-full max-w-xs">
+                                        <label className="label">
+                                            <span className="label-text">Diameter</span>
+                                        </label>
+                                        <input
+                                            type="text"
+                                            placeholder="Diameter"
+                                            className="input input-bordered w-full max-w-xs"
+                                            style={{ border: "1px solid green" }}
+                                            {...register("diameter", {
+                                            })} />
+
+                                    </div>
+                                    <div className="form-control w-full max-w-xs">
+                                        <label className="label">
+                                            <span className="label-text">Size</span>
+                                        </label>
+                                        <input
+                                            type="text"
+                                            placeholder="H: x W:"
+                                            className="input input-bordered w-full max-w-xs"
+                                            style={{ border: "1px solid green" }}
+                                            {...register("size", {
+                                            })} />
+
+                                    </div>
+                                    <div className="form-control w-full max-w-xs">
+                                        <label className="label">
+                                            <span className="label-text">Length</span>
+                                        </label>
+                                        <input
+                                            type="text"
+                                            placeholder="Length: "
+                                            className="input input-bordered w-full max-w-xs"
+                                            style={{ border: "1px solid green" }}
+                                            {...register("length", {
+                                            })} />
+
+                                    </div>
+                                    <div className="form-control w-full max-w-xs">
+                                        <label className="label">
+                                            <span className="label-text">Packing</span>
+                                        </label>
+                                        <input
+                                            type="text"
+                                            placeholder="Packing Details"
+                                            className="input input-bordered w-full max-w-xs"
+                                            style={{ border: "1px solid green" }}
+                                            {...register("packing", {
+                                            })} />
+
+                                    </div>
+                                    <div className="form-control w-full max-w-xs">
+                                        <label className="label">
+                                            <span className="label-text">GSM</span>
+                                        </label>
+                                        <input
+                                            type="text"
+                                            placeholder="GSM Details"
+                                            className="input input-bordered w-full max-w-xs"
+                                            style={{ border: "1px solid green" }}
+                                            {...register("gsm", {
+                                            })} />
+
+                                    </div>
+
+                                    <div className="form-control w-full max-w-xs">
+                                        <label className="label">
+                                            <span className="label-text">Style</span>
+                                        </label>
+                                        <input
+                                            type="text"
+                                            placeholder="Style Details"
+                                            className="input input-bordered w-full max-w-xs"
+                                            style={{ border: "1px solid green" }}
+                                            {...register("style", {
+                                            })} />
+
+                                    </div>
+                                    <div className="form-control w-full max-w-xs">
+                                        <label className="label">
+                                            <span className="label-text">Pattern</span>
+                                        </label>
+                                        <input
+                                            type="text"
+                                            placeholder="Pattern: "
+                                            className="input input-bordered w-full max-w-xs"
+                                            style={{ border: "1px solid green" }}
+                                            {...register("pattern", {
+                                            })} />
+
+                                    </div>
+                                    <div className="form-control w-full max-w-xs">
+                                        <label className="label">
+                                            <span className="label-text">Purpose</span>
+                                        </label>
+                                        <input
+                                            type="text"
+                                            placeholder="Purpose:  "
+                                            className="input input-bordered w-full max-w-xs"
+                                            style={{ border: "1px solid green" }}
+                                            {...register("purpose", {
+                                            })} />
+
+                                    </div>
+                                    <div className="form-control w-full max-w-xs">
+                                        <label className="label">
+                                            <span className="label-text">Capacity</span>
+                                        </label>
+                                        <input
+                                            type="text"
+                                            placeholder="Capacity: "
+                                            className="input input-bordered w-full max-w-xs"
+                                            style={{ border: "1px solid green" }}
+                                            {...register("capacity", {
+                                            })} />
+
+                                    </div>
+                                    <div className="form-control w-full max-w-xs">
+                                        <label className="label">
+                                            <span className="label-text">Gender</span>
+                                        </label>
+                                        <input
+                                            type="text"
+                                            placeholder="Gender: "
+                                            className="input input-bordered w-full max-w-xs"
+                                            style={{ border: "1px solid green" }}
+                                            {...register("gender", {
+                                            })} />
+
+                                    </div>
+                                    <div className="form-control w-full max-w-xs">
+                                        <label className="label">
+                                            <span className="label-text">Quality</span>
+                                        </label>
+                                        <input
+                                            type="text"
+                                            placeholder="Quality: "
+                                            className="input input-bordered w-full max-w-xs"
+                                            style={{ border: "1px solid green" }}
+                                            {...register("quality", {
+                                            })} />
+
+                                    </div>
+                                    <div className="form-control w-full max-w-xs">
+                                        <label className="label">
+                                            <span className="label-text">Resize</span>
+                                        </label>
+                                        <input
+                                            type="text"
+                                            placeholder="Resize: "
+                                            className="input input-bordered w-full max-w-xs"
+                                            style={{ border: "1px solid green" }}
+                                            {...register("resize", {
+                                            })} />
+
+                                    </div>
+                                    <div className="form-control w-full max-w-xs">
+                                        <label className="label">
+                                            <span className="label-text">Type</span>
+                                        </label>
+                                        <input
+                                            type="text"
+                                            placeholder="Type: "
+                                            className="input input-bordered w-full max-w-xs"
+                                            style={{ border: "1px solid green" }}
+                                            {...register("type", {
+                                            })} />
+
+                                    </div>
+                                    <div className="form-control w-full max-w-xs">
+                                        <label className="label">
+                                            <span className="label-text">Sewn</span>
+                                        </label>
+                                        <input
+                                            type="text"
+                                            placeholder="Sewn:"
+                                            className="input input-bordered w-full max-w-xs"
+                                            style={{ border: "1px solid green" }}
+                                            {...register("sewn", {
+                                            })} />
+
+                                    </div>
+                                    <div className="form-control w-full max-w-xs">
+                                        <label className="label">
+                                            <span className="label-text">Products Customization</span>
+                                        </label>
+                                        <input
+                                            type="text"
+                                            placeholder="Products Customization: "
+                                            className="input input-bordered w-full max-w-xs"
+                                            style={{ border: "1px solid green" }}
+                                            {...register("customization", {
+                                            })} />
+
+                                    </div>
+                                    <div className="form-control w-full max-w-xs">
+                                        <label className="label">
+                                            <span className="label-text">Application</span>
+                                        </label>
+                                        <input
+                                            type="text"
+                                            placeholder="Application: "
+                                            className="input input-bordered w-full max-w-xs"
+                                            style={{ border: "1px solid green" }}
+                                            {...register("application", {
+                                            })} />
+
+                                    </div>
+                                    <div className="form-control w-full max-w-xs">
+                                        <label className="label">
+                                            <span className="label-text">Feature:</span>
+                                        </label>
+                                        <input
+                                            type="text"
+                                            placeholder="Feature:"
+                                            className="input input-bordered w-full max-w-xs"
+                                            style={{ border: "1px solid green" }}
+                                            {...register("feature", {
+                                            })} />
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+
+
+                            <input type="submit" value="Save the changes" className='btn btn-sm w-full max-w-xs bg-yellow-400 border-yellow-400 hover:bg-teal-600 hover:border-teal-600' />
+                            <input onClick={() => setIsAgree(false)} value="Unchanged" className='btn btn-sm w-full max-w-xs bg-white hover:bg-green-600 hover:border-green-600 mt-4' />
                         </form>
                     </div>}
 
