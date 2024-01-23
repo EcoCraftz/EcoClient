@@ -26,6 +26,10 @@ import Terms from "../Licences/Terms";
 import Policy from "../Licences/Policy";
 import Cookies from "../Licences/Cookies";
 import AddCatagory from "../Catagory/AddCatagory";
+import CSR from "../MenuItems/CSR";
+import Covid from "../MenuItems/Covid";
+import Career from "../MenuItems/Career";
+import Contact from "../MenuItems/Contact";
 
 
 
@@ -88,6 +92,23 @@ const router = createBrowserRouter([{
     {
         path: '/cookie',
         element: <Cookies />
+    },
+    {
+        path: '/csr',
+        element: <CSR />
+    },
+    {
+        path: '/covid',
+        element: <Covid />
+    },
+
+    {
+        path: '/career',
+        element: <Career />
+    },
+    {
+        path: '/contact',
+        element: <Contact />
     },
 
     //this is private route area
