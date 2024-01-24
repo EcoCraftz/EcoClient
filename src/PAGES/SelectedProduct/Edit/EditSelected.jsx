@@ -63,6 +63,7 @@ const EditSelected = () => {
         return <Loading></Loading>
     }
 
+
     const handleImage = (event) => {
         console.log(event);
         const formData = new FormData();
@@ -190,9 +191,9 @@ const EditSelected = () => {
 
 
                     {!isAgree && <div>
-                        <h1 className="text-5xl font-bold">{data.name}</h1>
-                        <h3 className="text-2xl font-serif text-white">Catagory: {data.catagory}</h3>
-                        <p className="py-6 text-white font-serif">{data.description}</p>
+                        <h1 className="text-5xl font-bold">{data?.name}</h1>
+                        <h3 className="text-2xl font-serif text-white">Catagory: {data?.catagory}</h3>
+                        <p className="py-6 text-white font-serif">{data?.description}</p>
                         <div className="flex flex-col gap-2 w-fit">
                             <button onClick={() => setIsAgree(true)}
                                 className="btn btn-sm btn-warning">Change Information</button>
@@ -240,7 +241,7 @@ const EditSelected = () => {
                                     placeholder="Name here"
                                     className="input input-bordered w-full max-w-xs"
                                     style={{ border: "1px solid green" }}
-                                    defaultValue={data.name}
+                                    defaultValue={data?.name}
                                     {...register("name", {
                                         required: {
                                             value: true,
@@ -258,6 +259,7 @@ const EditSelected = () => {
                             <div className="form-control w-full max-w-xs">
                                 <label className="label">
                                     <span className="label-text text-white">Parent Catagory</span>
+                                    <p></p>
                                 </label>
                                 <select
                                     type="select"
@@ -275,7 +277,7 @@ const EditSelected = () => {
                                         }
                                     })} >
 
-                                    <option defaultValue={data.parent}></option>
+                                    <option value=""></option>
                                     {
                                         parentList.map(item => <option key={item.id} value={item.item} className=''>
                                             {item.item}</option>)
@@ -299,7 +301,7 @@ const EditSelected = () => {
                                     placeholder="Select Catagory"
                                     className="input input-bordered w-full max-w-xs"
                                     style={{ border: "1px solid green" }}
-                                    defaultValue={data.catagory}
+                                    defaultValue={data?.catagory}
                                     {...register("catagory", {
                                         required: {
                                             value: true,
@@ -334,7 +336,7 @@ const EditSelected = () => {
                                     placeholder="description here"
                                     className="input input-bordered w-full max-w-xs"
                                     style={{ border: "1px solid green" }}
-                                    defaultValue={data.description}
+                                    defaultValue={data?.description}
                                     {...register("description", {
                                         required: {
                                             value: true,
@@ -362,6 +364,7 @@ const EditSelected = () => {
                                         </label>
                                         <input
                                             type="text"
+                                            defaultValue={data?.meterial}
                                             placeholder="Material details"
                                             className="input input-bordered w-full max-w-xs"
                                             style={{ border: "1px solid green" }}
@@ -376,6 +379,7 @@ const EditSelected = () => {
                                         </label>
                                         <input
                                             type="text"
+                                            defaultValue={data?.color}
                                             placeholder="Color details"
                                             className="input input-bordered w-full max-w-xs"
                                             style={{ border: "1px solid green" }}
@@ -390,6 +394,7 @@ const EditSelected = () => {
                                         </label>
                                         <input
                                             type="text"
+                                            defaultValue={data?.weight}
                                             placeholder="Kg/gm"
                                             className="input input-bordered w-full max-w-xs"
                                             style={{ border: "1px solid green" }}
@@ -403,6 +408,7 @@ const EditSelected = () => {
                                         </label>
                                         <input
                                             type="text"
+                                            defaultValue={data?.diameter}
                                             placeholder="Diameter"
                                             className="input input-bordered w-full max-w-xs"
                                             style={{ border: "1px solid green" }}
@@ -416,6 +422,7 @@ const EditSelected = () => {
                                         </label>
                                         <input
                                             type="text"
+                                            defaultValue={data?.size}
                                             placeholder="H: x W:"
                                             className="input input-bordered w-full max-w-xs"
                                             style={{ border: "1px solid green" }}
@@ -429,6 +436,7 @@ const EditSelected = () => {
                                         </label>
                                         <input
                                             type="text"
+                                            defaultValue={data?.length}
                                             placeholder="Length: "
                                             className="input input-bordered w-full max-w-xs"
                                             style={{ border: "1px solid green" }}
@@ -442,6 +450,7 @@ const EditSelected = () => {
                                         </label>
                                         <input
                                             type="text"
+                                            defaultValue={data?.packing}
                                             placeholder="Packing Details"
                                             className="input input-bordered w-full max-w-xs"
                                             style={{ border: "1px solid green" }}
@@ -455,6 +464,7 @@ const EditSelected = () => {
                                         </label>
                                         <input
                                             type="text"
+                                            defaultValue={data?.gsm}
                                             placeholder="GSM Details"
                                             className="input input-bordered w-full max-w-xs"
                                             style={{ border: "1px solid green" }}
@@ -469,6 +479,7 @@ const EditSelected = () => {
                                         </label>
                                         <input
                                             type="text"
+                                            defaultValue={data?.style}
                                             placeholder="Style Details"
                                             className="input input-bordered w-full max-w-xs"
                                             style={{ border: "1px solid green" }}
@@ -482,6 +493,7 @@ const EditSelected = () => {
                                         </label>
                                         <input
                                             type="text"
+                                            defaultValue={data?.pattern}
                                             placeholder="Pattern: "
                                             className="input input-bordered w-full max-w-xs"
                                             style={{ border: "1px solid green" }}
@@ -495,6 +507,7 @@ const EditSelected = () => {
                                         </label>
                                         <input
                                             type="text"
+                                            defaultValue={data?.purpose}
                                             placeholder="Purpose:  "
                                             className="input input-bordered w-full max-w-xs"
                                             style={{ border: "1px solid green" }}
@@ -508,6 +521,7 @@ const EditSelected = () => {
                                         </label>
                                         <input
                                             type="text"
+                                            defaultValue={data?.capacity}
                                             placeholder="Capacity: "
                                             className="input input-bordered w-full max-w-xs"
                                             style={{ border: "1px solid green" }}
@@ -521,6 +535,7 @@ const EditSelected = () => {
                                         </label>
                                         <input
                                             type="text"
+                                            defaultValue={data?.gender}
                                             placeholder="Gender: "
                                             className="input input-bordered w-full max-w-xs"
                                             style={{ border: "1px solid green" }}
@@ -534,6 +549,7 @@ const EditSelected = () => {
                                         </label>
                                         <input
                                             type="text"
+                                            defaultValue={data?.quality}
                                             placeholder="Quality: "
                                             className="input input-bordered w-full max-w-xs"
                                             style={{ border: "1px solid green" }}
@@ -547,6 +563,7 @@ const EditSelected = () => {
                                         </label>
                                         <input
                                             type="text"
+                                            defaultValue={data?.resize}
                                             placeholder="Resize: "
                                             className="input input-bordered w-full max-w-xs"
                                             style={{ border: "1px solid green" }}
@@ -560,6 +577,7 @@ const EditSelected = () => {
                                         </label>
                                         <input
                                             type="text"
+                                            defaultValue={data?.type}
                                             placeholder="Type: "
                                             className="input input-bordered w-full max-w-xs"
                                             style={{ border: "1px solid green" }}
@@ -573,6 +591,7 @@ const EditSelected = () => {
                                         </label>
                                         <input
                                             type="text"
+                                            defaultValue={data?.sewn}
                                             placeholder="Sewn:"
                                             className="input input-bordered w-full max-w-xs"
                                             style={{ border: "1px solid green" }}
@@ -586,6 +605,7 @@ const EditSelected = () => {
                                         </label>
                                         <input
                                             type="text"
+                                            defaultValue={data?.customization}
                                             placeholder="Products Customization: "
                                             className="input input-bordered w-full max-w-xs"
                                             style={{ border: "1px solid green" }}
@@ -599,6 +619,7 @@ const EditSelected = () => {
                                         </label>
                                         <input
                                             type="text"
+                                            defaultValue={data?.application}
                                             placeholder="Application: "
                                             className="input input-bordered w-full max-w-xs"
                                             style={{ border: "1px solid green" }}
@@ -612,6 +633,7 @@ const EditSelected = () => {
                                         </label>
                                         <input
                                             type="text"
+                                            defaultValue={data?.feature}
                                             placeholder="Feature:"
                                             className="input input-bordered w-full max-w-xs"
                                             style={{ border: "1px solid green" }}

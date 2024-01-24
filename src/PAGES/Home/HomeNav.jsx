@@ -53,17 +53,9 @@ const Navbar = () => {
                                     <a className=''>{List.item}</a>
                                 </li>
                             ))}
-                            {/* <li>
-                        <details>
-                            <summary>Parent</summary>
-                            <ul>
-                                <li><a>Submenu 1</a></li>
-                                <li><a>Submenu 2</a></li>
-                            </ul>
-                        </details>
-                    </li> */}
                         </ul>
                     </details>
+
                     <details>
                         <summary>Busket</summary>
                         <ul className='ms-24'>
@@ -182,7 +174,7 @@ const Navbar = () => {
         <li className='lg:border-2 lg:border-black rounded-ss-2xl rounded-ee-2xl mx-1'><NavLink to='/csr'>CSR</NavLink></li>
         <li className='lg:border-2 lg:border-black rounded-ss-2xl rounded-ee-2xl mx-1'><NavLink to='/covid'>Covid-19</NavLink></li>
         <li className='lg:border-2 lg:border-black rounded-ss-2xl rounded-ee-2xl mx-1'><NavLink to='/career'>Career</NavLink></li>
-        <li className='lg:border-2 lg:border-black rounded-ss-2xl rounded-ee-2xl mx-1'><NavLink to='/contact'>Contact</NavLink></li>
+        {/* <li className='lg:border-2 lg:border-black rounded-ss-2xl rounded-ee-2xl mx-1'><NavLink to='/contact'>Contact</NavLink></li> */}
         <li className='lg:border-2 lg:border-black rounded-ss-2xl rounded-ee-2xl mx-1'><NavLink to='/about'>About Us</NavLink></li>
         {/* <li><NavLink to='/register'>Register</NavLink></li> */}
         <li>{user?.email && <span><FaRegUserCircle></FaRegUserCircle>{user?.email}</span>}</li>
