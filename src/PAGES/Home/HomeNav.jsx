@@ -112,7 +112,7 @@ const Navbar = () => {
                 </li>
             </div>
 
-            <div className="divider lg:divider-horizontal divider-primary">|</div>
+            <div className="divider lg:divider-horizontal divider-primary hidden lg:flex">|</div>
             <div>
                 {data.filter(products => products.parent.toLowerCase().includes('Default'.toLowerCase())).map(List => (
                     <li key={List._id} onClick={() => handleClicked(List.item)}>
@@ -155,27 +155,27 @@ const Navbar = () => {
 
         <li className='rounded mx-1'><NavLink to='/'>
             Home</NavLink></li>
-        <li id='parent' className='lg:border-2 lg:border-black rounded-ss-2xl rounded-ee-2xl mx-1'>
+        <li id='parent' className=" ">
 
             <a>Products</a>
             <ul id='onhover' className="p-2" >
                 {productList}
             </ul>
         </li>
-        {/* <li id='parent' className='lg:border-2 lg:border-black rounded-ss-2xl rounded-ee-2xl mx-1'>
+        {/* <li id='parent' className=" ">
             <a>Catagory</a>
             <ul id='onhover' className="p-2" >
                 {insertedCatagoryList}
             </ul>
 
         </li> */}
-        <li className='lg:border-2 lg:border-black rounded-ss-2xl rounded-ee-2xl mx-1'><NavLink to='/products'>Gallery</NavLink></li>
-        <li className='lg:border-2 lg:border-black rounded-ss-2xl rounded-ee-2xl mx-1'><NavLink to='/dashboard'>Dashboard</NavLink></li>
-        <li className='lg:border-2 lg:border-black rounded-ss-2xl rounded-ee-2xl mx-1'><NavLink to='/csr'>CSR</NavLink></li>
-        <li className='lg:border-2 lg:border-black rounded-ss-2xl rounded-ee-2xl mx-1'><NavLink to='/covid'>Covid-19</NavLink></li>
-        <li className='lg:border-2 lg:border-black rounded-ss-2xl rounded-ee-2xl mx-1'><NavLink to='/career'>Career</NavLink></li>
-        {/* <li className='lg:border-2 lg:border-black rounded-ss-2xl rounded-ee-2xl mx-1'><NavLink to='/contact'>Contact</NavLink></li> */}
-        <li className='lg:border-2 lg:border-black rounded-ss-2xl rounded-ee-2xl mx-1'><NavLink to='/about'>About Us</NavLink></li>
+        <li className=" "><NavLink to='/products'>Gallery</NavLink></li>
+        <li className=" "><NavLink to='/dashboard'>Dashboard</NavLink></li>
+        <li className=" "><NavLink to='/csr'>CSR</NavLink></li>
+        <li className=" "><NavLink to='/covid'>Covid-19</NavLink></li>
+        <li className=" "><NavLink to='/career'>Career</NavLink></li>
+        {/* <li className=" "><NavLink to='/contact'>Contact</NavLink></li> */}
+        <li className=" "><NavLink to='/about'>About Us</NavLink></li>
         {/* <li><NavLink to='/register'>Register</NavLink></li> */}
         <li>{user?.email && <span><FaRegUserCircle></FaRegUserCircle>{user?.email}</span>}</li>
         <li>{user?.email ? <button onClick={signOut} className='btn btn-sm btn-error shadow-xl'>Sign Out</button>

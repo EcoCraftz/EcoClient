@@ -51,8 +51,7 @@ const Selected = () => {
             <Navbar></Navbar>
             <div className='mt-4'>
                 <h1 className='text-3xl font-semibold text-center p-2'><span className='border-b-2 border-b-black'><span className='uppercase text-green-700'>{data.name}</span> Full Spacificaion</span></h1>
-                <div id='topDiv' className='mx-2 grid lg:grid-cols-3 sm:grid-cols-1 sm:overflow-hidden justify-start items-start p-4'
-                    style={{ height: '100vh' }}>
+                <div id='topDiv' className='mx-2 grid lg:grid-cols-3 sm:grid-cols-1 sm:overflow-hidden justify-start items-start p-4 lg:h-screen'>
                     <div id='imgHolder' className="mx-auto" style={{ width: '350px', height: '300px' }}>
                         <ReactImageMagnify  {...{
                             smallImage: {
@@ -69,48 +68,49 @@ const Selected = () => {
 
                         }} />
                     </div>
-                    <div className='border border-blue-500 border-l-4 border-b-4 lg:w-11/12 lg:p-2'>
-                        <h1 className='text-xl font-sans font-bold uppercase me-10'>Product Code: {data?.code}</h1>
-                        <ul className='list-disc list-outside ms-6'>
-                            {data?.material && <li><span className='font-bold py-4'>Material: </span>{data?.material}</li>}
-                            {data?.color && <li><span className='font-bold py-4'>Color: </span>{data?.color}</li>}
-                            {data?.diameter && <li><span className='font-bold py-4'>Diameter: </span>{data?.diameter}</li>}
-                            {data?.size && <li><span className='font-bold py-4'>Size: </span>{data?.size}</li>}
-                            {data?.weight && <li><span className='font-bold py-4'>Weight: </span>{data?.weight}</li>}
-                            {data?.packing && <li><span className='font-bold py-4'>Packing: </span>{data?.packing}</li>}
-                            {data?.length && <li><span className='font-bold py-4'>Length: </span>{data?.length}</li>}
-                            {data?.gsm && <li><span className='font-bold py-4'>GSM: </span>{data?.gsm}</li>}
-                            {data?.style && <li><span className='font-bold py-4'>Style: </span>{data?.style}</li>}
-                            {data?.pattern && <li><span className='font-bold py-4'>Pattern: </span>{data?.pattern}</li>}
-                            {data?.purpose && <li><span className='font-bold py-4'>Purpose: </span>{data?.purpose}</li>}
-                            {data?.capacity && <li><span className='font-bold py-4'>Capacity: </span>{data?.capacity}</li>}
-                            {data?.gender && <li><span className='font-bold py-4'>Gender: </span>{data?.gender}</li>}
-                            {data?.quality && <li><span className='font-bold py-4'>Quality: </span>{data?.quality}</li>}
-                            {data?.resize && <li><span className='font-bold py-4'>Resize: </span>{data?.resize}</li>}
-                            {data?.type && <li><span className='font-bold py-4'>Type: </span>{data?.type}</li>}
-                            {data?.sewn && <li><span className='font-bold py-4'>Sewn: </span>{data?.sewn}</li>}
-                            {data?.application && <li><span className='font-bold py-4'>Application: </span>{data?.application}</li>}
-                            {data?.feature && <li><span className='font-bold py-4'>Feature: </span>{data?.feature}</li>}
+                    <div>
+                        <div className='border border-blue-500 border-l-4 border-b-4 lg:w-11/12 lg:p-2'>
+                            <h1 className='text-xl font-sans font-bold uppercase me-10'>Product Code: {data?.code}</h1>
+                            <ul className='list-disc list-outside ms-6'>
+                                {data?.material && <li><span className='font-bold py-4'>Material: </span>{data?.material}</li>}
+                                {data?.color && <li><span className='font-bold py-4'>Color: </span>{data?.color}</li>}
+                                {data?.diameter && <li><span className='font-bold py-4'>Diameter: </span>{data?.diameter}</li>}
+                                {data?.size && <li><span className='font-bold py-4'>Size: </span>{data?.size}</li>}
+                                {data?.weight && <li><span className='font-bold py-4'>Weight: </span>{data?.weight}</li>}
+                                {data?.packing && <li><span className='font-bold py-4'>Packing: </span>{data?.packing}</li>}
+                                {data?.length && <li><span className='font-bold py-4'>Length: </span>{data?.length}</li>}
+                                {data?.gsm && <li><span className='font-bold py-4'>GSM: </span>{data?.gsm}</li>}
+                                {data?.style && <li><span className='font-bold py-4'>Style: </span>{data?.style}</li>}
+                                {data?.pattern && <li><span className='font-bold py-4'>Pattern: </span>{data?.pattern}</li>}
+                                {data?.purpose && <li><span className='font-bold py-4'>Purpose: </span>{data?.purpose}</li>}
+                                {data?.capacity && <li><span className='font-bold py-4'>Capacity: </span>{data?.capacity}</li>}
+                                {data?.gender && <li><span className='font-bold py-4'>Gender: </span>{data?.gender}</li>}
+                                {data?.quality && <li><span className='font-bold py-4'>Quality: </span>{data?.quality}</li>}
+                                {data?.resize && <li><span className='font-bold py-4'>Resize: </span>{data?.resize}</li>}
+                                {data?.type && <li><span className='font-bold py-4'>Type: </span>{data?.type}</li>}
+                                {data?.sewn && <li><span className='font-bold py-4'>Sewn: </span>{data?.sewn}</li>}
+                                {data?.application && <li><span className='font-bold py-4'>Application: </span>{data?.application}</li>}
+                                {data?.feature && <li><span className='font-bold py-4'>Feature: </span>{data?.feature}</li>}
 
-
-
-                        </ul>
-                    </div>
-                    <div id='topDivDetails' className='flex flex-wrap justify-start items-center'>
-                        <h1 className='text-2xl font-serif font-bold uppercase me-10 border-2 border-orange-600 rounded-ss-2xl rounded-ee-2xl p-1'>Short description</h1>
-                        <p className='text-lg me-5'>{data.description}</p>
+                            </ul>
+                        </div>
                         <div className='flex flex-col gap-2 mt-4 me-10'>
-                            <div>
+                            <div className='text-center'>
                                 <button onClick={() => handleBooking(data._id)}
-                                    className='btn btn-sm bg-purple-600 hover:bg-teal-600 text-white'>
+                                    className='btn btn-sm bg-purple-600 border-purple-600  hover:bg-teal-600 hover:border-teal-600 : text-white'>
                                     <span><GoStack></GoStack></span>Booking Now
                                 </button>
                             </div>
                             <div className='animate-bounce flex flex-col justify-center items-center'>
-                                <span className='text-2xl text-green-500'> <FaRegHandPointer></FaRegHandPointer></span>
+                                <span className='text-2xl text-red-600'> <FaRegHandPointer></FaRegHandPointer></span>
                             </div>
 
                         </div>
+
+                    </div>
+                    <div id='topDivDetails' className='hidden lg:flex flex-wrap justify-start items-center'>
+                        <h1 className='text-2xl font-serif font-bold uppercase me-10 border-2 border-orange-600 rounded-ss-2xl rounded-ee-2xl p-1'>Short description</h1>
+                        <p className='text-lg me-5'>{data.description}</p>
 
 
                     </div>

@@ -37,8 +37,11 @@ const OtherSelected = () => {
     if (isLoading) {
         return <Loading></Loading>
     }
+    const filterText = data[0]?.parent;
 
-    // console.log("from other selected page", catagoryList);
+    console.log("from other selected page", filterText);
+
+
 
     const handleSelected = (id) => {
         navigate(`/products/${id}`);
@@ -80,26 +83,27 @@ const OtherSelected = () => {
 
     return (
         <div className='bg-gradient-to-br from-red-400 via-emerald-300 to-purple-400'>
-            <div className='flex lg:flex-row lg:justify-start flex-col-reverse justify-center items-center lg:gap-10 gap-4 p-6'>
+            <div className='flex lg:flex-row lg:justify-start flex-col justify-center items-center lg:gap-10 gap-4 p-6'>
 
-                <div className='relative hover:min-w-screen'>
-                    <div>
+
+                <div onClick={() => navigate('/')} className='btn btn-sm btn-warning'>
+                    <HiOutlineHome></HiOutlineHome>Home</div>
+                <div onClick={() => navigate('/dashboard')} className='btn btn-sm btn-warning'>
+                    <BiSolidDashboard></BiSolidDashboard>Dashboard</div>
+                <div className='relative min-w-max'>
+                    <div className='min-w-max'>
                         <button onMouseEnter={() => setIsCatagory(!isCatagory)}
                             className='btn btn-sm btn-warning mb-1'>
                             <BsMenuButtonFill></BsMenuButtonFill>Catagories</button>
                     </div>
                     {
                         isCatagory && <div className='flex flex-col items-start absolute z-10 bg-warning p-2 rounded-lg'>
-                            {catagoryList.map(item => <div key={item._id} onClick={() => handleClick(item.item)}
-                                className=' cursor-pointer uppercase mb-2 hover:border-b-4 hover:border-b-green-400'>{item.item}</div>)}
+                            {data && catagoryList.filter(products => products?.parent.toLowerCase().includes(filterText.toLowerCase())).map(item => <div key={item._id} onClick={() => handleClick(item.item)}
+                                className=' cursor-pointer mb-2 hover:border-b-4 hover:border-b-green-400'>{item.item}</div>)}
                         </div>
                     }
 
                 </div>
-                <button onClick={() => navigate('/dashboard')} className='btn btn-sm btn-warning'>
-                    <BiSolidDashboard></BiSolidDashboard>Dashboard</button>
-                <div onClick={() => navigate('/')} className='btn btn-sm btn-warning'>
-                    <HiOutlineHome></HiOutlineHome>Home</div>
                 {/* {user?.displayName && <span>Welcome {user.displayName}</span>} */}
                 <h1 className='uppercase text-2xl font-serif font-bold'>Explore Our {catagory} </h1>
 

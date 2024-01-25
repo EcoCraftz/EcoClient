@@ -4,8 +4,8 @@ const ExtraTop = () => {
     return (
 
         <div className="mx-4 my-4">
-
-            <div className="grid grid-cols-2 justify-between items-center lg:hidden gap-4">
+            {/* grid grid-cols-2 justify-between items-center lg:hidden gap-4 */}
+            <div className="hidden">
                 <div className="text-xl text-center p-2 border border-amber-500">
                     <NavLink to='/catagory'
                     >All Catagories</NavLink>
