@@ -27,7 +27,7 @@ const Footer = () => {
 
     return (
         <>
-            <footer className="footer sm:w-full p-10 bg-gray-700 text-white">
+            <footer className="footer sm:w-full p-10 bg-gray-700 text-white justify-between">
                 <div>
                     <span className="text-xl text-teal-500 uppercase font-bold">Services</span>
                     <Link to="" className=" hover:text-teal-400">Branding</Link>
