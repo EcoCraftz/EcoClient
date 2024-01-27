@@ -63,10 +63,10 @@ const AddCatagory = () => {
     }
 
     return (
-        <div className="flex lg:flex-row flex-col lg:justify-evenly justify-start items-center p-5 bg-gradient-to-t from-amber-700 via-lime-400 to-violet-300">
-            <div className="lg:min-h-screen flex flex-row items-center">
-                <div>
-                    <h1 className="text-3xl font-semibold mb-5">Add Here</h1>
+        <div className="flex flex-col justify-center items-center p-5 bg-gradient-to-t from-amber-700 via-lime-400 to-violet-300">
+            <div className="flex flex-row items-center">
+                <div className="flex flex-col items-center">
+                    <h1 className="text-3xl font-semibold mb-5 uppercase">Add Here</h1>
                     <div className="w-1/2">
                         <form onSubmit={handleSubmit}>
                             <label>Parent Name</label>
@@ -78,17 +78,22 @@ const AddCatagory = () => {
                     </div>
                 </div>
             </div>
-            <div className="bg-red-600">
-                {data.map((catagory, index) => <div key={catagory._id} className="glass">
+            <div className="">
+                <p className="text-2xl font-bold uppercase underline mb-2">Category List</p>
+                <ul>
+                    {data.map((catagory, index) => <li key={catagory._id} className="glass">
 
-                    <div className="flex flex-row justify-between items-center gap-4 p-2">
-                        <h2 className="text-lg">{index + 1}.{catagory.item}</h2>
 
-                        <div className=" flex">
-                            <button onClick={() => handleDelete(catagory._id, catagory.item)} className="btn btn-xs btn-error">Delete</button>
+                        <div className="flex flex-row justify-between items-center gap-4 p-2">
+                            <h2 className="text-lg">{index + 1}.{catagory.item}</h2>
+
+                            <div className=" flex">
+                                <button onClick={() => handleDelete(catagory._id, catagory.item)} className="btn btn-xs btn-error">Delete</button>
+                            </div>
                         </div>
-                    </div>
-                </div>)}
+
+                    </li>)}
+                </ul>
 
             </div>
 

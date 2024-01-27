@@ -41,8 +41,19 @@ const Navbar = () => {
 
     // </>
     // console.log(insertedCatagoryList)
+    const sisterConcernList = <>
+        <div>
+            {data.filter(products => products.parent.toLowerCase().includes('Sister'.toLowerCase())).map(List => (
+                <li key={List._id} onClick={() => handleClicked(List.item)}>
+                    <a className=''>{List.item}</a>
+                </li>
+            ))}
+
+        </div>
+
+    </>
     const productList = <>
-        <div className='w-full h-auto lg:flex flex-row justify-start items-start gap-5'>
+        <div className='w-full h-auto'>
             <div>
                 <li className=''>
                     <details>
@@ -112,7 +123,7 @@ const Navbar = () => {
                 </li>
             </div>
 
-            <div className="divider lg:divider-horizontal divider-primary hidden lg:flex">|</div>
+            {/* <div className="divider lg:divider-horizontal divider-primary hidden lg:flex">|</div> */}
             <div>
                 {data.filter(products => products.parent.toLowerCase().includes('Default'.toLowerCase())).map(List => (
                     <li key={List._id} onClick={() => handleClicked(List.item)}>
@@ -157,7 +168,7 @@ const Navbar = () => {
             Home</NavLink></li>
         <li id='parent' className=" ">
 
-            <a>Products</a>
+            <a className="font-bold">Products</a>
             <ul id='onhover' className="p-2" >
                 {productList}
             </ul>
@@ -169,13 +180,20 @@ const Navbar = () => {
             </ul>
 
         </li> */}
-        <li className=" "><NavLink to='/products'>Gallery</NavLink></li>
-        <li className=" "><NavLink to='/dashboard'>Dashboard</NavLink></li>
-        <li className=" "><NavLink to='/csr'>CSR</NavLink></li>
-        <li className=" "><NavLink to='/covid'>Covid-19</NavLink></li>
-        <li className=" "><NavLink to='/career'>Career</NavLink></li>
-        {/* <li className=" "><NavLink to='/contact'>Contact</NavLink></li> */}
-        <li className=" "><NavLink to='/about'>About Us</NavLink></li>
+        <li className="font-bold"><NavLink to='/products'>Gallery</NavLink></li>
+        <li className="font-bold "><NavLink to='/dashboard'>Dashboard</NavLink></li>
+        <li id='parent' className=" ">
+
+            <a className="font-bold">Sister Concern</a>
+            <ul id='onhover' className="p-2" >
+                {sisterConcernList}
+            </ul>
+        </li>
+        <li className="font-bold "><NavLink to='/csr'>CSR</NavLink></li>
+        <li className="font-bold "><NavLink to='/covid'>Covid-19</NavLink></li>
+        <li className="font-bold "><NavLink to='/career'>Career</NavLink></li>
+        {/* <li className="font-bold "><NavLink to='/contact'>Contact</NavLink></li> */}
+        <li className="font-bold "><NavLink to='/about'>About Us</NavLink></li>
         {/* <li><NavLink to='/register'>Register</NavLink></li> */}
         <li>{user?.email && <span><FaRegUserCircle></FaRegUserCircle>{user?.email}</span>}</li>
         <li>{user?.email ? <button onClick={signOut} className='btn btn-sm btn-error shadow-xl'>Sign Out</button>

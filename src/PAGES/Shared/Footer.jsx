@@ -9,6 +9,9 @@ import app from '../../Firebase/firebase.config';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useContext } from 'react';
 import { AuthContext } from '../Contexts/UserContext';
+import { MdOutlinePhoneInTalk } from "react-icons/md";
+import { LuMailCheck } from "react-icons/lu";
+import { TfiLocationPin } from "react-icons/tfi";
 
 const Footer = () => {
     const navigate = useNavigate();
@@ -36,7 +39,7 @@ const Footer = () => {
                     <span className="text-xl text-blue-500 uppercase font-bold">Company</span>
                     <Link to="/" className=" hover:text-blue-500">Home</Link>
                     <Link to="/about" className=" hover:text-blue-500">About us</Link>
-                    <Link to="" className=" hover:text-blue-500">Contact</Link>
+
                     {user ? <span onClick={signOut}
                         className=" hover:text-blue-500">LogOut</span>
                         : <Link to="/login" className=" hover:text-blue-500">LogIn</Link>}
@@ -46,6 +49,14 @@ const Footer = () => {
                     <Link to="/terms" className=" hover:text-green-400">Terms of use</Link>
                     <Link to="/policy" className=" hover:text-green-400">Privacy policy</Link>
                     <Link to="/cookie" className=" hover:text-green-400">Cookie policy</Link>
+                </div>
+                <div>
+                    <span className="text-xl text-teal-400 uppercase font-bold">Contact Info</span>
+                    <div className='flex flex-row justify-center items-center gap-2'> <div><MdOutlinePhoneInTalk /></div> <div>+8801732-712133</div></div>
+                    <div className='flex flex-row justify-center items-center gap-2'> <div><LuMailCheck /></div> <div> <a href='mailto:ecocraftzbd@gmail.com' rel="noopener noreferrer">ecocraftzbd@gmail.com</a></div></div>
+                    <div className='flex flex-row justify-center items-center gap-2'> <div><TfiLocationPin /></div> <div>  <p>Mohammadpur, Dhaka-1207, Bangladesh</p></div></div>
+
+
                 </div>
             </footer>
             <footer className="footer px-10 py-4 border-t bg-gray-900 text-base-content border-base-300">

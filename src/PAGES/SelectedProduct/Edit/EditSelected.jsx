@@ -33,6 +33,10 @@ const parentList = [
         id: 7,
         item: "Default"
     },
+    {
+        id: 8,
+        item: "Sister"
+    },
 ]
 
 const EditSelected = () => {

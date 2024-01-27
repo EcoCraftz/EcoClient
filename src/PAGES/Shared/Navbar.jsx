@@ -32,7 +32,7 @@ const Navbar = () => {
     //     {data.filter(list => list.includes("bag"))}
     // </>
     // console.log(bagList)
-    console.log(data)
+    // console.log(data)
 
     // const insertedCatagoryList = <>
     //     {
@@ -43,7 +43,7 @@ const Navbar = () => {
     // </>
     // console.log(insertedCatagoryList)
     const productList = <>
-        <div className='w-full h-auto lg:flex flex-row justify-start items-start gap-5'>
+        <div className='w-full h-auto'> {/*lg:flex flex-row justify-start items-start gap-5 */}
             <div>
                 <li className=''>
                     <details>
@@ -113,7 +113,7 @@ const Navbar = () => {
                 </li>
             </div>
 
-            <div className="divider lg:divider-horizontal divider-primary hidden lg:flex">|</div>
+            {/* <div className="divider lg:divider-horizontal divider-primary hidden lg:flex">|</div> */}
             <div>
                 {data.filter(products => products.parent.toLowerCase().includes('Default'.toLowerCase())).map(List => (
                     <li key={List._id} onClick={() => handleClicked(List.item)}>
@@ -125,6 +125,17 @@ const Navbar = () => {
 
 
         </div>
+    </>
+    const sisterConcernList = <>
+        <div>
+            {data.filter(products => products.parent.toLowerCase().includes('Sister'.toLowerCase())).map(List => (
+                <li key={List._id} onClick={() => handleClicked(List.item)}>
+                    <a className=''>{List.item}</a>
+                </li>
+            ))}
+
+        </div>
+
     </>
     // const productList = <>
     //     <li><button onClick={(event) => handleClicked(event.target.value)}
@@ -154,11 +165,11 @@ const Navbar = () => {
 
     const navItem = <>
 
-        <li className=" "><NavLink to='/'>
+        <li className="font-bold "><NavLink to='/'>
             Home</NavLink></li>
-        <li id='parent' className=" ">
+        <li id='parent'>
 
-            <a>Products</a>
+            <a className="font-bold">Products</a>
             <ul id='onhover' className="p-2" >
                 {productList}
             </ul>
@@ -170,13 +181,20 @@ const Navbar = () => {
             </ul>
 
         </li> */}
-        <li className=" "><NavLink to='/products'>Gallery</NavLink></li>
-        <li className=" "><NavLink to='/dashboard'>Dashboard</NavLink></li>
-        <li className=" "><NavLink to='/csr'>CSR</NavLink></li>
-        <li className=" "><NavLink to='/covid'>Covid-19</NavLink></li>
-        <li className=" "><NavLink to='/career'>Career</NavLink></li>
+        <li className="font-bold "><NavLink to='/products'>Gallery</NavLink></li>
+        <li className="font-bold "><NavLink to='/dashboard'>Dashboard</NavLink></li>
+        <li id='parent' className=" ">
+
+            <a className="font-bold">Sister Concern</a>
+            <ul id='onhover' className="p-2" >
+                {sisterConcernList}
+            </ul>
+        </li>
+        <li className="font-bold "><NavLink to='/csr'>CSR</NavLink></li>
+        <li className="font-bold "><NavLink to='/covid'>Covid-19</NavLink></li>
+        <li className="font-bold "><NavLink to='/career'>Career</NavLink></li>
         {/* <li className='lg:border-2 lg:border-black rounded-ss-2xl rounded-ee-2xl mx-1'><NavLink to='/contact'>Contact</NavLink></li> */}
-        <li className=" "><NavLink to='/about'>About Us</NavLink></li>
+        <li className="font-bold "><NavLink to='/about'>About Us</NavLink></li>
         {/* <li><NavLink to='/register'>Register</NavLink></li> */}
         <li>{user?.email && <span><FaRegUserCircle></FaRegUserCircle>{user?.email}</span>}</li>
         <li>{user?.email ? <button onClick={signOut} className='btn btn-sm btn-error shadow-xl'>Sign Out</button>
@@ -314,8 +332,8 @@ export default Navbar;
 //             </ul>
 
 //         </li>
-//         <li className=" "><NavLink to='/products'>Gallery</NavLink></li>
-//         <li className=" " ><NavLink to='/dashboard'>Dashboard</NavLink></li>
+//         <li className="font-bold "><NavLink to='/products'>Gallery</NavLink></li>
+//         <li className="font-bold " ><NavLink to='/dashboard'>Dashboard</NavLink></li>
 //         <li className='lg:border-2 lg:border-black rounded-ss-2xl rounded-ee-2xl mx-1' ><NavLink to='/about'>About Us</NavLink></li>
 //         {/* <li><NavLink to='/register'>Register</NavLink></li> */}
 //         <li>{user?.email && <span><FaRegUserCircle></FaRegUserCircle> {user?.email}</span>}</li>
