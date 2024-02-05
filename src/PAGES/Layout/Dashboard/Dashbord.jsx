@@ -15,6 +15,7 @@ const Dashbord = () => {
     }
     return (
         <div>
+            {window.scrollTo(0, 0)}
             {
                 admin ? <Navigate to={`/dashboard/userBooking`} /> :
                     <Navigate to={`/dashboard/yourBooking/${user?.email}`} />

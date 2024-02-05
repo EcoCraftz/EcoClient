@@ -10,6 +10,7 @@ const Home = () => {
 
     return (
         <div className='relative'>
+            {window.scrollTo(0, 0)}
             <TopBoard></TopBoard>
             <HomeNav></HomeNav>
             <ExtraTop />

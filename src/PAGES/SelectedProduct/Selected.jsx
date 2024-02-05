@@ -6,14 +6,14 @@ import Loading from '../Shared/Loading';
 import Navbar from '../Shared/Navbar';
 import ReactImageMagnify from 'react-image-magnify';
 import './CSS/Selected.css';
-import { FaRegHandPointer } from 'react-icons/fa';
+// import { FaRegHandPointer } from 'react-icons/fa';
 import { GoStack } from 'react-icons/go';
 
 const Selected = () => {
     const navigate = useNavigate();
     const [others, setOthers] = useState([]);
     const { id } = useParams();
-    const { data, isLoading } = useQuery({
+    const { data, isLoading, refetch } = useQuery({
         queryKey: ["product"],
         queryFn: async () => {
             const res = await fetch(`https://eco-server-ecocraftz.vercel.app/products/${id}`);
@@ -41,6 +41,17 @@ const Selected = () => {
         navigate(`/other/${catagory}`);
     }
 
+    const handleClick = async (id, catagory) => {
+        navigate(`/products/${id}`);
+        window.scrollTo(0, 0);
+        await fetch(`https://eco-server-ecocraftz.vercel.app/other/${catagory}`).then(res => res.json()).then(myData => {
+            if (myData.length) {
+                refetch();
+
+            }
+        })
+    }
+
     const handleBooking = (id) => {
         navigate(`/booking/${id}`);
     }
@@ -51,7 +62,7 @@ const Selected = () => {
             <Navbar></Navbar>
             <div className='mt-4'>
                 <h1 className='text-3xl font-semibold text-center p-2'><span className='border-b-2 border-b-black'><span className='uppercase text-green-700'>{data.name}</span> Full Spacificaion</span></h1>
-                <div id='topDiv' className='mx-2 grid lg:grid-cols-3 sm:grid-cols-1 sm:overflow-hidden justify-start items-start p-4 lg:h-screen'>
+                <div id='topDiv' className='mx-2 grid lg:grid-cols-3 sm:grid-cols-1 overflow-hidden justify-start items-start p-4 lg:h-screen'>
                     <div id='imgHolder' className="mx-auto" style={{ width: '350px', height: '300px' }}>
                         <ReactImageMagnify  {...{
                             smallImage: {
@@ -101,16 +112,18 @@ const Selected = () => {
                                     <span><GoStack></GoStack></span>Booking Now
                                 </button>
                             </div>
-                            <div className='animate-bounce flex flex-col justify-center items-center'>
+                            {/* <div className='animate-bounce flex flex-col justify-center items-center'>
                                 <span className='text-2xl text-red-600'> <FaRegHandPointer></FaRegHandPointer></span>
-                            </div>
+                            </div> */}
 
                         </div>
 
                     </div>
-                    <div id='topDivDetails' className='hidden lg:flex flex-wrap justify-start items-center'>
+                    <div id='topDivDetails' className='flex flex-wrap justify-start items-center mt-4 lg:mt-0'>
                         <h1 className='text-2xl font-serif font-bold uppercase me-10 border-2 border-orange-600 rounded-ss-2xl rounded-ee-2xl p-1'>Short description</h1>
-                        <p className='text-lg me-5'>{data.description}</p>
+                        <div className='border border-gray-500 rounded-lg shadow-2xl p-2 mt-2'>
+                            <p className='text-lg me-5'>{data.description}</p>
+                        </div>
 
 
                     </div>
@@ -131,7 +144,11 @@ const Selected = () => {
                             </figure>
                             <div className="card-body items-center text-center">
                                 <h2 className="card-title">{other.name}</h2>
-                                <p>If a dog chews shoes whose shoes does he choose?</p>
+                                <div className='border border-black rounded-lg shadow-xl'>
+                                    <p>{other.description.slice(0, 140)} ...
+                                        <span className="italic link-primary cursor-pointer" onClick={() => handleClick(other._id, other.catagory)}>Read More</span>
+                                    </p>
+                                </div>
                                 <div className="card-actions">
                                     <button className="btn btn-sm btn-primary" onClick={() => handleOther(other.catagory)}>Explore Now</button>
                                 </div>

@@ -153,6 +153,7 @@ const Navbar = () => {
     const handleClicked = (catagory) => {
         navigate(`/other/${catagory}`)
 
+
     }
 
     const signOut = () => {

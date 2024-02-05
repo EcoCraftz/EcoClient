@@ -9,6 +9,9 @@ import useAdmin from '../NewPages/Hooks/UseAdmin';
 import { BiEdit } from 'react-icons/bi';
 import { BiSolidDashboard } from 'react-icons/bi';
 import { BsMenuButtonFill } from 'react-icons/bs';
+
+
+
 const OtherSelected = () => {
     const [isCatagory, setIsCatagory] = useState(false);
     const [catagoryList, setCatagoryList] = useState("");
@@ -21,6 +24,7 @@ const OtherSelected = () => {
         queryFn: async () => {
             const res = await fetch(`https://eco-server-ecocraftz.vercel.app/other/${catagory}`);
             const data = await res.json();
+            window.scrollTo(0, 0);
             return data;
         }
     });
@@ -108,6 +112,7 @@ const OtherSelected = () => {
                 <h1 className='uppercase text-2xl font-serif font-bold'>Explore Our {catagory} </h1>
 
             </div>
+
             <div className='grid sm:grid-cols-1 lg:grid-cols-3 gap-2 mx-10 py-4'>
 
                 {

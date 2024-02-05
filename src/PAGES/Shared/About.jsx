@@ -5,8 +5,10 @@ const About = () => {
 
     return (
         <div>
+            {window.scrollTo(0, 0)}
             <Navbar />
             <Message />
+
 
 
         </div>
