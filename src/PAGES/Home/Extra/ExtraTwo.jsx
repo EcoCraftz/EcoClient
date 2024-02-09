@@ -1,10 +1,10 @@
-import img1 from "../../../assets/1.png";
-import img2 from "../../../assets/2.jpg";
-import img3 from "../../../assets/bird.png";
-import img4 from "../../../assets/1.png";
+
 import { Slide } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css';
 import { motion } from 'framer-motion';
+import { useNavigate } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+import Loading from "../../Shared/Loading";
 const responsiveSettings = [
     {
         breakpoint: 800,
@@ -28,10 +28,25 @@ const responsiveSettings = [
         }
     }
 ];
-const images = [
-    img1, img2, img3, img4
-];
+
 const ExtraTwo = () => {
+    const navigate = useNavigate();
+    const { data, isLoading } = useQuery({
+        queryKey: ["juteProducts"],
+        queryFn: async () => {
+            const res = await fetch('https://eco-server-ecocraftz.vercel.app/products');
+            const data = await res.json();
+            return data;
+        }
+    });
+
+    if (isLoading) {
+        return <Loading></Loading>
+    }
+
+    const handleSelected = (id) => {
+        navigate(`/products/${id}`);
+    }
     return (
         <motion.div
             initial={{ opacity: 0, scale: 0, y: 100 }}
@@ -46,10 +61,11 @@ const ExtraTwo = () => {
                 <p className="text-md font-semibold ms-8 flex-wrap">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta architecto laboriosam accusamus dolorum eveniet veniam eius voluptas nemo nobis molestias iusto quasi, necessitatibus quia rerum ipsa amet quibusdam dignissimos minus.</p>
             </div>
             <Slide slidesToScroll={2} slidesToShow={2} indicators={true} responsive={responsiveSettings} duration={2000}>
-                {images.map((each, index) => (
+                {data.map((each, index) => (
                     <div className="card card-compact glass shadow-xl min-h-full" key={index} style={{ width: "98%" }}>
                         <div className="card-body">
-                            <img style={{ objectFit: "cover", width: "95%", height: "180px", borderRadius: "20px" }} alt="Slide Image" src={each} className="mx-auto" />
+                            <img onClick={() => handleSelected(each?._id)}
+                                style={{ objectFit: "cover", width: "95%", height: "180px", borderRadius: "20px" }} alt="Slide Image" src={each?.image} className="mx-auto cursor-pointer" />
                         </div>
                     </div>
                 ))}
