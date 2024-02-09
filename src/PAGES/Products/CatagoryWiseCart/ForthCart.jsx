@@ -8,7 +8,7 @@ const ForthCart = () => {
     const { data, isLoading } = useQuery({
         queryKey: ["cart4"],
         queryFn: async () => {
-            const res = await fetch('https://eco-server-ecocraftz.vercel.app/product/chandor');
+            const res = await fetch('https://eco-server-ecocraftz.vercel.app/product/Sataranji Mat');
             const data = await res.json();
             return data;
         }

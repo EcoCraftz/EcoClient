@@ -3,12 +3,12 @@ import Loading from "../../Shared/Loading";
 import { useNavigate } from "react-router-dom";
 import { MdReadMore } from "react-icons/md";
 import img from "../../../assets/images/data.jpg"
-const ThirdCart = () => {
+const EighthCart = () => {
     const navigate = useNavigate();
     const { data, isLoading } = useQuery({
-        queryKey: ["cart3"],
+        queryKey: ["cart8"],
         queryFn: async () => {
-            const res = await fetch('https://eco-server-ecocraftz.vercel.app/product/Laundry Basket');
+            const res = await fetch('https://eco-server-ecocraftz.vercel.app/product/Nakshi Katha');
             const data = await res.json();
             return data;
         }
@@ -17,6 +17,7 @@ const ThirdCart = () => {
     if (isLoading) {
         return <Loading></Loading>
     }
+    console.log(data)
 
     const handleSelected = (id) => {
         navigate(`/products/${id}`);
@@ -60,4 +61,4 @@ const ThirdCart = () => {
     );
 };
 
-export default ThirdCart;
+export default EighthCart;

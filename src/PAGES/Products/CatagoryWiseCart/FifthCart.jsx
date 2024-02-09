@@ -8,7 +8,7 @@ const FifthCart = () => {
     const { data, isLoading } = useQuery({
         queryKey: ["cart5"],
         queryFn: async () => {
-            const res = await fetch('https://eco-server-ecocraftz.vercel.app/product/papose');
+            const res = await fetch('https://eco-server-ecocraftz.vercel.app/product/Table Runner Set');
             const data = await res.json();
             return data;
         }

@@ -8,7 +8,7 @@ const SecondCart = () => {
     const { data, isLoading } = useQuery({
         queryKey: ["cart2"],
         queryFn: async () => {
-            const res = await fetch('https://eco-server-ecocraftz.vercel.app/product/ladies bag');
+            const res = await fetch('https://eco-server-ecocraftz.vercel.app/product/Common Basket');
             const data = await res.json();
             return data;
         }

@@ -10,7 +10,7 @@ const FirstCart = () => {
     const { data, isLoading } = useQuery({
         queryKey: ["cart1"],
         queryFn: async () => {
-            const res = await fetch('https://eco-server-ecocraftz.vercel.app/product/Carpet');
+            const res = await fetch('https://eco-server-ecocraftz.vercel.app/product/Shopping Bags');
             const data = await res.json();
             return data;
         }
@@ -19,6 +19,7 @@ const FirstCart = () => {
     if (isLoading) {
         return <Loading></Loading>
     }
+    console.log(data);
 
     const handleSelected = (id) => {
         navigate(`/products/${id}`);
