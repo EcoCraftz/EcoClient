@@ -68,7 +68,7 @@ const Navbar = () => {
                     </details>
 
                     <details>
-                        <summary>Busket</summary>
+                        <summary>Basket</summary>
                         <ul className='ms-24'>
                             {data.filter(products => products.parent.toLowerCase().includes('Basket'.toLowerCase())).map(List => (
                                 <li key={List._id} onClick={() => handleClicked(List.item)}>
@@ -169,7 +169,7 @@ const Navbar = () => {
         <li id='parent' className=" ">
 
             <a className="font-bold">Products</a>
-            <ul id='onhover' className="p-2" >
+            <ul id='onhover' className="font-bold p-2" >
                 {productList}
             </ul>
         </li>
@@ -185,7 +185,7 @@ const Navbar = () => {
         <li id='parent' className=" ">
 
             <a className="font-bold">Sister Concern</a>
-            <ul id='onhover' className="p-2" >
+            <ul id='onhover' className="font-bold p-2" >
                 {sisterConcernList}
             </ul>
         </li>
@@ -204,7 +204,7 @@ const Navbar = () => {
 
     return (
         <div style={{ height: 'auto' }} className='' >
-            <div className="navbar bg-gradient-to-r from-green-400 via-cyan-600 to-blue-400 lg:fixed top-0  w-full z-20">
+            <div className="navbar bg-gray-200 lg:fixed top-0  w-full z-20">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">

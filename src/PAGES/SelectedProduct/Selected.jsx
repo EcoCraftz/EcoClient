@@ -25,10 +25,10 @@ const Selected = () => {
     console.log(data?.leadtime?.p1);
 
     useEffect(() => {
-        const url = `https://eco-server-ecocraftz.vercel.app/otherProducts`;
+        const url = `https://eco-server-ecocraftz.vercel.app/product/${qCatagory}`;
         fetch(url).then(res => res.json()).then(others => {
-            const otherData = others.filter(other => other.catagory !== qCatagory);
-            setOthers(otherData);
+            // const otherData = others.filter(other => other.catagory === qCatagory);
+            setOthers(others);
         });
     }, [qCatagory])
 
@@ -58,29 +58,33 @@ const Selected = () => {
     const imgURL = data.image;
 
     return (
-        <div className='bg-gradient-to-tl from-green-200 via-green-300 to-blue-500'>
+        <div className=''>
             <Navbar></Navbar>
             <div className='mt-4'>
-                <h1 className='text-3xl font-semibold text-center p-2'><span className='border-b-2 border-b-black'><span className='uppercase text-green-700'>{data.name}</span> Full Spacificaion</span></h1>
+                <h1 className='text-3xl font-semibold text-center p-2'><span className='border-b-2 border-b-black'><span className='uppercase text-green-700'>{data.name}</span> Full Specification</span></h1>
                 <div id='topDiv' className='mx-2 grid lg:grid-cols-3 sm:grid-cols-1 overflow-hidden justify-start items-start p-4 lg:h-screen'>
-                    <div id='imgHolder' className="mx-auto" style={{ width: '350px', height: '300px' }}>
-                        <ReactImageMagnify  {...{
-                            smallImage: {
-                                alt: `${data.name}`,
-                                isFluidWidth: true,
-                                src: imgURL,
+                    <div className=' border-gray-500 rounded-lg shadow-2xl  overflow-hidden ' style={{ width: '350px', height: '350px' }} >
+                        <div id='imgHolder' className="mx-auto" style={{ width: '350px', height: '300px' }}
+                        >
+                            <ReactImageMagnify  {...{
+                                smallImage: {
+                                    alt: `${data.name}`,
+                                    isFluidWidth: true,
+                                    src: imgURL,
 
-                            },
-                            largeImage: {
-                                src: imgURL,
-                                width: 600,
-                                height: 800
-                            },
+                                },
+                                largeImage: {
+                                    src: imgURL,
+                                    width: 600,
+                                    height: 800
+                                },
 
-                        }} />
+                            }} />
+                        </div>
                     </div>
+
                     <div>
-                        <div className='border border-blue-500 border-l-4 border-b-4 lg:w-11/12 lg:p-2'>
+                        <div className='border border-green-300 border-l-2 border-b-2 lg:w-11/12 lg:p-2'>
                             <h1 className='text-xl font-sans font-bold uppercase me-10'>Product Code: {data?.code}</h1>
                             <ul className='list-disc list-outside ms-6'>
                                 {data?.material && <li><span className='font-bold py-4'>Material: </span>{data?.material}</li>}
@@ -120,7 +124,7 @@ const Selected = () => {
 
                     </div>
                     <div id='topDivDetails' className='flex flex-wrap justify-start items-center mt-4 lg:mt-0'>
-                        <h1 className='text-2xl font-serif font-bold uppercase me-10 border-2 border-orange-600 rounded-ss-2xl rounded-ee-2xl p-1'>Short description</h1>
+                        <h1 className='text-2xl font-serif font-bold uppercase me-10 p-1'>Short description</h1>
                         <div className='border border-gray-500 rounded-lg shadow-2xl p-2 mt-2'>
                             <p className='text-lg me-5'>{data.description}</p>
                         </div>
@@ -132,12 +136,12 @@ const Selected = () => {
             </div>
 
             <div id='otherProducts' className='pb-2'>
-                <div className='text-4xl font-semibold font-serif text-center text-teal-800 mx-auto border rounded-xl border-yellow-200 shadow-md shadow-yellow-200 lg:w-2/5 sm:w-100'>Our Other Products</div>
+                <div className='text-4xl font-semibold font-serif text-center text-teal-800 mx-auto border rounded-xl border-yellow-200 shadow-md shadow-yellow-200 lg:w-2/5 sm:w-100'>Related Products</div>
                 <div className='grid sm:grid-cols-1 lg:grid-cols-3 gap-2 mt-5 lg:mx-10 mx-auto'>
                     {
                         others.map(other => <div key={other._id} className="card w-96 glass shadow-xl">
                             <figure className='transition ease-in-out delay-300 hover:translate-x-4 hover:translate-y-4 hover:scale-125 duration-300 overflow-hidden px-10 pt-10'>
-                                <img src={other.image} alt={other.name} className="rounded-xl h-32"
+                                <img src={other.image} alt={other.name} className="rounded-xl h-32" onClick={() => handleClick(other._id, other.catagory)}
 
                                 />
 

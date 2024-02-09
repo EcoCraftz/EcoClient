@@ -39,9 +39,9 @@
         position: absolute;
         margin-top: 34px;
         z-index: 2;
-        background-color: green;
+        background-color: white;
         /* background-image: linear-gradient(rgb(22, 95, 4), rgba(19, 54, 3, 0.9)); */
-        color: white;
+        color: black;
         border-radius: 5px;
         min-height: auto;
         border: bottom 20px;

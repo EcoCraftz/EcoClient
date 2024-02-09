@@ -24,7 +24,7 @@ const EighthCart = () => {
     }
     return (
         <div>
-            {data.length ? <div className="bg-gradient-to-b from-green-400 via-cyan-400 to-blue-400">
+            {data.length ? <div className="">
                 <div className="border border-b-black shadow-lg">
                     <p className="p-3 text-4xl font-semibold">EcoCraftz <span>{data[0].catagory}</span></p>
                 </div>

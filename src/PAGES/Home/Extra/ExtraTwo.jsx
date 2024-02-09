@@ -54,11 +54,11 @@ const ExtraTwo = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
             className="mx-4 rounded-2xl shadow-xl shadow-slate-200 my-2">
-            <div className='rounded-lg shadow-lg shadow-orange-400 mb-4'>
+            <div className='rounded-lg shadow-lg p-4 mb-4'>
                 <div className="text-2xl font-serif font-semibold w-fit ms-2 my-4 border-b border-b-teal-500">
                     About Handicrafts
                 </div>
-                <p className="text-md font-semibold ms-8 flex-wrap">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta architecto laboriosam accusamus dolorum eveniet veniam eius voluptas nemo nobis molestias iusto quasi, necessitatibus quia rerum ipsa amet quibusdam dignissimos minus.</p>
+                <p className="text-md font-semibold ms-8 flex-wrap">Handicraft products offer a unique blend of cultural heritage and artisanal craftsmanship, making them highly sought after in the global market. From intricately carved wooden sculptures to vibrant textiles and exquisite ceramics, each piece tells a story of tradition and skill. Our export business specializes in curating a diverse range of high-quality handicrafts sourced from talented artisans around the world. By bridging the gap between local artisans and international markets, we aim to promote cultural exchange while empowering communities. Our commitment to fair trade practices ensures that both artisans and consumers benefit from the exchange. With a focus on sustainability and authenticity, our handicraft products offer a timeless appeal that transcends borders, making them a valuable addition to any international market.</p>
             </div>
             <Slide slidesToScroll={2} slidesToShow={2} indicators={true} responsive={responsiveSettings} duration={2000}>
                 {data.map((each, index) => (

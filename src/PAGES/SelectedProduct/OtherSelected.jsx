@@ -86,7 +86,7 @@ const OtherSelected = () => {
 
 
     return (
-        <div className='bg-gradient-to-br from-red-400 via-emerald-300 to-purple-400'>
+        <div className='border border-gray-500 rounded-lg shadow-2xl'>
             <div className='flex lg:flex-row lg:justify-start flex-col justify-center items-center lg:gap-10 gap-4 p-6'>
 
 

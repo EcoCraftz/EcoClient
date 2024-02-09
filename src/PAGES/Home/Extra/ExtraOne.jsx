@@ -61,12 +61,14 @@ const ExtraOne = () => {
 
 
             <div
-                className='rounded-lg shadow-lg shadow-green-400'>
+                className='rounded-lg shadow-lg p-4'>
                 <div className="text-2xl font-serif font-semibold w-fit ms-2 my-4 border-b border-b-amber-500">
                     About Jute Products
                 </div>
-
-                <p className="text-md font-semibold ms-8 flex-wrap">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta architecto laboriosam accusamus dolorum eveniet veniam eius voluptas nemo nobis molestias iusto quasi, necessitatibus quia rerum ipsa amet quibusdam dignissimos minus.</p>
+                {/* 
+                <p className="text-md font-semibold ms-8 flex-wrap">Jute, a versatile and sustainable natural fiber, has emerged as a key player in the global export market. Renowned for its eco-friendly attributes, jute products have gained immense popularity, appealing to environmentally conscious consumers worldwide. From stylish jute bags and packaging materials to intricately woven carpets and textiles, the export business for jute products has flourished. The biodegradable nature of jute makes it an attractive choice, aligning with the growing demand for sustainable alternatives. As nations prioritize eco-conscious practices, the export of jute products not only meets market trends but also contributes to economic growth while promoting responsible and ethical commerce on a global scale.</p> */}
+                <p className="text-md font-semibold ms-8 flex-wrap">Jute, a versatile and sustainable natural fiber, has emerged as a key player in the global export market. Renowned for its eco-friendly attributes, jute products have gained immense popularity, appealing to environmentally conscious consumers worldwide. From stylish jute bags and packaging materials to intricately woven carpets and textiles, the export business for jute products has flourished. The biodegradable nature of jute makes it an attractive choice, aligning with the growing demand for sustainable alternatives. As nations prioritize eco-conscious practices, the export of jute products not only meets market trends but also contributes to economic growth while promoting responsible and ethical commerce on a global scale.</p>
+                <p className="text-md font-semibold ms-8 flex-wrap">Ecocraftz its rich jute cultivation to produce a diverse range of exportable items, including bags, carpets, and textiles. As the global focus on sustainability grows, Ecocraftz&#39;s jute exports continue to flourish, offering an environmentally conscious alternative and contributing significantly to the country&#39;s economic prosperity.</p>
             </div>
 
 
