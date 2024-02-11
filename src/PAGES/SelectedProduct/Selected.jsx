@@ -25,7 +25,7 @@ const Selected = () => {
     console.log(data?.leadtime?.p1);
 
     useEffect(() => {
-        const url = `https://eco-server-ecocraftz.vercel.app/product/${qCatagory}`;
+        const url = `https://eco-server-ecocraftz.vercel.app/qproduct/${qCatagory}`;
         fetch(url).then(res => res.json()).then(others => {
             // const otherData = others.filter(other => other.catagory === qCatagory);
             setOthers(others);
