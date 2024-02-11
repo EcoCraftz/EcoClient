@@ -32,9 +32,9 @@ const responsiveSettings = [
 const ExtraTwo = () => {
     const navigate = useNavigate();
     const { data, isLoading } = useQuery({
-        queryKey: ["juteProducts"],
+        queryKey: ["Handicrafts"],
         queryFn: async () => {
-            const res = await fetch('https://eco-server-ecocraftz.vercel.app/products');
+            const res = await fetch('https://eco-server-ecocraftz.vercel.app/handyProducts/Default');
             const data = await res.json();
             return data;
         }

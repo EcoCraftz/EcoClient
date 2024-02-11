@@ -38,7 +38,7 @@ const ExtraOne = () => {
     const { data, isLoading } = useQuery({
         queryKey: ["juteProducts"],
         queryFn: async () => {
-            const res = await fetch('https://eco-server-ecocraftz.vercel.app/products');
+            const res = await fetch('https://eco-server-ecocraftz.vercel.app/juteProducts');
             const data = await res.json();
             return data;
         }
@@ -47,6 +47,8 @@ const ExtraOne = () => {
     if (isLoading) {
         return <Loading></Loading>
     }
+    console.log("inside One", data)
+
 
     const handleSelected = (id) => {
         navigate(`/products/${id}`);

@@ -63,7 +63,7 @@ const Selected = () => {
             <div className='mt-4'>
                 <h1 className='text-3xl font-semibold text-center p-2'><span className='border-b-2 border-b-black'><span className='uppercase text-green-700'>{data.name}</span> Full Specification</span></h1>
                 <div id='topDiv' className='mx-2 grid lg:grid-cols-3 sm:grid-cols-1 overflow-hidden justify-start items-start p-4 lg:h-screen'>
-                    <div className=' border-gray-500 rounded-lg shadow-2xl  overflow-hidden ' style={{ width: '350px', height: '350px' }} >
+                    <div className=' border-gray-500 rounded-lg shadow-2xl' style={{ width: '350px', height: '350px' }} >
                         <div id='imgHolder' className="mx-auto" style={{ width: '350px', height: '300px' }}
                         >
                             <ReactImageMagnify  {...{
