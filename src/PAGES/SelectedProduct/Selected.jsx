@@ -62,7 +62,7 @@ const Selected = () => {
             <Navbar></Navbar>
             <div className='mt-4'>
                 <h1 className='text-3xl font-semibold text-center p-2'><span className='border-b-2 border-b-black'><span className='uppercase text-green-700'>{data.name}</span> Full Specification</span></h1>
-                <div id='topDiv' className='mx-2 grid lg:grid-cols-3 sm:grid-cols-1 overflow-hidden justify-start items-start p-4 lg:h-screen'>
+                <div id='topDiv' className='mx-2 grid lg:grid-cols-3 sm:grid-cols-1 overflow-hidden lg:justify-start lg:items-start p-4 lg:h-screen'>
                     <div className=' border-gray-500 rounded-lg shadow-2xl' style={{ width: '350px', height: '350px' }} >
                         <div id='imgHolder' className="mx-auto" style={{ width: '350px', height: '300px' }}
                         >
@@ -84,7 +84,7 @@ const Selected = () => {
                     </div>
 
                     <div>
-                        <div className='border border-green-300 border-l-2 border-b-2 lg:w-11/12 lg:p-2'>
+                        <div className='border border-green-300 border-l-2 border-b-2 lg:w-11/12 lg:p-2 mt-20 lg:mt-0'>
                             <h1 className='text-xl font-sans font-bold uppercase me-10'>Product Code: {data?.code}</h1>
                             <ul className='list-disc list-outside ms-6'>
                                 {data?.material && <li><span className='font-bold py-4'>Material: </span>{data?.material}</li>}
