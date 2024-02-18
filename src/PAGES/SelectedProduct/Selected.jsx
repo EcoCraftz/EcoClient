@@ -22,7 +22,7 @@ const Selected = () => {
         }
     });
     const qCatagory = data?.catagory;
-    console.log(data?.leadtime?.p1);
+    //console.log(data?.leadtime?.p1);
 
     useEffect(() => {
         const url = `https://eco-server-ecocraftz.vercel.app/qproduct/${qCatagory}`;

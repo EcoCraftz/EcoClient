@@ -47,7 +47,7 @@ const ExtraOne = () => {
     if (isLoading) {
         return <Loading></Loading>
     }
-    console.log("inside One", data)
+    //console.log("inside One", data)
 
 
     const handleSelected = (id) => {

@@ -43,7 +43,7 @@ const OtherSelected = () => {
     }
     const filterText = data[0]?.parent;
 
-    console.log("from other selected page", filterText);
+    //console.log("from other selected page", filterText);
 
 
 
@@ -56,7 +56,7 @@ const OtherSelected = () => {
     }
 
     const handleDelete = (id, name) => {
-        console.log(id);
+        //console.log(id);
         const procced = confirm(`Are you sure to Delete ${name}!`);
         if (procced) {
             fetch(`https://eco-server-ecocraftz.vercel.app/deleteProduct/${id}`, {

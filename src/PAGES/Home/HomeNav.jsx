@@ -30,8 +30,8 @@ const Navbar = () => {
     // const bagList = <>
     //     {data.filter(list => list.includes("bag"))}
     // </>
-    // console.log(bagList)
-    console.log(data)
+    //console.log(bagList)
+    //console.log(data)
 
     // const insertedCatagoryList = <>
     //     {
@@ -40,7 +40,7 @@ const Navbar = () => {
     //     }
 
     // </>
-    // console.log(insertedCatagoryList)
+    // //console.log(insertedCatagoryList)
     const sisterConcernList = <>
         <div>
             {data.filter(products => products.parent.toLowerCase().includes('Sister'.toLowerCase())).map(List => (

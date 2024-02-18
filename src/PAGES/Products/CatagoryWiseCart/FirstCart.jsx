@@ -19,7 +19,7 @@ const FirstCart = () => {
     if (isLoading) {
         return <Loading></Loading>
     }
-    console.log(data);
+    //console.log(data);
 
     const handleSelected = (id) => {
         navigate(`/products/${id}`);
